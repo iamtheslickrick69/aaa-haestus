@@ -23,7 +23,7 @@ export default function LogoBlock() {
         }}
         whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="relative w-[145px] h-[36px] cursor-pointer"
+        className="relative w-[200px] h-[50px] cursor-pointer"
       >
         <Image
           src="/mylogo.png"

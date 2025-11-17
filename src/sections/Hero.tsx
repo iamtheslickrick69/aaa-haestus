@@ -19,7 +19,7 @@ export default function Hero() {
         className="text-center max-w-4xl mx-auto"
       >
         {/* Logo */}
-        <div className="w-48 h-12 relative mx-auto mb-12">
+        <div className="w-80 h-20 md:w-96 md:h-24 relative mx-auto mb-12">
           <Image
             src="/mylogo.png"
             alt="Haestus.dev"
