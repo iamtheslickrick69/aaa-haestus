@@ -7,7 +7,6 @@ import StrategicPositioning from '@/sections/StrategicPositioning';
 import IndustryData from '@/sections/IndustryData';
 import ForgePhilosophy from '@/sections/ForgePhilosophy';
 import ForgeValues from '@/sections/ForgeValues';
-import Identity from '@/sections/Identity';
 import AnimatedMazeSection from '@/components/Homepage/AnimatedMazeSection';
 import TechStackMarquee from '@/components/Homepage/TechStackMarquee';
 import Portfolio from '@/sections/Portfolio';
@@ -34,7 +33,6 @@ export default function Home() {
         <IndustryData />
         <ForgePhilosophy />
         <ForgeValues />
-        <Identity />
         <AnimatedMazeSection />
         <TechStackMarquee />
         <Portfolio />
