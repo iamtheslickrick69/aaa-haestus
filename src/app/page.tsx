@@ -1,21 +1,25 @@
-import dynamic from 'next/dynamic';
-import PremiumDualHeader from '@/components/Homepage/PremiumDualHeader';
-import Homepage from '@/components/Homepage';
-
-// Load WorldClassBackground dynamically without SSR (Three.js requires browser APIs)
-const WorldClassBackground = dynamic(
-  () => import('@/components/Homepage/WorldClassBackground'),
-  { ssr: false }
-);
+import Hero from '@/sections/Hero';
+import StrategicPositioning from '@/sections/StrategicPositioning';
+import IndustryData from '@/sections/IndustryData';
+import ForgePhilosophy from '@/sections/ForgePhilosophy';
+import ForgeValues from '@/sections/ForgeValues';
+import Identity from '@/sections/Identity';
+import Portfolio from '@/sections/Portfolio';
+import Insights from '@/sections/Insights';
+import Connect from '@/sections/Connect';
 
 export default function Home() {
   return (
-    <>
-      <WorldClassBackground />
-      <PremiumDualHeader />
-      <div className="relative z-10 max-w-screen-xl mx-auto">
-        <Homepage />
-      </div>
-    </>
+    <main className="min-h-screen bg-black text-white">
+      <Hero />
+      <StrategicPositioning />
+      <IndustryData />
+      <ForgePhilosophy />
+      <ForgeValues />
+      <Identity />
+      <Portfolio />
+      <Insights />
+      <Connect />
+    </main>
   );
 }

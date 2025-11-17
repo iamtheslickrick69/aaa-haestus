@@ -97,20 +97,17 @@ export default function PremiumDualHeader() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2"
+              className="flex items-center"
             >
-              <div className="w-8 h-8 relative">
+              <div className="w-32 h-6 relative">
                 <Image
-                  src="/mylogo.svg"
+                  src="/mylogo.png"
                   alt="Haestus"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                   priority
                 />
               </div>
-              <span className="text-white font-semibold tracking-tight">
-                haestus
-              </span>
             </motion.div>
           </Link>
 

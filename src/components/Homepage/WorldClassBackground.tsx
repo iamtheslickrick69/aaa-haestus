@@ -1,14 +1,8 @@
 'use client';
 
-import { useRef, useMemo, useEffect } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import {
-  EffectComposer,
-  Bloom,
-  ChromaticAberration,
-  Vignette,
-  Noise
-} from '@react-three/postprocessing';
+import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import * as THREE from 'three';
 
@@ -51,7 +45,7 @@ function MouseGlow() {
 }
 
 // Firefly particles
-function Fireflies({ count = 200 }: { count?: number }) {
+function Fireflies({ count = 150 }: { count?: number }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const { viewport } = useThree();
 
@@ -68,7 +62,7 @@ function Fireflies({ count = 200 }: { count?: number }) {
       temp.push({ position, speed, offset });
     }
     return temp;
-  }, [count, viewport]);
+  }, [count, viewport.width, viewport.height]);
 
   useFrame(({ clock }) => {
     if (!meshRef.current) return;
@@ -100,7 +94,6 @@ function Fireflies({ count = 200 }: { count?: number }) {
 // Subtle microgrid
 function Microgrid() {
   const gridRef = useRef<THREE.LineSegments>(null);
-  const { viewport } = useThree();
 
   const geometry = useMemo(() => {
     const geo = new THREE.BufferGeometry();
@@ -142,7 +135,7 @@ function Scene() {
       <fog attach="fog" args={['#000000', 10, 30]} />
 
       <MouseGlow />
-      <Fireflies count={200} />
+      <Fireflies count={150} />
       <Microgrid />
 
       <EffectComposer>
@@ -152,25 +145,24 @@ function Scene() {
           luminanceSmoothing={0.9}
           mipmapBlur
         />
-        <ChromaticAberration
-          blendFunction={BlendFunction.NORMAL}
-          offset={new THREE.Vector2(0.0005, 0.0005)}
-        />
-        <Vignette
-          offset={0.3}
-          darkness={0.9}
-          blendFunction={BlendFunction.NORMAL}
-        />
-        <Noise
-          opacity={0.02}
-          blendFunction={BlendFunction.OVERLAY}
-        />
+        <Vignette offset={0.3} darkness={0.9} blendFunction={BlendFunction.NORMAL} />
+        <Noise opacity={0.02} blendFunction={BlendFunction.OVERLAY} />
       </EffectComposer>
     </>
   );
 }
 
 export default function WorldClassBackground() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="fixed inset-0 bg-black -z-10" />;
+  }
+
   return (
     <div className="fixed inset-0 -z-10">
       <Canvas
@@ -180,7 +172,7 @@ export default function WorldClassBackground() {
         gl={{
           antialias: true,
           alpha: false,
-          powerPreference: 'high-performance'
+          powerPreference: 'high-performance',
         }}
       >
         <Scene />
