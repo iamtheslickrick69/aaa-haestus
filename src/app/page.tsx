@@ -1,5 +1,5 @@
 import Hero from '@/sections/Hero';
-import NameOrigin from '@/sections/NameOrigin';
+import OurNameSection from '@/components/Homepage/OurNameSection';
 import StrategicPositioning from '@/sections/StrategicPositioning';
 import IndustryData from '@/sections/IndustryData';
 import ForgePhilosophy from '@/sections/ForgePhilosophy';
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Hero />
-      <NameOrigin />
+      <OurNameSection />
       <StrategicPositioning />
       <IndustryData />
       <ForgePhilosophy />
