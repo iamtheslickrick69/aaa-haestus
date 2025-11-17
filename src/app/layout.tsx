@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LogoBlock from "@/components/header/LogoBlock";
+import MainHeader from "@/components/header/MainHeader";
+import PortalsHeader from "@/components/header/PortalsHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +43,11 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.3px' }}
       >
+        <LogoBlock />
+        <MainHeader />
+        <PortalsHeader />
         {children}
       </body>
     </html>
