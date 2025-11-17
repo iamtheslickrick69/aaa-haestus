@@ -1,198 +1,201 @@
 'use client';
 
-import React, { useState } from 'react';
+import Image from 'next/image';
+import { useMemo } from 'react';
 
-interface StackItem {
-  title: string;
+interface Tech {
+  name: string;
   category: string;
   description: string;
-  initials: string;
+  logo: string;
 }
 
-const TECH_STACK: StackItem[] = [
+const techStack: Tech[] = [
   {
-    title: 'Claude 4.5 Sonnet',
+    name: 'Claude 4.5 Sonnet',
     category: 'AI & INTELLIGENCE',
-    description: 'Enterprise-grade reasoning and orchestration for complex systems.',
-    initials: 'CS',
+    description: 'High-speed, high-context AI for real-time systems.',
+    logo: '/logos/claude-sonnet.svg',
   },
   {
-    title: 'Claude 4.5 Haiku',
+    name: 'Claude 4.5 Haiku',
     category: 'AI & INTELLIGENCE',
-    description: 'High-speed, low-latency AI for real-time products and workflows.',
-    initials: 'CH',
+    description: 'Ultra-fast, low-latency AI for production workloads.',
+    logo: '/logos/claude-haiku.svg',
   },
   {
-    title: 'Claude 4.1 Opus',
+    name: 'Claude 4.1 Opus',
     category: 'AI & INTELLIGENCE',
-    description: 'Advanced intelligence for deep analysis, strategy, and architecture.',
-    initials: 'CO',
+    description: 'Advanced reasoning and complex analysis.',
+    logo: '/logos/claude-opus.svg',
   },
   {
-    title: 'ChatGPT 5.1',
+    name: 'ChatGPT 5.1',
     category: 'AI & INTELLIGENCE',
-    description: 'Multimodal AI with system-level capabilities and tool integration.',
-    initials: 'G5',
+    description: 'Multimodal AI with system-level capabilities.',
+    logo: '/logos/chatgpt-51.svg',
   },
   {
-    title: 'LangChain',
-    category: 'AI FRAMEWORK',
-    description: 'Pipelines, agents, and RAG framework for production AI systems.',
-    initials: 'LC',
+    name: 'LangChain',
+    category: 'AI PIPELINES',
+    description: 'Pipelines, agents & RAG orchestration.',
+    logo: '/logos/langchain.svg',
   },
   {
-    title: 'Pinecone',
-    category: 'AI MEMORY',
-    description: 'Vector search and long-term memory for intelligent applications.',
-    initials: 'PC',
+    name: 'Pinecone',
+    category: 'VECTOR MEMORY',
+    description: 'Vector search and long-term AI memory.',
+    logo: '/logos/pinecone.svg',
   },
   {
-    title: 'AWS',
+    name: 'AWS',
+    category: 'CLOUD INFRASTRUCTURE',
+    description: 'Cloud backbone for compute & storage.',
+    logo: '/logos/aws.svg',
+  },
+  {
+    name: 'Docker',
     category: 'INFRASTRUCTURE',
-    description: 'Cloud backbone for compute, storage, and enterprise security.',
-    initials: 'AWS',
+    description: 'Containerization & reproducible builds.',
+    logo: '/logos/docker.svg',
   },
   {
-    title: 'Docker',
+    name: 'Kubernetes',
     category: 'INFRASTRUCTURE',
-    description: 'Containerization and reproducible builds across all environments.',
-    initials: 'DK',
+    description: 'Autoscaling & orchestration.',
+    logo: '/logos/kubernetes.svg',
   },
   {
-    title: 'Kubernetes',
-    category: 'INFRASTRUCTURE',
-    description: 'Autoscaling, orchestration, and zero-downtime deployments.',
-    initials: 'K8s',
+    name: 'Vercel',
+    category: 'EDGE & DEPLOY',
+    description: 'Edge functions & frontend CI/CD.',
+    logo: '/logos/vercel.svg',
   },
   {
-    title: 'Vercel',
-    category: 'INFRASTRUCTURE',
-    description: 'Edge functions and CI/CD for modern web applications.',
-    initials: 'V',
-  },
-  {
-    title: 'Palo Alto Networks',
+    name: 'Palo Alto Networks',
     category: 'SECURITY',
-    description: 'Zero-Trust enterprise security and next-generation firewalling.',
-    initials: 'PAN',
+    description: 'Zero-Trust enterprise security.',
+    logo: '/logos/paloalto.svg',
   },
   {
-    title: 'Cloudflare',
+    name: 'Cloudflare',
     category: 'SECURITY',
-    description: 'DDoS protection, global CDN, and programmable edge workers.',
-    initials: 'CF',
+    description: 'DDoS protection & global CDN.',
+    logo: '/logos/cloudflare.svg',
   },
   {
-    title: 'Next.js 14',
+    name: 'Next.js 14',
     category: 'FRONTEND',
-    description: 'React framework with SSR, SSG, and the App Router.',
-    initials: 'N',
+    description: 'React framework with SSR/SSG and App Router.',
+    logo: '/logos/nextjs.svg',
   },
   {
-    title: 'TypeScript',
+    name: 'TypeScript',
     category: 'FRONTEND',
-    description: 'Type-safe large-scale development with richer tooling.',
-    initials: 'TS',
+    description: 'Type-safe large-scale development.',
+    logo: '/logos/typescript.svg',
   },
   {
-    title: 'Tailwind CSS',
+    name: 'Tailwind CSS',
     category: 'FRONTEND',
-    description: 'Utility-first styling for a cohesive, responsive design system.',
-    initials: 'TW',
+    description: 'Utility-first styling and cohesive design system.',
+    logo: '/logos/tailwind.svg',
   },
   {
-    title: 'n8n',
+    name: 'PostgreSQL',
+    category: 'DATA',
+    description: 'Relational database with ACID guarantees.',
+    logo: '/logos/postgres.svg',
+  },
+  {
+    name: 'Redis',
+    category: 'DATA',
+    description: 'In-memory cache & real-time store.',
+    logo: '/logos/redis.svg',
+  },
+  {
+    name: 'n8n',
     category: 'AUTOMATION',
-    description: 'Workflow automation and AI agent orchestration across services.',
-    initials: 'N8',
+    description: 'Workflow automation & AI agents.',
+    logo: '/logos/n8n.svg',
+  },
+  {
+    name: 'GitHub',
+    category: 'COLLABORATION',
+    description: 'Version control & collaboration.',
+    logo: '/logos/github.svg',
   },
 ];
 
-function StackCard({ item }: { item: StackItem }) {
+function TechCard({ tech }: { tech: Tech }) {
   return (
-    <div className="group flex-shrink-0 min-w-[260px] md:min-w-[280px] lg:min-w-[300px] bg-[#0B0B0D] border border-white/5 rounded-2xl px-6 py-5 md:px-7 md:py-6 flex items-start gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500/60 hover:shadow-[0_0_30px_rgba(220,38,38,0.35)]">
-      {/* Icon Circle */}
-      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-800/80 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-        <span className="text-xs md:text-sm font-semibold text-white/90">{item.initials}</span>
+    <article className="flex-shrink-0 w-[240px] sm:w-[260px] md:w-[300px] rounded-2xl border border-white/[0.06] bg-white/[0.05] backdrop-blur-xl px-4 py-4 md:px-5 md:py-5 text-left shadow-[0_0_40px_rgba(0,0,0,0.6)] hover:border-red-500/70 hover:bg-white/[0.08] transition-all duration-300">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="relative h-8 w-8 md:h-9 md:w-9 rounded-full bg-black flex items-center justify-center">
+          <Image
+            src={tech.logo}
+            alt={tech.name}
+            width={24}
+            height={24}
+            className="object-contain"
+          />
+        </div>
+        <div className="min-w-0">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-red-400">
+            {tech.category}
+          </p>
+          <h3 className="text-sm md:text-base font-semibold text-white truncate">{tech.name}</h3>
+        </div>
       </div>
-
-      {/* Text Content */}
-      <div className="flex-1 min-w-0">
-        <h4 className="text-sm md:text-base font-semibold text-white tracking-wide">
-          {item.title}
-        </h4>
-        <span className="block mt-1 text-[11px] tracking-[0.16em] uppercase text-red-400/80">
-          {item.category}
-        </span>
-        <p className="mt-2 text-xs md:text-sm text-neutral-400 leading-relaxed line-clamp-2">
-          {item.description}
-        </p>
-      </div>
-    </div>
+      <p className="text-xs md:text-sm text-neutral-300 leading-relaxed line-clamp-3">
+        {tech.description}
+      </p>
+    </article>
   );
 }
 
 export default function TechStackMarquee() {
-  const [isPaused, setIsPaused] = useState(false);
+  const marqueeItems = useMemo(() => [...techStack, ...techStack], []);
 
-  // Duplicate the stack for seamless looping
-  const duplicatedStack = [...TECH_STACK, ...TECH_STACK];
+  // Split items for two rows
+  const topRowItems = marqueeItems.slice(0, Math.ceil(marqueeItems.length / 2));
+  const bottomRowItems = marqueeItems.slice(Math.ceil(marqueeItems.length / 2));
 
   return (
-    <section id="stack" className="w-full bg-[#050506] py-16 md:py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-tight">
-            Architecture, powered by a battle-tested stack.
-          </h2>
-          <p className="mt-4 max-w-3xl mx-auto text-neutral-400 md:text-neutral-500 text-base md:text-lg leading-relaxed">
-            We combine enterprise infrastructure with modern AI tooling so your systems scale under
-            real-world pressure.
-          </p>
+    <section id="stack" className="relative w-full bg-[#050505] py-20 overflow-hidden">
+      <div className="mx-auto max-w-6xl text-center mb-10 px-4">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white">
+          Architecture, powered by a battle-tested stack.
+        </h2>
+        <p className="mt-3 text-sm md:text-base text-neutral-400 max-w-2xl mx-auto">
+          We combine enterprise infrastructure with modern AI tooling so your systems scale under
+          real-world pressure.
+        </p>
+      </div>
+
+      {/* Edge fade masks */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20" />
+
+      <div className="space-y-6">
+        {/* Top row - scrolls left to right */}
+        <div className="relative">
+          <div className="flex gap-6 animate-marquee-left">
+            {topRowItems.map((tech, i) => (
+              <TechCard tech={tech} key={`top-${i}-${tech.name}`} />
+            ))}
+          </div>
         </div>
 
-        {/* Marquee Container */}
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Edge Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-[#050506] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-[#050506] to-transparent z-10 pointer-events-none" />
-
-          {/* Scrolling Track */}
-          <div
-            className={`flex gap-4 md:gap-5 ${isPaused ? 'animate-pause' : 'animate-marquee'}`}
-          >
-            {duplicatedStack.map((item, index) => (
-              <StackCard key={`${item.title}-${index}`} item={item} />
+        {/* Bottom row - scrolls right to left */}
+        <div className="relative">
+          <div className="flex gap-6 animate-marquee-right">
+            {bottomRowItems.map((tech, i) => (
+              <TechCard tech={tech} key={`bottom-${i}-${tech.name}`} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* CSS Animation */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-marquee {
-          animation: marquee 60s linear infinite;
-          will-change: transform;
-        }
-
-        .animate-pause {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }
