@@ -1,3 +1,6 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import Hero from '@/sections/Hero';
 import TrustSection from '@/components/Homepage/TrustSection';
 import StrategicPositioning from '@/sections/StrategicPositioning';
@@ -11,21 +14,33 @@ import Portfolio from '@/sections/Portfolio';
 import BlogInsights from '@/components/Homepage/BlogInsights';
 import Connect from '@/sections/Connect';
 
+// Load BlackFabricBackground dynamically without SSR (Three.js requires browser APIs)
+const BlackFabricBackground = dynamic(
+  () => import('@/components/Homepage/BlackFabricBackground'),
+  {
+    ssr: false,
+    loading: () => <div style={{ background: '#000000', position: 'fixed', inset: 0 }} />,
+  }
+);
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Hero />
-      <TrustSection />
-      <StrategicPositioning />
-      <IndustryData />
-      <ForgePhilosophy />
-      <ForgeValues />
-      <Identity />
-      <AnimatedMazeSection />
-      <TechStackMarquee />
-      <Portfolio />
-      <BlogInsights />
-      <Connect />
-    </main>
+    <>
+      <BlackFabricBackground />
+      <main className="relative z-10 min-h-screen bg-transparent text-white">
+        <Hero />
+        <TrustSection />
+        <StrategicPositioning />
+        <IndustryData />
+        <ForgePhilosophy />
+        <ForgeValues />
+        <Identity />
+        <AnimatedMazeSection />
+        <TechStackMarquee />
+        <Portfolio />
+        <BlogInsights />
+        <Connect />
+      </main>
+    </>
   );
 }

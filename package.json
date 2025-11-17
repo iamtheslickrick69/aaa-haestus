@@ -42,7 +42,7 @@
     "react-tilt": "^1.0.2",
     "react-use": "^17.6.0",
     "sharp": "^0.34.5",
-    "simplex-noise": "^4.0.3",
+    "simplex-noise": "^2.4.0",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.4.0",
     "three": "^0.181.1",
