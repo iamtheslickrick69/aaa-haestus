@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import FoundersMessage from '@/components/modals/FoundersMessage';
+import OurNameModal from '@/components/modals/OurNameModal';
 
 export default function Hero() {
-  const [showModal, setShowModal] = useState(false);
+  const [showFoundersModal, setShowFoundersModal] = useState(false);
+  const [showNameModal, setShowNameModal] = useState(false);
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
@@ -42,19 +44,30 @@ export default function Hero() {
           We are pioneering intelligent systems that transform businesses from the inside out.
         </p>
 
-        {/* Founder's Message Button */}
-        <motion.button
-          onClick={() => setShowModal(true)}
-          whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.4)' }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white transition-all duration-300 text-sm tracking-wide"
-        >
-          Founder's Message
-        </motion.button>
+        {/* Button Row */}
+        <div className="flex gap-4 justify-center">
+          <motion.button
+            onClick={() => setShowFoundersModal(true)}
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.4)' }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white transition-all duration-300 text-sm tracking-wide"
+          >
+            Founder's Message
+          </motion.button>
+          <motion.button
+            onClick={() => setShowNameModal(true)}
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.4)' }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white transition-all duration-300 text-sm tracking-wide"
+          >
+            Our Name
+          </motion.button>
+        </div>
       </motion.div>
 
-      {/* Founder's Message Modal */}
-      <FoundersMessage isOpen={showModal} onClose={() => setShowModal(false)} />
+      {/* Modals */}
+      <FoundersMessage isOpen={showFoundersModal} onClose={() => setShowFoundersModal(false)} />
+      <OurNameModal isOpen={showNameModal} onClose={() => setShowNameModal(false)} />
     </section>
   );
 }
