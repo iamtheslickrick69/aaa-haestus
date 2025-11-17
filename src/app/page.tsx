@@ -5,7 +5,7 @@ import ForgePhilosophy from '@/sections/ForgePhilosophy';
 import ForgeValues from '@/sections/ForgeValues';
 import Identity from '@/sections/Identity';
 import AnimatedMazeSection from '@/components/Homepage/AnimatedMazeSection';
-import ArchitectureStackBanner from '@/components/Homepage/ArchitectureStackBanner';
+import TechStackMarquee from '@/components/Homepage/TechStackMarquee';
 import Portfolio from '@/sections/Portfolio';
 import InsightsSection from '@/sections/InsightsSection';
 import Connect from '@/sections/Connect';
@@ -20,7 +20,7 @@ export default function Home() {
       <ForgeValues />
       <Identity />
       <AnimatedMazeSection />
-      <ArchitectureStackBanner />
+      <TechStackMarquee />
       <Portfolio />
       <InsightsSection />
       <Connect />
