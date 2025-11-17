@@ -4,6 +4,7 @@ import IndustryData from '@/sections/IndustryData';
 import ForgePhilosophy from '@/sections/ForgePhilosophy';
 import ForgeValues from '@/sections/ForgeValues';
 import Identity from '@/sections/Identity';
+import AnimatedMazeSection from '@/components/Homepage/AnimatedMazeSection';
 import ArchitectureStackBanner from '@/components/Homepage/ArchitectureStackBanner';
 import Portfolio from '@/sections/Portfolio';
 import InsightsSection from '@/sections/InsightsSection';
@@ -18,6 +19,7 @@ export default function Home() {
       <ForgePhilosophy />
       <ForgeValues />
       <Identity />
+      <AnimatedMazeSection />
       <ArchitectureStackBanner />
       <Portfolio />
       <InsightsSection />
