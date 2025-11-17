@@ -7,7 +7,7 @@ import Identity from '@/sections/Identity';
 import AnimatedMazeSection from '@/components/Homepage/AnimatedMazeSection';
 import TechStackMarquee from '@/components/Homepage/TechStackMarquee';
 import Portfolio from '@/sections/Portfolio';
-import InsightsSection from '@/sections/InsightsSection';
+import BlogInsights from '@/components/Homepage/BlogInsights';
 import Connect from '@/sections/Connect';
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       <AnimatedMazeSection />
       <TechStackMarquee />
       <Portfolio />
-      <InsightsSection />
+      <BlogInsights />
       <Connect />
     </main>
   );
