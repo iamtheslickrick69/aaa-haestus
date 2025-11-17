@@ -6,7 +6,7 @@ import ForgeValues from '@/sections/ForgeValues';
 import Identity from '@/sections/Identity';
 import ArchitectureStackBanner from '@/components/Homepage/ArchitectureStackBanner';
 import Portfolio from '@/sections/Portfolio';
-import Insights from '@/sections/Insights';
+import InsightsSection from '@/sections/InsightsSection';
 import Connect from '@/sections/Connect';
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <Identity />
       <ArchitectureStackBanner />
       <Portfolio />
-      <Insights />
+      <InsightsSection />
       <Connect />
     </main>
   );
