@@ -64,12 +64,12 @@ function OrbitingDots() {
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-visible">
       <div
-        className="orbit-dot absolute w-2 h-2 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 22px rgba(220,38,38,0.7)' }}
+        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
+        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
       />
       <div
-        className="orbit-dot absolute w-2 h-2 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 22px rgba(220,38,38,0.7)' }}
+        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
+        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
       />
     </div>
   );
@@ -149,7 +149,7 @@ export default function MainHeader() {
               e.currentTarget.style.background = 'rgba(220,38,38,0.85)';
             }}
           >
-            Start Partnership
+            Connect
           </motion.button>
         </motion.nav>
       </motion.header>
@@ -208,7 +208,7 @@ export default function MainHeader() {
               </Link>
             ))}
             <button className="mt-8 px-8 py-4 bg-[#DC2626] text-white font-semibold rounded-full">
-              Start Partnership
+              Connect
             </button>
           </div>
         </motion.div>

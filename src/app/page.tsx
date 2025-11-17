@@ -1,4 +1,5 @@
 import Hero from '@/sections/Hero';
+import TrustSection from '@/components/Homepage/TrustSection';
 import StrategicPositioning from '@/sections/StrategicPositioning';
 import IndustryData from '@/sections/IndustryData';
 import ForgePhilosophy from '@/sections/ForgePhilosophy';
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Hero />
+      <TrustSection />
       <StrategicPositioning />
       <IndustryData />
       <ForgePhilosophy />
