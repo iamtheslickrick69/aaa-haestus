@@ -5,6 +5,7 @@ import IndustryData from '@/sections/IndustryData';
 import ForgePhilosophy from '@/sections/ForgePhilosophy';
 import ForgeValues from '@/sections/ForgeValues';
 import Identity from '@/sections/Identity';
+import TechStackGrid from '@/components/Homepage/TechStackGrid';
 import Portfolio from '@/sections/Portfolio';
 import Insights from '@/sections/Insights';
 import Connect from '@/sections/Connect';
@@ -19,6 +20,7 @@ export default function Home() {
       <ForgePhilosophy />
       <ForgeValues />
       <Identity />
+      <TechStackGrid />
       <Portfolio />
       <Insights />
       <Connect />
