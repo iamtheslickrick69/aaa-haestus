@@ -30,9 +30,9 @@ export default function PremiumHeader() {
     <>
       {/* GROUP 2: Top Right Buttons (Aligned with Header) */}
       <motion.div
-        className="fixed right-10 z-[999] hidden md:flex gap-3 items-center"
+        className="fixed right-10 z-[999] hidden md:flex gap-3 items-end"
         style={{
-          top: scrolled ? '18px' : '22px',
+          top: scrolled ? '22px' : '28px',
           opacity: scrolled ? 0 : 1,
           pointerEvents: scrolled ? 'none' : 'auto',
           transform: scrolled ? 'translateY(-12px)' : 'translateY(0)',
@@ -40,7 +40,7 @@ export default function PremiumHeader() {
         }}
       >
         <button
-          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200"
+          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200 animate-subtle-glow"
           style={{
             background: 'rgba(255, 255, 255, 0.06)',
             backdropFilter: 'blur(24px) saturate(200%)',
@@ -48,22 +48,23 @@ export default function PremiumHeader() {
             color: 'rgba(255, 255, 255, 0.85)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             letterSpacing: '0.3px',
+            boxShadow: '0 0 15px rgba(255, 255, 255, 0.08)',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = '#ff6b2c';
-            e.currentTarget.style.boxShadow = '0 0 10px rgba(255, 107, 44, 0.4)';
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 107, 44, 0.5), 0 0 40px rgba(255, 107, 44, 0.2)';
             e.currentTarget.style.color = '#ffffff';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.08)';
             e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
           }}
         >
           Partners
         </button>
         <button
-          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200"
+          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200 animate-subtle-glow"
           style={{
             background: 'rgba(255, 255, 255, 0.06)',
             backdropFilter: 'blur(24px) saturate(200%)',
@@ -71,21 +72,38 @@ export default function PremiumHeader() {
             color: 'rgba(255, 255, 255, 0.85)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             letterSpacing: '0.3px',
+            boxShadow: '0 0 15px rgba(255, 255, 255, 0.08)',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = '#ff6b2c';
-            e.currentTarget.style.boxShadow = '0 0 10px rgba(255, 107, 44, 0.4)';
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 107, 44, 0.5), 0 0 40px rgba(255, 107, 44, 0.2)';
             e.currentTarget.style.color = '#ffffff';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.08)';
             e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
           }}
         >
           Reps
         </button>
       </motion.div>
+
+      {/* Animated Glow Keyframes */}
+      <style jsx>{`
+        @keyframes subtle-glow {
+          0%, 100% {
+            filter: brightness(1);
+          }
+          50% {
+            filter: brightness(1.1);
+          }
+        }
+
+        .animate-subtle-glow {
+          animation: subtle-glow 3s ease-in-out infinite;
+        }
+      `}</style>
 
       {/* GROUP 1: Compact Glassmorphism Nav (Scroll-Responsive) */}
       <motion.header
