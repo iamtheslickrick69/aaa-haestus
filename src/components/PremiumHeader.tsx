@@ -109,29 +109,31 @@ export default function PremiumHeader() {
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
-          {/* Anvil Logo - Scroll to Top Button */}
+          {/* Haestus Logo - Scroll to Top Button */}
           <button
             onClick={scrollToTop}
-            className="flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+            className="flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
             style={{
-              marginRight: '20px',
+              marginRight: '24px',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              padding: '4px',
+              padding: '8px 16px',
             }}
             aria-label="Scroll to top"
           >
             <Image
-              src="/haestus-anvil-header.png"
+              src="/official.trans.white.png"
               alt="Haestus"
-              width={46}
-              height={46}
+              width={104}
+              height={52}
               className="object-contain"
               style={{
-                height: '46px',
-                width: '46px',
+                height: '52px',
+                width: 'auto',
                 display: 'block',
+                objectFit: 'contain',
+                objectPosition: 'center',
               }}
               priority
             />
