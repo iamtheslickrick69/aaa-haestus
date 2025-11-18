@@ -1,0 +1,23 @@
+⚠️ FAVICON ONLY - DO NOT MIX WITH OTHER LOGOS ⚠️
+
+The ANVIL ICON (orange anvil on transparent background) is ONLY for favicon use.
+This is NOT the header logo or any other logo - it's ONLY for browser tabs/bookmarks.
+
+REPLACE these files with the anvil icon:
+1. /public/favicon-16x16.png (16x16 pixels)
+2. /public/favicon-32x32.png (32x32 pixels)
+3. /public/apple-touch-icon.png (180x180 pixels)
+4. /public/android-chrome-192x192.png (192x192 pixels)
+5. /public/android-chrome-512x512.png (512x512 pixels)
+
+IMPORTANT:
+- Save the anvil icon at multiple sizes for different devices
+- Orange anvil on transparent background
+- Use PNG format
+- These files are referenced in src/app/layout.tsx
+
+OTHER LOGOS (DO NOT CONFUSE):
+- haestus.noicon.png = Header logo (text only, orange "haestus")
+- This anvil = Favicon only (icon only, NO text)
+
+Delete this file after updating all favicon files.
