@@ -84,7 +84,7 @@ export default function BlogInsights() {
   ];
 
   return (
-    <section className="relative mt-[200px] mb-[200px]">
+    <section className="relative mt-[200px] mb-[200px] overflow-hidden">
       {/* Top carved edge - black to white transition */}
       <div
         className="absolute top-[-100px] left-0 right-0 h-[100px] bg-black z-10"
@@ -94,8 +94,26 @@ export default function BlogInsights() {
         }}
       />
 
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/aicoolblack.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Subtle overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }} />
+
       {/* Main blog section */}
-      <div className="relative bg-[#0A0A0A] w-full py-[120px]">
+      <div className="relative w-full py-[120px]" style={{ zIndex: 10 }}>
         {/* Subtle grid pattern overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
