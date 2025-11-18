@@ -16,33 +16,30 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    id: 'hero',
+    id: 'stat1',
     number: '3',
     title: 'companies control 90%+',
-    description:
-      'of AI cloud infrastructure. The entire AI stack is being consolidated into the hands of a few providers.',
-    tags: ['AWS', 'Azure', 'GCP'],
-    isHero: true,
+    description: 'of AI cloud infrastructure',
   },
   {
-    id: 'stat1',
+    id: 'stat2',
     number: '95%',
     description: 'of AI pilots never reach production',
   },
   {
-    id: 'stat2',
+    id: 'stat3',
     number: '$2.6-4.4',
     subtitle: 'TRILLION',
     description: 'Global annual value at stake',
     isFeatured: true,
   },
   {
-    id: 'stat3',
+    id: 'stat4',
     number: '85M',
     description: 'jobs displaced by 2025',
   },
   {
-    id: 'stat4',
+    id: 'stat5',
     number: '1%',
     description: 'of orgs are AI-mature in deployment',
   },
@@ -97,62 +94,59 @@ function CountUpNumber({ value, duration = 1200 }: { value: string; duration?: n
 
 function StatCard({ stat, index }: { stat: Stat; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: '-100px' });
-
-  const delay = stat.isHero ? 0 : (index - 0.5) * 150;
+  const isInView = useInView(cardRef, { once: true, margin: '-50px' });
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
-        duration: 0.6,
-        delay: delay / 1000,
+        duration: 0.5,
+        delay: index * 0.1,
         ease: [0.4, 0, 0.2, 1],
       }}
       whileHover={{
-        y: -8,
-        scale: 1.01,
+        y: -4,
+        borderColor: 'rgba(255, 255, 255, 0.1)',
       }}
-      className={`relative overflow-hidden rounded-2xl border transition-all duration-400 ${
-        stat.isHero
-          ? 'col-span-2 p-10'
-          : 'p-8'
-      }`}
       style={{
-        background: '#101217',
-        borderColor: '#232632',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.45)',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = '#2a2d3a';
-        e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.55)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = '#232632';
-        e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.45)';
+        width: '100%',
+        padding: '20px 24px',
+        background: 'rgba(30, 41, 59, 0.3)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        border: '1px solid rgba(255, 255, 255, 0.06)',
+        borderLeft: stat.isFeatured ? '2px solid #ff6b35' : '1px solid rgba(255, 255, 255, 0.06)',
+        borderRadius: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        transition: 'all 0.3s ease',
+        gap: '24px',
       }}
     >
-      <div className="relative z-10">
-        {/* Number */}
-        <div
-          className="font-bold leading-none mb-4"
-          style={{
-            fontSize: stat.isHero ? '96px' : '72px',
-            color: '#ffffff',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          <CountUpNumber value={stat.number} />
-        </div>
+      {/* Left: Number */}
+      <div
+        className="font-bold"
+        style={{
+          fontSize: '48px',
+          color: '#ffffff',
+          lineHeight: 1,
+          letterSpacing: '-0.02em',
+          flexShrink: 0,
+        }}
+      >
+        <CountUpNumber value={stat.number} />
+      </div>
 
-        {/* Subtitle (for TRILLION) */}
+      {/* Right: Description */}
+      <div style={{ textAlign: 'right', maxWidth: '240px' }}>
         {stat.subtitle && (
           <div
-            className="font-bold mb-4"
+            className="font-bold mb-1"
             style={{
-              fontSize: '24px',
+              fontSize: '11px',
               color: '#ff6b35',
               letterSpacing: '0.1em',
             }}
@@ -160,82 +154,35 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
             {stat.subtitle}
           </div>
         )}
-
-        {/* Title (for hero card) */}
-        {stat.title && (
-          <div
-            className="font-semibold mb-4"
-            style={{
-              fontSize: '24px',
-              color: '#E5E7EB',
-            }}
-          >
-            {stat.title}
-          </div>
-        )}
-
-        {/* Description */}
         <p
           style={{
-            fontSize: stat.isHero ? '18px' : '16px',
-            color: '#9CA3AF',
-            lineHeight: stat.isHero ? 1.5 : 1.6,
-            maxWidth: stat.isHero ? '85%' : '100%',
+            fontSize: '13px',
+            color: '#94a3b8',
+            lineHeight: 1.4,
+            fontWeight: 400,
           }}
         >
-          {stat.description}
+          {stat.title ? `${stat.title} ${stat.description}` : stat.description}
         </p>
-
-        {/* Tags (for hero card) */}
-        {stat.tags && (
-          <div
-            className="absolute flex gap-2"
-            style={{
-              bottom: '24px',
-              right: '24px',
-            }}
-          >
-            {stat.tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center"
-                style={{
-                  background: 'rgba(160, 163, 175, 0.1)',
-                  border: '1px solid rgba(160, 163, 175, 0.2)',
-                  borderRadius: '8px',
-                  padding: '6px 12px',
-                  fontSize: '12px',
-                  color: '#9CA3AF',
-                  fontWeight: 500,
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
     </motion.div>
   );
 }
 
 export default function StatsDashboard() {
-  const heroStat = stats.find((s) => s.isHero)!;
-  const regularStats = stats.filter((s) => !s.isHero);
-
   return (
     <section
       className="relative w-full"
       style={{
-        background: '#050608',
-        paddingTop: '120px',
-        paddingBottom: '120px',
+        background: 'transparent',
+        paddingTop: '80px',
+        paddingBottom: '80px',
       }}
     >
       <div
-        className="mx-auto px-8"
+        className="mx-auto px-6"
         style={{
-          maxWidth: '1280px',
+          maxWidth: '500px',
         }}
       >
         {/* Section Header */}
@@ -244,60 +191,44 @@ export default function StatsDashboard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2
-            className="font-semibold mb-4 tracking-tight"
+            className="font-semibold tracking-tight"
             style={{
-              fontSize: '48px',
-              color: '#FFFFFF',
+              fontSize: '32px',
+              color: '#f1f5f9',
+              lineHeight: 1.2,
+              marginBottom: '12px',
             }}
           >
             Everyone Has AI. Few Have Results.
           </h2>
           <p
-            className="mx-auto max-w-2xl"
+            className="mx-auto"
             style={{
-              fontSize: '18px',
-              color: '#A0A3AF',
-              lineHeight: '1.6',
+              fontSize: '14px',
+              color: '#94a3b8',
+              maxWidth: '400px',
+              marginBottom: '32px',
             }}
           >
             Four numbers that explain why most AI projects stall, and why architecture decides who actually wins.
           </p>
         </motion.div>
 
-        {/* 2x2 Grid */}
+        {/* Vertical Hot Dog Stack */}
         <div
-          className="grid gap-6"
           style={{
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gridTemplateRows: 'auto auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
           }}
         >
-          {/* Hero Card */}
-          <StatCard stat={heroStat} index={0} />
-
-          {/* Regular Stats */}
-          {regularStats.map((stat, idx) => (
-            <StatCard key={stat.id} stat={stat} index={idx + 1} />
+          {stats.map((stat, idx) => (
+            <StatCard key={stat.id} stat={stat} index={idx} />
           ))}
         </div>
-
-        {/* Responsive Styles */}
-        <style jsx global>{`
-          @media (max-width: 768px) {
-            .grid {
-              grid-template-columns: 1fr !important;
-            }
-            .col-span-2 {
-              grid-column: auto !important;
-            }
-            h2 {
-              font-size: 32px !important;
-            }
-          }
-        `}</style>
       </div>
     </section>
   );
