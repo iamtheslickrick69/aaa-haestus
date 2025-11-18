@@ -216,7 +216,9 @@ export default function Home() {
           <ForgeValues />
           <AnimatedMazeSection />
           <TechStackMarquee />
-          <Portfolio />
+          <div className="relative overflow-hidden bg-black">
+            <Portfolio />
+          </div>
           <BlogInsights />
         </div>
         <div id="connect" className="bg-black">
