@@ -42,14 +42,15 @@ export default function Home() {
         <div id="insights" className="bg-black">
           <StatsDashboard />
         </div>
-        <section id="architecture" className="relative overflow-hidden bg-black">
-          {/* New Orange Background Video */}
+        <section id="architecture" className="relative overflow-hidden" style={{ backgroundColor: '#000' }}>
+          {/* 3D Background Video */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover -z-10"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: 0 }}
           >
             <source
               src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/3DUPinthis.mp4"
@@ -58,7 +59,7 @@ export default function Home() {
           </video>
 
           {/* Subtle overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/15 z-0" />
+          <div className="absolute inset-0 bg-black/15" style={{ zIndex: 1 }} />
 
           {/* Content Container */}
           <div className="relative z-10 max-w-7xl mx-auto px-8 py-32">
