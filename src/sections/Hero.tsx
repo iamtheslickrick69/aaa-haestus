@@ -12,11 +12,29 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-white font-bold uppercase tracking-tight mb-8 text-[clamp(2.5rem,8vw,7rem)] leading-[0.95]"
+          className="text-white font-bold uppercase tracking-tight mb-12 text-[clamp(2.25rem,7.2vw,6.3rem)] leading-[0.95]"
         >
           <div>Crafting Digital</div>
           <div>Intelligence</div>
         </motion.h1>
+
+        {/* Full Haestus.dev Logo - Positioned Below Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center items-center mb-12"
+        >
+          <Image
+            src="/official.trans.white.png"
+            alt="Haestus.dev logo"
+            width={400}
+            height={200}
+            className="object-contain max-w-full"
+            style={{ maxWidth: '400px', height: 'auto' }}
+            priority
+          />
+        </motion.div>
 
         {/* Button and Italic Text - Same Line */}
         <motion.div
@@ -55,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)' }}
@@ -72,24 +90,6 @@ export default function Hero() {
           >
             View Our Work
           </motion.button>
-        </motion.div>
-
-        {/* Full Haestus.dev Logo - Centered Centerpiece */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex justify-center items-center"
-        >
-          <Image
-            src="/official.trans.white.png"
-            alt="Haestus.dev logo"
-            width={400}
-            height={200}
-            className="object-contain max-w-full"
-            style={{ maxWidth: '400px', height: 'auto' }}
-            priority
-          />
         </motion.div>
       </div>
     </section>
