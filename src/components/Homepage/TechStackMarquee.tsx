@@ -176,23 +176,24 @@ function TechCard({ tech }: { tech: Tech }) {
 
 export default function TechStackMarquee() {
   return (
-    <section className="relative overflow-hidden py-20 bg-black">
+    <section className="relative overflow-hidden py-20" style={{ backgroundColor: '#000' }}>
       {/* Orange Video Background */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
       >
         <source
-          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/orangeback.mp4"
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/peachbaby.mp4"
           type="video/mp4"
         />
       </video>
 
       {/* Subtle Overlay */}
-      <div className="absolute inset-0 bg-black/25 z-0" />
+      <div className="absolute inset-0 bg-black/25" style={{ zIndex: 1 }} />
 
       {/* Content */}
       <div className="relative z-10">
