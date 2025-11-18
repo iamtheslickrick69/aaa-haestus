@@ -1,20 +1,33 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 export default function ForgeValues() {
   return (
-    <section className="py-32 px-6 bg-[#0b0b0b]">
-      <div className="max-w-6xl mx-auto">
-        {/* Big Bold Statement */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-white text-center tracking-tight"
+    <section className="relative overflow-hidden">
+      {/* Orange Gradient Banner Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/thisistheone.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Subtle overlay */}
+      <div className="absolute inset-0 bg-black/20 z-0" />
+
+      {/* Banner Content - Compact & Centered */}
+      <div className="relative z-10 max-w-7xl mx-auto px-8 py-20 text-center">
+        <h2
+          className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight"
+          style={{ textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}
         >
           WE FORGE TOOLS. YOU WRITE THE LEGEND.
-        </motion.h3>
+        </h2>
       </div>
     </section>
   );
