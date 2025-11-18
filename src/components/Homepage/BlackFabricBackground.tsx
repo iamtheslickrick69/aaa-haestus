@@ -60,9 +60,9 @@ const fabricFragmentShader = `
     // Combine for final fabric color
     vec3 finalColor = mix(black, darkGray, sheen + noise) * gradient;
 
-    // Very subtle red highlight at peaks
-    float redHighlight = smoothstep(0.04, 0.08, vWave) * 0.02;
-    finalColor += vec3(redHighlight * 0.8, 0.0, 0.0);
+    // Very subtle orange highlight at peaks
+    float orangeHighlight = smoothstep(0.04, 0.08, vWave) * 0.02;
+    finalColor += vec3(orangeHighlight * 0.976, orangeHighlight * 0.451, orangeHighlight * 0.086);
 
     gl_FragColor = vec4(finalColor, 1.0);
   }
@@ -196,8 +196,8 @@ function MinimalFireflies() {
             float distance = length(gl_PointCoord - vec2(0.5));
             float alpha = 1.0 - smoothstep(0.0, 0.5, distance);
 
-            // Soft red glow
-            vec3 color = vec3(0.86, 0.15, 0.15); // DC2626 in RGB
+            // Soft orange glow
+            vec3 color = vec3(0.976, 0.451, 0.086); // F97316 in RGB
 
             // Fade based on size (smaller = dimmer)
             alpha *= vSize * 15.0;
@@ -234,8 +234,8 @@ export default function BlackFabricBackground() {
           bottom: 0,
           background: `
             radial-gradient(ellipse at center top, rgba(10, 10, 10, 0.5) 0%, rgba(0, 0, 0, 1) 60%),
-            radial-gradient(ellipse at 20% 80%, rgba(220, 38, 38, 0.02) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 20%, rgba(220, 38, 38, 0.02) 0%, transparent 50%)
+            radial-gradient(ellipse at 20% 80%, rgba(249, 115, 22, 0.03) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 20%, rgba(251, 146, 60, 0.03) 0%, transparent 50%)
           `,
           pointerEvents: 'none',
         }}

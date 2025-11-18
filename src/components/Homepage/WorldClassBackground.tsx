@@ -6,7 +6,7 @@ import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocess
 import { BlendFunction } from 'postprocessing';
 import * as THREE from 'three';
 
-// Mouse follower with red glow
+// Mouse follower with orange glow
 function MouseGlow() {
   const meshRef = useRef<THREE.Mesh>(null);
   const { viewport } = useThree();
@@ -39,7 +39,7 @@ function MouseGlow() {
   return (
     <mesh ref={meshRef} position={[0, 0, -2]}>
       <sphereGeometry args={[0.8, 32, 32]} />
-      <meshBasicMaterial color="#DC2626" transparent opacity={0.15} />
+      <meshBasicMaterial color="#F97316" transparent opacity={0.15} />
     </mesh>
   );
 }

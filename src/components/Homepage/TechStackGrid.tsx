@@ -197,8 +197,8 @@ export default function TechStackGrid() {
             whileHover={{
               scale: 1.03,
               y: -10,
-              borderColor: 'rgba(220, 38, 38, 0.35)',
-              boxShadow: '0 0 25px rgba(220, 38, 38, 0.45)',
+              borderColor: 'rgba(249, 115, 22, 0.35)',
+              boxShadow: '0 0 25px rgba(249, 115, 22, 0.45)',
             }}
             style={{
               background: 'rgba(15, 15, 17, 0.8)',

@@ -129,7 +129,7 @@ const techStack: Tech[] = [
 
 function TechCard({ tech }: { tech: Tech }) {
   return (
-    <article className="flex-shrink-0 w-[240px] sm:w-[260px] md:w-[300px] rounded-2xl border border-white/[0.06] bg-white/[0.05] backdrop-blur-xl px-4 py-4 md:px-5 md:py-5 text-left shadow-[0_0_40px_rgba(0,0,0,0.6)] hover:border-red-500/70 hover:bg-white/[0.08] transition-all duration-300">
+    <article className="flex-shrink-0 w-[240px] sm:w-[260px] md:w-[300px] rounded-2xl border border-white/[0.06] bg-white/[0.05] backdrop-blur-xl px-4 py-4 md:px-5 md:py-5 text-left shadow-[0_0_40px_rgba(0,0,0,0.6)] hover:border-[#F97316]/50 hover:bg-white/[0.08] transition-all duration-300">
       <div className="flex items-center gap-3 mb-3">
         <div className="relative h-8 w-8 md:h-9 md:w-9 rounded-full bg-black flex items-center justify-center">
           <Image
@@ -141,7 +141,7 @@ function TechCard({ tech }: { tech: Tech }) {
           />
         </div>
         <div className="min-w-0">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-red-400">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-[#F97316]/70">
             {tech.category}
           </p>
           <h3 className="text-sm md:text-base font-semibold text-white truncate">{tech.name}</h3>
@@ -162,7 +162,7 @@ export default function TechStackMarquee() {
   const bottomRowItems = marqueeItems.slice(Math.ceil(marqueeItems.length / 2));
 
   return (
-    <section id="stack" className="relative w-full bg-[#050505] py-20 overflow-hidden">
+    <section id="stack" data-section="tech-stack" className="relative w-full bg-[#050505] py-20 overflow-hidden">
       <div className="mx-auto max-w-6xl text-center mb-10 px-4">
         <h2 className="text-3xl md:text-4xl font-semibold text-white">
           Architecture, powered by a battle-tested stack.

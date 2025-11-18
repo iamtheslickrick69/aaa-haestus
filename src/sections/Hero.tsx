@@ -13,13 +13,6 @@ const dynamicTexts = [
   'transform ideas into reality',
 ];
 
-const stats = [
-  { number: '3', label: 'Projects per month' },
-  { number: '48hr', label: 'To first prototype' },
-  { number: '99.9%', label: 'Uptime guarantee' },
-  { number: '10x', label: 'Faster deployment' },
-];
-
 export default function Hero() {
   const [showFoundersModal, setShowFoundersModal] = useState(false);
   const [showNameModal, setShowNameModal] = useState(false);
@@ -51,7 +44,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="text-[#DC2626] text-sm font-semibold tracking-[2px] uppercase">
+          <span className="text-[#F97316] text-xs font-medium tracking-[4px] uppercase opacity-90">
             The AI Revolution Needs Architects
           </span>
         </motion.div>
@@ -64,9 +57,9 @@ export default function Hero() {
           className="mt-5 mb-8"
         >
           <span
-            className="block text-[clamp(3rem,7vw,6rem)] font-black leading-[1] tracking-tight"
+            className="block text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.95] tracking-[-0.03em]"
             style={{
-              background: 'linear-gradient(180deg, #FFFFFF 0%, #808080 100%)',
+              background: 'linear-gradient(180deg, #FAFAFA 0%, #737373 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -81,7 +74,13 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="block text-[clamp(2.5rem,6vw,5rem)] font-black text-[#DC2626] leading-[1.1] mt-2"
+              className="block text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1] mt-3"
+              style={{
+                background: 'linear-gradient(135deg, #F97316 0%, #FB923C 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
             >
               {dynamicTexts[textIndex]}
             </motion.span>
@@ -93,7 +92,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl text-[#A1A1AA] max-w-[700px] mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-[#A3A3A3] max-w-[600px] mx-auto mb-12 leading-relaxed font-light"
         >
           Full-stack AI development with enterprise standards. We take three projects per month
           because excellence doesn't scale linearly.
@@ -104,68 +103,52 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex gap-5 justify-center flex-wrap mb-6"
+          className="flex gap-4 justify-center flex-wrap mb-8"
         >
           <motion.button
-            whileHover={{ y: -2, boxShadow: '0 20px 40px rgba(220, 38, 38, 0.3)' }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-[#DC2626] text-white rounded-xl text-[17px] font-semibold transition-all duration-300"
+            whileHover={{
+              y: -2,
+              boxShadow: '0 20px 40px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.1)',
+              borderColor: 'rgba(249, 115, 22, 0.6)'
+            }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3.5 bg-transparent text-[#F97316] rounded-lg text-sm font-medium transition-all duration-300 border border-[#F97316]/40 hover:bg-[#F97316]/5"
           >
             Start Building →
           </motion.button>
 
           <motion.button
-            whileHover={{ y: -2, borderColor: 'rgba(220, 38, 38, 0.5)' }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-transparent text-white rounded-xl text-[17px] font-semibold border-2 border-white/20 transition-all duration-300"
+            whileHover={{
+              y: -2,
+              borderColor: 'rgba(163, 163, 163, 0.4)',
+              backgroundColor: 'rgba(255, 255, 255, 0.03)'
+            }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3.5 bg-transparent text-[#D4D4D4] rounded-lg text-sm font-medium border border-white/10 transition-all duration-300"
           >
             View Our Work
           </motion.button>
         </motion.div>
 
         {/* Secondary Buttons */}
-        <div className="flex gap-4 justify-center mb-16">
+        <div className="flex gap-3 justify-center">
           <motion.button
             onClick={() => setShowFoundersModal(true)}
-            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.4)' }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white transition-all duration-300 text-sm tracking-wide"
+            whileHover={{ scale: 1.02, borderColor: 'rgba(251, 146, 60, 0.3)', color: '#FB923C' }}
+            whileTap={{ scale: 0.98 }}
+            className="px-5 py-2 border border-white/10 rounded-full text-[#737373] hover:text-[#FB923C] transition-all duration-300 text-xs tracking-wider"
           >
             Founder's Message
           </motion.button>
           <motion.button
             onClick={() => setShowNameModal(true)}
-            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.4)' }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white transition-all duration-300 text-sm tracking-wide"
+            whileHover={{ scale: 1.02, borderColor: 'rgba(251, 146, 60, 0.3)', color: '#FB923C' }}
+            whileTap={{ scale: 0.98 }}
+            className="px-5 py-2 border border-white/10 rounded-full text-[#737373] hover:text-[#FB923C] transition-all duration-300 text-xs tracking-wider"
           >
             Our Name
           </motion.button>
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-10 pt-10 border-t border-white/10"
-        >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
-            >
-              <div className="text-4xl md:text-5xl font-extrabold text-[#DC2626] mb-2">
-                {stat.number}
-              </div>
-              <div className="text-xs md:text-sm text-[#71717A] uppercase tracking-[1px]">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Modals */}

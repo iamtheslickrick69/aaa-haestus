@@ -85,7 +85,7 @@ export default function TrilogySlider() {
                   text-sm font-mono transition-all duration-500
                   ${
                     index === currentIndex
-                      ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
+                      ? 'bg-[#F97316] text-black shadow-lg shadow-[#F97316]/30'
                       : 'bg-white/[0.03] text-white/40 border border-white/[0.08]'
                   }
                 `}
@@ -95,7 +95,7 @@ export default function TrilogySlider() {
               {index === currentIndex && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-red-600 rounded-full"
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#F97316] rounded-full"
                 />
               )}
             </motion.button>

@@ -68,14 +68,14 @@ function Animated3DGrid() {
           // Shadow for depth (only for elevated cells)
           if (height > 0.5) {
             const shadowOpacity = (height - 0.5) * 0.12;
-            ctx.fillStyle = `rgba(220, 38, 38, ${shadowOpacity})`;
+            ctx.fillStyle = `rgba(249, 115, 22, ${shadowOpacity})`;
             ctx.beginPath();
             ctx.roundRect(cellX + 1, cellY + 1, cellSize, cellSize, 2);
             ctx.fill();
           }
 
           // Main cell
-          ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
+          ctx.strokeStyle = `rgba(249, 115, 22, ${opacity})`;
           ctx.lineWidth = 0.5 + height * 0.3;
           ctx.beginPath();
           ctx.roundRect(cellX, cellY, cellSize, cellSize, 2);
@@ -84,7 +84,7 @@ function Animated3DGrid() {
           // Subtle fill for elevated cells
           if (height > 0.6) {
             const fillOpacity = (height - 0.6) * 0.04;
-            ctx.fillStyle = `rgba(220, 38, 38, ${fillOpacity})`;
+            ctx.fillStyle = `rgba(249, 115, 22, ${fillOpacity})`;
             ctx.fill();
           }
         }
@@ -176,12 +176,12 @@ export default function AnimatedMazeSection() {
 
               {/* Icon/Label */}
               <div className="mb-6">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#DC2626]/[0.08] mb-4">
-                  <span className="text-[10px] font-black tracking-[1px] text-[#DC2626]">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#F97316]/[0.08] mb-4">
+                  <span className="text-[10px] font-black tracking-[1px] text-[#F97316]">
                     {item.label.slice(0, 2)}
                   </span>
                 </span>
-                <span className="block text-[11px] font-bold tracking-[2px] text-[#DC2626]/80 uppercase">
+                <span className="block text-[11px] font-bold tracking-[2px] text-[#F97316]/80 uppercase">
                   {item.label}
                 </span>
               </div>
@@ -198,7 +198,7 @@ export default function AnimatedMazeSection() {
 
               {/* Bottom Accent Line */}
               <div className="mt-6 pt-4 border-t border-neutral-100">
-                <div className="w-8 h-0.5 bg-[#DC2626]/30 group-hover:w-12 group-hover:bg-[#DC2626]/60 transition-all duration-300" />
+                <div className="w-8 h-0.5 bg-[#F97316]/30 group-hover:w-12 group-hover:bg-[#F97316]/60 transition-all duration-300" />
               </div>
             </motion.div>
           ))}

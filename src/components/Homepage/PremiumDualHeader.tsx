@@ -12,7 +12,7 @@ function OrbitingDots() {
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1.5 h-1.5 bg-red-600 rounded-full"
+          className="absolute w-1.5 h-1.5 bg-[#F97316] rounded-full"
           style={{
             top: '50%',
             left: '50%',
@@ -28,7 +28,7 @@ function OrbitingDots() {
           }}
         >
           <motion.div
-            className="absolute w-1.5 h-1.5 bg-red-600 rounded-full shadow-lg shadow-red-600/50"
+            className="absolute w-1.5 h-1.5 bg-[#F97316] rounded-full shadow-lg shadow-[#F97316]/50"
             style={{
               transform: `translateX(${150 + i * 30}px) translateY(-50%)`,
             }}
@@ -68,7 +68,7 @@ export default function PremiumDualHeader() {
         className="fixed top-4 right-6 z-50 text-xs text-white/50 font-mono"
         style={{ opacity: microHeaderOpacity }}
       >
-        <span className="text-red-600">●</span> St. George, Utah
+        <span className="text-[#F97316]">●</span> St. George, Utah
       </motion.div>
 
       {/* Main floating nav */}
@@ -128,12 +128,12 @@ export default function PremiumDualHeader() {
 
           {/* CTA Button */}
           <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.9)' }}
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(249, 115, 22, 0.15)', borderColor: 'rgba(249, 115, 22, 0.6)' }}
             whileTap={{ scale: 0.95 }}
             className="
               relative z-10 px-5 py-2 rounded-full
-              bg-red-600 text-white text-sm font-medium
-              shadow-lg shadow-red-600/25
+              bg-[#F97316] text-black text-sm font-medium
+              shadow-lg shadow-[#F97316]/25
               transition-all duration-300
             "
           >
@@ -141,7 +141,7 @@ export default function PremiumDualHeader() {
           </motion.button>
 
           {/* Glow effect on hover */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600/5 via-transparent to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#F97316]/5 via-transparent to-[#F97316]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </motion.nav>
       </motion.header>
     </>

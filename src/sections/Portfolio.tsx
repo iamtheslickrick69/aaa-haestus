@@ -43,7 +43,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-[#DC2626]">
+    <section className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#0A0A0A] to-[#171717]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

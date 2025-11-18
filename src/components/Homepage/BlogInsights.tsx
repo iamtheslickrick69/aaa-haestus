@@ -94,8 +94,8 @@ export default function BlogInsights() {
         }}
       />
 
-      {/* Main white blog section */}
-      <div className="relative bg-white w-full py-[120px]">
+      {/* Main blog section */}
+      <div className="relative bg-[#0A0A0A] w-full py-[120px]">
         {/* Subtle grid pattern overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -104,25 +104,26 @@ export default function BlogInsights() {
               repeating-linear-gradient(0deg,
                 transparent,
                 transparent 39px,
-                rgba(220, 38, 38, 0.02) 39px,
-                rgba(220, 38, 38, 0.02) 40px
+                rgba(249, 115, 22, 0.01) 39px,
+                rgba(249, 115, 22, 0.01) 40px
               ),
               repeating-linear-gradient(90deg,
                 transparent,
                 transparent 39px,
-                rgba(220, 38, 38, 0.02) 39px,
-                rgba(220, 38, 38, 0.02) 40px
+                rgba(249, 115, 22, 0.01) 39px,
+                rgba(249, 115, 22, 0.01) 40px
               )
             `,
           }}
         />
 
-        {/* Red accent lines at carved edges */}
+        {/* Cyan accent lines at edges */}
         <div
-          className="absolute top-[10px] left-[47%] w-[6%] h-[2px]"
+          className="absolute top-[10px] left-[47%] w-[6%] h-[1px]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #DC2626, transparent)',
-            boxShadow: '0 0 20px rgba(220, 38, 38, 0.4)',
+            background: 'linear-gradient(90deg, transparent, #F97316, transparent)',
+            boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)',
+            opacity: 0.4,
           }}
         />
 
@@ -135,17 +136,17 @@ export default function BlogInsights() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <span className="block text-[12px] font-bold tracking-[3px] text-[#DC2626] uppercase mb-5">
+            <span className="block text-[11px] font-medium tracking-[4px] text-[#F97316] uppercase mb-6 opacity-90">
               INSIGHTS FROM THE FORGE
             </span>
 
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black text-[#0A0A0B] leading-[1.1] tracking-tight mb-5">
+            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-medium text-[#FAFAFA] leading-[1.05] tracking-tight mb-6">
               Thoughts on AI architecture,
               <br />
               strategy, and transformation.
             </h2>
 
-            <p className="text-[18px] text-[#52525B] max-w-[600px] mx-auto leading-relaxed">
+            <p className="text-[17px] text-[#A3A3A3] max-w-[600px] mx-auto leading-relaxed font-light">
               Deep dives into building AI systems that last. No hype, no fluff — just hard-won
               insights from the frontlines of enterprise AI.
             </p>
@@ -159,43 +160,43 @@ export default function BlogInsights() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white border border-black/[0.06] rounded-2xl p-8 cursor-pointer relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-[#DC2626]/20"
+                className="bg-gradient-to-br from-[#171717]/70 to-[#262626]/50 backdrop-blur-sm border border-white/[0.05] rounded-xl p-7 cursor-pointer relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:border-[#F97316]/30"
               >
                 {/* Top metadata */}
-                <div className="flex items-center gap-3 mb-4 text-[11px] font-semibold text-[#71717A] tracking-[1px]">
+                <div className="flex items-center gap-3 mb-4 text-[10px] font-medium text-[#737373] tracking-[1px]">
                   <span>{post.readTime}</span>
-                  <span className="text-[#DC2626]">•</span>
+                  <span className="text-[#F97316]">•</span>
                   <span>{post.date}</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[22px] font-bold text-[#0A0A0B] mb-3 leading-[1.3] tracking-tight">
+                <h3 className="text-[20px] font-medium text-[#FAFAFA] mb-3 leading-[1.3] tracking-tight">
                   {post.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-[15px] text-[#52525B] leading-relaxed mb-5">{post.excerpt}</p>
+                <p className="text-[14px] text-[#A3A3A3] leading-relaxed mb-5 font-light">{post.excerpt}</p>
 
                 {/* Bottom metadata */}
-                <div className="flex items-center justify-between pt-4 border-t border-black/5">
+                <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
                   <div className="flex items-center gap-2">
-                    <span className="text-[12px] px-3 py-1 bg-[#DC2626]/[0.08] text-[#DC2626] rounded-[20px] font-semibold">
+                    <span className="text-[11px] px-3 py-1 bg-[#F97316]/[0.15] text-[#F97316] rounded-full font-medium">
                       {post.category}
                     </span>
                     {post.tags.map((tag) => (
-                      <span key={tag} className="text-[11px] text-[#71717A] font-medium">
+                      <span key={tag} className="text-[10px] text-[#737373] font-medium">
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className="text-[#DC2626] text-[14px] font-semibold flex items-center gap-1">
+                  <span className="text-[#FB923C] text-[13px] font-medium flex items-center gap-1">
                     Read Article →
                   </span>
                 </div>
 
                 {/* Hover accent line */}
-                <div className="absolute top-0 left-0 w-[3px] h-0 bg-[#DC2626] transition-all duration-300 group-hover:h-full" />
+                <div className="absolute top-0 left-0 w-[2px] h-0 bg-gradient-to-b from-[#F97316] to-[#FB923C] transition-all duration-300 group-hover:h-full" />
               </motion.article>
             ))}
           </div>
@@ -207,18 +208,19 @@ export default function BlogInsights() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <button className="bg-[#0A0A0B] text-white px-10 py-4 rounded-xl border-none text-[15px] font-bold cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#DC2626] hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)]">
+            <button className="bg-transparent text-[#F97316] px-9 py-3 rounded-lg border border-[#F97316]/40 text-[14px] font-medium cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#F97316]/5 hover:border-[#F97316]/60 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.2)]">
               VIEW ALL INSIGHTS →
             </button>
           </motion.div>
         </div>
 
-        {/* Bottom red accent line */}
+        {/* Bottom cyan accent line */}
         <div
-          className="absolute bottom-[10px] left-[47%] w-[6%] h-[2px]"
+          className="absolute bottom-[10px] left-[47%] w-[6%] h-[1px]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #DC2626, transparent)',
-            boxShadow: '0 0 20px rgba(220, 38, 38, 0.4)',
+            background: 'linear-gradient(90deg, transparent, #F97316, transparent)',
+            boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)',
+            opacity: 0.4,
           }}
         />
       </div>

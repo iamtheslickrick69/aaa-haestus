@@ -136,7 +136,7 @@ function InsightCard({ article }: { article: InsightArticle }) {
       <motion.a
         href={article.href}
         whileHover={{ x: 2 }}
-        className="mt-4 inline-flex items-center text-sm font-semibold text-[#DC2626] hover:underline"
+        className="mt-4 inline-flex items-center text-sm font-semibold text-[#F97316] hover:underline"
       >
         Read Article
         <span className="ml-1 text-[13px]">→</span>

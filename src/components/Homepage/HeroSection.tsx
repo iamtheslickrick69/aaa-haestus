@@ -37,7 +37,7 @@ function MagneticButton({
 
   const baseStyles =
     variant === 'filled'
-      ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/50'
+      ? 'bg-[#F97316] text-black shadow-lg shadow-[#F97316]/30 hover:shadow-[#F97316]/50'
       : 'bg-transparent text-white border border-white/20 hover:border-white/40';
 
   return (
@@ -111,7 +111,7 @@ export default function HeroSection() {
         {/* Eyebrow */}
         <motion.div variants={itemVariants} className="mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs text-white/60 font-mono tracking-wider uppercase">
-            <span className="w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse" />
+            <span className="w-1.5 h-1.5 bg-[#F97316] rounded-full animate-pulse" />
             Crafting Digital Intelligence
           </span>
         </motion.div>
@@ -121,7 +121,7 @@ export default function HeroSection() {
           <FloatingText>
             <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-6">
               haestus
-              <span className="text-red-600">.</span>
+              <span className="text-[#F97316]">.</span>
               dev
             </h1>
           </FloatingText>

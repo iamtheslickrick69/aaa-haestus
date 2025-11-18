@@ -138,7 +138,7 @@ export default function IndustryData() {
           font-size: 0.8rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #dc2626;
+          color: #F97316;
           margin-bottom: 0.75rem;
         }
 

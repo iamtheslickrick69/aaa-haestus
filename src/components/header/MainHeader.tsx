@@ -64,12 +64,12 @@ function OrbitingDots() {
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-visible">
       <div
-        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
+        className="orbit-dot absolute w-1 h-1 bg-[#F97316] rounded-full"
+        style={{ boxShadow: '0 0 12px rgba(249,115,22,0.5)' }}
       />
       <div
-        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
+        className="orbit-dot absolute w-1 h-1 bg-[#FB923C] rounded-full"
+        style={{ boxShadow: '0 0 12px rgba(251,146,60,0.5)' }}
       />
     </div>
   );
@@ -91,17 +91,17 @@ export default function MainHeader() {
       >
         <motion.nav
           animate={{
-            scale: isScrolled ? 0.92 : 1,
-            opacity: isScrolled ? 0.85 : 1,
+            scale: isScrolled ? 0.95 : 1,
+            opacity: isScrolled ? 0.9 : 1,
           }}
           transition={{ duration: 0.3 }}
-          className="relative flex items-center h-[58px] px-8 rounded-full"
+          className="relative flex items-center h-[54px] px-7 rounded-full"
           style={{
-            background: 'rgba(15, 15, 17, 0.7)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backdropFilter: 'blur(22px)',
-            WebkitBackdropFilter: 'blur(22px)',
-            boxShadow: '0 0 40px rgba(220,38,38,0.22), inset 0 0 18px rgba(220,38,38,0.05)',
+            background: 'rgba(23, 23, 23, 0.6)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
           }}
         >
           <OrbitingDots />
@@ -134,20 +134,12 @@ export default function MainHeader() {
           {/* CTA Button */}
           <motion.button
             whileHover={{
-              scale: 1.06,
-              boxShadow: '0 0 30px rgba(220,38,38,0.5)',
+              scale: 1.03,
+              boxShadow: '0 8px 24px rgba(249,115,22,0.3)',
+              borderColor: 'rgba(249,115,22,0.6)'
             }}
-            whileTap={{ scale: 0.95 }}
-            className="relative z-10 px-[26px] py-[10px] rounded-[50px] text-white font-semibold text-[15px] transition-all duration-200"
-            style={{
-              background: 'rgba(220,38,38,0.85)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#DC2626';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(220,38,38,0.85)';
-            }}
+            whileTap={{ scale: 0.98 }}
+            className="relative z-10 px-6 py-2 rounded-lg text-[#F97316] font-medium text-sm transition-all duration-200 border border-[#F97316]/40 hover:bg-[#F97316]/5"
           >
             Connect
           </motion.button>
@@ -207,7 +199,7 @@ export default function MainHeader() {
                 <p className="text-2xl text-white font-medium">{link.label}</p>
               </Link>
             ))}
-            <button className="mt-8 px-8 py-4 bg-[#DC2626] text-white font-semibold rounded-full">
+            <button className="mt-8 px-8 py-4 bg-transparent text-[#F97316] border border-[#F97316]/40 font-medium rounded-lg hover:bg-[#F97316]/5">
               Connect
             </button>
           </div>

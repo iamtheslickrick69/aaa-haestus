@@ -33,8 +33,8 @@ export default function OurNameSection() {
           transition: 'all 0.3s ease',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(220, 38, 38, 0.5)';
-          e.currentTarget.style.boxShadow = '0 0 30px rgba(220, 38, 38, 0.2)';
+          e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.5)';
+          e.currentTarget.style.boxShadow = '0 0 30px rgba(249, 115, 22, 0.2)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';

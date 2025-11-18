@@ -164,20 +164,20 @@ const TECH_STACK: TechStackItem[] = [
 function TechStackCard({ item }: { item: TechStackItem }) {
   return (
     <motion.div
-      className="flex-shrink-0 w-[260px] md:w-[280px] h-[120px] bg-[rgba(15,18,25,0.9)] border border-white/5 rounded-2xl px-4 py-4 flex items-center gap-4 cursor-pointer"
+      className="flex-shrink-0 w-[260px] md:w-[280px] h-[120px] bg-gradient-to-br from-[#171717]/80 to-[#262626]/60 border border-white/5 rounded-xl px-4 py-4 flex items-center gap-4 cursor-pointer backdrop-blur-sm"
       style={{
-        boxShadow: '0 18px 45px rgba(0,0,0,0.6)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
       }}
       whileHover={{
-        y: -4,
+        y: -3,
         scale: 1.01,
-        borderColor: 'rgba(220, 38, 38, 0.7)',
-        boxShadow: '0 18px 45px rgba(0,0,0,0.6), 0 0 24px rgba(220,38,38,0.45)',
+        borderColor: 'rgba(249, 115, 22, 0.4)',
+        boxShadow: '0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(249, 115, 22, 0.2)',
       }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {/* Logo Badge */}
-      <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-red-700 flex-shrink-0">
+      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-[#262626] to-[#171717] border border-white/10 flex-shrink-0">
         <div className="relative w-5 h-5">
           <Image
             src={`/logos/TechStack/${item.logo}.svg`}
@@ -190,13 +190,13 @@ function TechStackCard({ item }: { item: TechStackItem }) {
 
       {/* Text Content */}
       <div className="flex-1 min-w-0">
-        <h4 className="text-[13px] md:text-[14px] font-semibold text-slate-50 truncate">
+        <h4 className="text-[13px] md:text-[14px] font-medium text-[#FAFAFA] truncate">
           {item.name}
         </h4>
-        <span className="text-[11px] uppercase tracking-[0.14em] text-red-400/80">
+        <span className="text-[10px] uppercase tracking-[0.12em] text-[#F97316]/70 font-medium">
           {item.category}
         </span>
-        <p className="mt-1 text-[11px] md:text-[12px] leading-snug text-slate-400 line-clamp-2">
+        <p className="mt-1 text-[11px] md:text-[12px] leading-snug text-[#A3A3A3] line-clamp-2">
           {item.description}
         </p>
       </div>
@@ -253,7 +253,7 @@ export default function ArchitectureStackBanner() {
   return (
     <section
       id="architecture-stack"
-      className="py-20 md:py-24 bg-gradient-to-b from-[#02040A] via-[#050814] to-[#02040A]"
+      className="py-20 md:py-24 bg-gradient-to-b from-[#0A0A0A] via-[#0D0D0D] to-[#0A0A0A]"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -262,12 +262,12 @@ export default function ArchitectureStackBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[#FAFAFA]">
             Architecture, powered by a battle-tested stack.
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-sm md:text-base text-slate-400">
+          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-[#A3A3A3] font-light">
             We combine enterprise infrastructure with modern AI tooling so your systems scale under
             real-world pressure.
           </p>
@@ -292,7 +292,7 @@ export default function ArchitectureStackBanner() {
           </div>
 
           {/* Ambient Glow Line */}
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-red-400/40 to-transparent blur-[1px] opacity-60 z-0" />
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-[#F97316]/20 to-transparent blur-[1px] opacity-40 z-0" />
 
           {/* Scan Effect */}
           <motion.div
@@ -305,7 +305,7 @@ export default function ArchitectureStackBanner() {
               ease: 'linear',
             }}
           >
-            <div className="w-[30%] h-full bg-gradient-to-r from-transparent via-red-500/5 to-transparent" />
+            <div className="w-[30%] h-full bg-gradient-to-r from-transparent via-[#F97316]/5 to-transparent" />
           </motion.div>
 
           {/* Marquee Rows */}
