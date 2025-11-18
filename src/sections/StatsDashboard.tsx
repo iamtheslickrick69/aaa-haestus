@@ -18,8 +18,7 @@ const stats: Stat[] = [
   {
     id: 'stat1',
     number: '3',
-    title: 'companies control 90%+',
-    description: 'of AI cloud infrastructure',
+    description: 'control 90%+ of AI infrastructure',
   },
   {
     id: 'stat2',
@@ -103,68 +102,75 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
         duration: 0.5,
-        delay: index * 0.1,
         ease: [0.4, 0, 0.2, 1],
       }}
       whileHover={{
-        y: -4,
-        borderColor: 'rgba(255, 255, 255, 0.1)',
+        y: -6,
+        borderColor: 'rgba(255, 255, 255, 0.12)',
+        background: 'rgba(30, 41, 59, 0.4)',
+        boxShadow: stat.isFeatured
+          ? '0 0 20px rgba(255, 107, 53, 0.2), 0 8px 24px rgba(0, 0, 0, 0.3)'
+          : '0 8px 24px rgba(0, 0, 0, 0.3)',
       }}
       style={{
-        width: '100%',
-        padding: '20px 24px',
+        flex: '1',
+        minWidth: '180px',
+        maxWidth: '200px',
+        padding: '24px 20px',
         background: 'rgba(30, 41, 59, 0.3)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         border: '1px solid rgba(255, 255, 255, 0.06)',
-        borderLeft: stat.isFeatured ? '2px solid #ff6b35' : '1px solid rgba(255, 255, 255, 0.06)',
+        borderTop: stat.isFeatured ? '3px solid #ff6b35' : '1px solid rgba(255, 255, 255, 0.06)',
         borderRadius: '16px',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        transition: 'all 0.3s ease',
-        gap: '24px',
+        textAlign: 'center',
+        transition: 'all 0.2s ease',
       }}
     >
-      {/* Left: Number */}
+      {/* Top: Number */}
       <div
         className="font-bold"
         style={{
-          fontSize: '48px',
+          fontSize: '52px',
           color: '#ffffff',
           lineHeight: 1,
           letterSpacing: '-0.02em',
-          flexShrink: 0,
+          marginBottom: '12px',
         }}
       >
         <CountUpNumber value={stat.number} />
       </div>
 
-      {/* Right: Description */}
-      <div style={{ textAlign: 'right', maxWidth: '240px' }}>
-        {stat.subtitle && (
-          <div
-            className="font-bold mb-1"
-            style={{
-              fontSize: '11px',
-              color: '#ff6b35',
-              letterSpacing: '0.1em',
-            }}
-          >
-            {stat.subtitle}
-          </div>
-        )}
-        <p
+      {/* Middle: Subtitle (TRILLION for featured) */}
+      {stat.subtitle && (
+        <div
+          className="font-bold"
           style={{
-            fontSize: '13px',
-            color: '#94a3b8',
-            lineHeight: 1.4,
-            fontWeight: 400,
+            fontSize: '11px',
+            color: '#ff6b35',
+            letterSpacing: '0.1em',
+            marginBottom: '8px',
           }}
         >
-          {stat.title ? `${stat.title} ${stat.description}` : stat.description}
-        </p>
-      </div>
+          {stat.subtitle}
+        </div>
+      )}
+
+      {/* Bottom: Description */}
+      <p
+        style={{
+          fontSize: '12px',
+          color: '#94a3b8',
+          lineHeight: 1.4,
+          fontWeight: 400,
+          maxWidth: '160px',
+        }}
+      >
+        {stat.description}
+      </p>
     </motion.div>
   );
 }
@@ -175,14 +181,15 @@ export default function StatsDashboard() {
       className="relative w-full"
       style={{
         background: 'transparent',
-        paddingTop: '80px',
-        paddingBottom: '80px',
+        paddingTop: '60px',
+        paddingBottom: '60px',
       }}
     >
       <div
-        className="mx-auto px-6"
+        className="mx-auto"
         style={{
-          maxWidth: '500px',
+          maxWidth: '1400px',
+          padding: '0 32px',
         }}
       >
         {/* Section Header */}
@@ -191,7 +198,8 @@ export default function StatsDashboard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center"
+          style={{ marginBottom: '40px' }}
         >
           <h2
             className="font-semibold tracking-tight"
@@ -209,20 +217,22 @@ export default function StatsDashboard() {
             style={{
               fontSize: '14px',
               color: '#94a3b8',
-              maxWidth: '400px',
-              marginBottom: '32px',
             }}
           >
             Four numbers that explain why most AI projects stall, and why architecture decides who actually wins.
           </p>
         </motion.div>
 
-        {/* Vertical Hot Dog Stack */}
+        {/* Horizontal Banner */}
         <div
+          className="stats-banner"
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
+            flexDirection: 'row',
+            gap: '16px',
+            alignItems: 'stretch',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
           }}
         >
           {stats.map((stat, idx) => (
