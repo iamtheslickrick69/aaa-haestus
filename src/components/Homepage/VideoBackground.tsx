@@ -17,6 +17,9 @@ export default function VideoBackground() {
     const video = videoRef.current;
     if (!video) return;
 
+    // Set playback rate to 0.9 (10% slower)
+    video.playbackRate = 0.9;
+
     const handleCanPlay = () => {
       setIsLoaded(true);
       video.play().catch((error) => {
@@ -38,6 +41,7 @@ export default function VideoBackground() {
         <video
           ref={videoRef}
           className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ transform: 'scale(0.8)' }}
           autoPlay
           muted
           loop

@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function PremiumHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -98,8 +100,22 @@ export default function PremiumHeader() {
             transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
-          {/* Logo placeholder - will be replaced */}
-          <div style={{ marginRight: '16px', height: '48px' }} />
+          {/* Logo - Left Side */}
+          <Link href="/" className="flex items-center" style={{ marginRight: '24px', padding: '0 16px' }}>
+            <Image
+              src="/official_trans_white.png"
+              alt="Haestus"
+              width={112}
+              height={56}
+              className="object-contain"
+              style={{
+                height: '56px',
+                width: 'auto',
+                display: 'block',
+              }}
+              priority
+            />
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center" style={{ gap: '48px' }}>

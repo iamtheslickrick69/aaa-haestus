@@ -4,11 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-24">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-16 pb-24">
       <div className="text-center max-w-5xl mx-auto relative z-10">
-        {/* Logo placeholder - will be replaced */}
-        <div className="mb-16" style={{ height: '250px' }} />
-
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -19,36 +16,36 @@ export default function Hero() {
           Crafting Digital Intelligence
         </motion.h1>
 
-        {/* Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.8)' }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 border border-white/50 text-white text-sm font-medium rounded-lg mb-12 transition-all duration-300 hover:bg-white/5"
-        >
-          Our Message
-        </motion.button>
-
-        {/* Subtitle */}
-        <motion.p
+        {/* Button and Italic Text - Same Line */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-white text-[clamp(1.5rem,4vw,2rem)] italic font-light mb-6 leading-relaxed"
+          className="flex flex-col md:flex-row items-center justify-center gap-6 mb-6"
         >
-          "AI isn't coming, it's here."
-        </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.8)' }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 border border-white/50 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5"
+          >
+            Our Message &gt;
+          </motion.button>
 
-        {/* Tagline */}
+          <span className="hidden md:block text-slate-400 text-xl">|</span>
+
+          <p className="text-white text-[clamp(1.5rem,4vw,2rem)] italic font-light leading-relaxed">
+            "AI isn't coming, it's here."
+          </p>
+        </motion.div>
+
+        {/* New Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-white/80 text-[clamp(1rem,2vw,1.25rem)] mb-12 leading-relaxed max-w-3xl mx-auto"
+          className="text-white/80 text-[clamp(1rem,2vw,1.25rem)] mb-8 leading-relaxed max-w-3xl mx-auto"
         >
-          We build the systems that defend humanity while amplifying human potential.
+          Not just developers, but <em>architects</em>. The new era of creators has just begun.
         </motion.p>
 
         {/* Two CTAs */}
