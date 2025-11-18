@@ -12,6 +12,7 @@ import Portfolio from '@/sections/Portfolio';
 import BlogInsights from '@/components/Homepage/BlogInsights';
 import Connect from '@/sections/Connect';
 import VideoBackground from '@/components/Homepage/VideoBackground';
+import ChatOrb from '@/components/ChatOrb';
 
 export default function Home() {
   // Handle hash navigation on page load
@@ -233,6 +234,9 @@ export default function Home() {
           <Connect />
         </div>
       </main>
+
+      {/* AI Chatbot Orb */}
+      <ChatOrb />
     </>
   );
 }
