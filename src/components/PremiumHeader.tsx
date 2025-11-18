@@ -28,102 +28,109 @@ export default function PremiumHeader() {
 
   return (
     <>
-      {/* GROUP 2: Top Right Buttons (Scroll-Hidden) */}
+      {/* GROUP 2: Top Right Buttons (Aligned with Header) */}
       <motion.div
-        className="fixed right-10 z-[999] hidden md:flex gap-4"
+        className="fixed right-10 z-[999] hidden md:flex gap-3"
         style={{
-          top: '24px',
+          top: scrolled ? '18px' : '22px',
           opacity: scrolled ? 0 : 1,
           pointerEvents: scrolled ? 'none' : 'auto',
           transform: scrolled ? 'translateY(-12px)' : 'translateY(0)',
-          transition: 'opacity 0.4s ease, transform 0.4s ease',
+          transition: 'all 0.3s ease',
         }}
       >
         <button
-          className="px-7 py-3 rounded-xl text-[15px] font-semibold transition-all duration-300"
+          className="px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200"
           style={{
             background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
             color: '#1e293b',
             border: '1px solid rgba(255, 255, 255, 0.25)',
-            boxShadow: '0 4px 24px rgba(255, 255, 255, 0.18)',
+            boxShadow: '0 2px 12px rgba(255, 255, 255, 0.15)',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.28)';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 255, 255, 0.25)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 24px rgba(255, 255, 255, 0.18)';
+            e.currentTarget.style.boxShadow = '0 2px 12px rgba(255, 255, 255, 0.15)';
           }}
         >
           Partners
         </button>
         <button
-          className="px-7 py-3 rounded-xl text-[15px] font-semibold transition-all duration-300"
+          className="px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200"
           style={{
             background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
             color: '#1e293b',
             border: '1px solid rgba(255, 255, 255, 0.25)',
-            boxShadow: '0 4px 24px rgba(255, 255, 255, 0.18)',
+            boxShadow: '0 2px 12px rgba(255, 255, 255, 0.15)',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.28)';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 255, 255, 0.25)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 24px rgba(255, 255, 255, 0.18)';
+            e.currentTarget.style.boxShadow = '0 2px 12px rgba(255, 255, 255, 0.15)';
           }}
         >
           Reps
         </button>
       </motion.div>
 
-      {/* GROUP 1: Center Glassmorphism Nav (Scroll-Responsive) */}
+      {/* GROUP 1: Compact Glassmorphism Nav (Scroll-Responsive) */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="fixed left-1/2 -translate-x-1/2 z-[1000]"
         style={{
-          top: scrolled ? '16px' : '24px',
-          transform: scrolled ? 'translateX(-50%) scale(0.83)' : 'translateX(-50%) scale(1)',
+          top: scrolled ? '18px' : '22px',
+          transform: scrolled ? 'translateX(-50%) scale(0.85)' : 'translateX(-50%) scale(1)',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
         <nav
-          className="flex items-center px-10 rounded-[18px] border"
+          className="flex items-center rounded-2xl border"
           style={{
-            gap: '48px',
-            paddingLeft: '20px',
-            paddingRight: '40px',
-            paddingTop: '14px',
-            paddingBottom: '14px',
+            gap: '36px',
+            paddingLeft: '16px',
+            paddingRight: '32px',
+            paddingTop: '10px',
+            paddingBottom: '10px',
             background: scrolled
-              ? 'rgba(255, 255, 255, 0.12)'
-              : 'rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            borderColor: 'rgba(255, 255, 255, 0.18)',
-            boxShadow: '0 0 60px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.2)',
+              ? 'rgba(255, 255, 255, 0.14)'
+              : 'rgba(255, 255, 255, 0.10)',
+            backdropFilter: 'blur(24px) saturate(200%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
+            borderColor: 'rgba(255, 255, 255, 0.20)',
+            boxShadow: '0 0 50px rgba(255, 255, 255, 0.18), 0 8px 32px rgba(0, 0, 0, 0.15)',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
-          {/* Logo - Left Side (Scroll to Top) */}
+          {/* Anvil Logo - Scroll to Top Button */}
           <button
             onClick={scrollToTop}
-            className="flex items-center transition-transform duration-200 hover:scale-105"
-            style={{ marginRight: '32px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            className="flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+            style={{
+              marginRight: '20px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '4px',
+            }}
+            aria-label="Scroll to top"
           >
             <Image
               src="/haestus-anvil-header.png"
               alt="Haestus"
-              width={50}
-              height={50}
+              width={46}
+              height={46}
               className="object-contain"
               style={{
-                height: '50px',
-                width: 'auto',
+                height: '46px',
+                width: '46px',
                 display: 'block',
               }}
               priority
@@ -131,23 +138,23 @@ export default function PremiumHeader() {
           </button>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center" style={{ gap: '48px' }}>
+          <div className="hidden md:flex items-center" style={{ gap: '36px' }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[16px] font-medium transition-all duration-300"
+                className="text-[15px] font-semibold transition-all duration-200"
                 style={{
-                  color: '#f1f5f9',
+                  color: '#e2e8f0',
                   letterSpacing: '0.3px',
                   textDecoration: 'none',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#ff6b35';
-                  e.currentTarget.style.textShadow = '0 0 12px rgba(255,107,53,0.4)';
+                  e.currentTarget.style.textShadow = '0 0 8px rgba(255,107,53,0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#f1f5f9';
+                  e.currentTarget.style.color = '#e2e8f0';
                   e.currentTarget.style.textShadow = 'none';
                 }}
               >
@@ -156,17 +163,17 @@ export default function PremiumHeader() {
             ))}
           </div>
 
-          {/* Connect Button - Outlined Style */}
+          {/* Connect Button - Compact Outlined Style */}
           <button
-            className="rounded-lg text-[16px] font-semibold flex items-center gap-2 transition-all duration-200"
+            className="rounded-lg text-[15px] font-semibold flex items-center gap-1.5 transition-all duration-200"
             style={{
-              padding: '10px 24px',
+              padding: '8px 20px',
               background: 'transparent',
               border: '2px solid #ff6b35',
               color: '#ff6b35',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 107, 53, 0.1)';
+              e.currentTarget.style.background = 'rgba(255, 107, 53, 0.12)';
               e.currentTarget.style.borderColor = '#ff8556';
               e.currentTarget.style.transform = 'translateY(-1px)';
             }}
