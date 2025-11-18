@@ -122,7 +122,7 @@ export default function PremiumHeader() {
                   right: '-6px',
                   width: '4px',
                   height: '4px',
-                  background: '#DC2626',
+                  background: '#FFD93D',
                   borderRadius: '50%',
                   boxShadow: '0 0 8px rgba(220, 38, 38, 0.8)',
                 }}
@@ -141,7 +141,7 @@ export default function PremiumHeader() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{
-              background: 'linear-gradient(135deg, #DC2626 0%, #EF4444 100%)',
+              background: 'linear-gradient(135deg, #FFD93D 0%, #FFF176 100%)',
               color: '#FFFFFF',
               padding: '14px 32px',
               borderRadius: '16px',
@@ -197,7 +197,7 @@ export default function PremiumHeader() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(220, 38, 38, 0.1)';
-                e.currentTarget.style.color = '#DC2626';
+                e.currentTarget.style.color = '#FFD93D';
                 e.currentTarget.style.borderColor = 'rgba(220, 38, 38, 0.3)';
               }}
               onMouseLeave={(e) => {
@@ -222,7 +222,7 @@ export default function PremiumHeader() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(220, 38, 38, 0.1)';
-                e.currentTarget.style.color = '#DC2626';
+                e.currentTarget.style.color = '#FFD93D';
                 e.currentTarget.style.borderColor = 'rgba(220, 38, 38, 0.3)';
               }}
               onMouseLeave={(e) => {

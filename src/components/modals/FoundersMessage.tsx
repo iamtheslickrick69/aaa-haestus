@@ -127,7 +127,7 @@ export default function FoundersMessage({ isOpen, onClose }: FoundersMessageProp
 
                 <p>That reality comes with two truths:</p>
 
-                <div className="pl-4 border-l-2 border-[#DC2626]/50 space-y-4">
+                <div className="pl-4 border-l-2 border-[#FFD93D]/50 space-y-4">
                   <div>
                     <p className="font-semibold text-white mb-2">The good:</p>
                     <p>

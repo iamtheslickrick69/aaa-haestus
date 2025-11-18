@@ -39,7 +39,7 @@ function MouseGlow() {
   return (
     <mesh ref={meshRef} position={[0, 0, -2]}>
       <sphereGeometry args={[0.8, 32, 32]} />
-      <meshBasicMaterial color="#DC2626" transparent opacity={0.15} />
+      <meshBasicMaterial color="#FFD93D" transparent opacity={0.15} />
     </mesh>
   );
 }

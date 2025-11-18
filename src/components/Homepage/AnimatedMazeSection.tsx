@@ -176,12 +176,12 @@ export default function AnimatedMazeSection() {
 
               {/* Icon/Label */}
               <div className="mb-6">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#DC2626]/[0.08] mb-4">
-                  <span className="text-[10px] font-black tracking-[1px] text-[#DC2626]">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#FFD93D]/[0.08] mb-4">
+                  <span className="text-[10px] font-black tracking-[1px] text-[#FFD93D]">
                     {item.label.slice(0, 2)}
                   </span>
                 </span>
-                <span className="block text-[11px] font-bold tracking-[2px] text-[#DC2626]/80 uppercase">
+                <span className="block text-[11px] font-bold tracking-[2px] text-[#FFD93D]/80 uppercase">
                   {item.label}
                 </span>
               </div>
@@ -198,7 +198,7 @@ export default function AnimatedMazeSection() {
 
               {/* Bottom Accent Line */}
               <div className="mt-6 pt-4 border-t border-neutral-100">
-                <div className="w-8 h-0.5 bg-[#DC2626]/30 group-hover:w-12 group-hover:bg-[#DC2626]/60 transition-all duration-300" />
+                <div className="w-8 h-0.5 bg-[#FFD93D]/30 group-hover:w-12 group-hover:bg-[#FFD93D]/60 transition-all duration-300" />
               </div>
             </motion.div>
           ))}

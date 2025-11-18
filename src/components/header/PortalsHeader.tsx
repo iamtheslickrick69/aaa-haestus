@@ -57,12 +57,12 @@ function PortalOrbitingDots() {
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-visible">
       <div
-        className="portal-orbit-dot absolute w-1.5 h-1.5 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 22px rgba(220,38,38,0.7)' }}
+        className="portal-orbit-dot absolute w-1.5 h-1.5 bg-[#FFD93D] rounded-full"
+        style={{ boxShadow: '0 0 22px rgba(255,217,61,0.7)' }}
       />
       <div
-        className="portal-orbit-dot absolute w-1.5 h-1.5 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 22px rgba(220,38,38,0.7)' }}
+        className="portal-orbit-dot absolute w-1.5 h-1.5 bg-[#FFD93D] rounded-full"
+        style={{ boxShadow: '0 0 22px rgba(255,217,61,0.7)' }}
       />
     </div>
   );
@@ -83,7 +83,7 @@ export default function PortalsHeader() {
           border: '1px solid rgba(255,255,255,0.08)',
           backdropFilter: 'blur(22px)',
           WebkitBackdropFilter: 'blur(22px)',
-          boxShadow: '0 0 30px rgba(220,38,38,0.15), inset 0 0 12px rgba(220,38,38,0.03)',
+          boxShadow: '0 0 30px rgba(255,217,61,0.15), inset 0 0 12px rgba(255,217,61,0.03)',
         }}
       >
         <PortalOrbitingDots />
@@ -104,8 +104,8 @@ export default function PortalsHeader() {
           <Link href="/portal/partners">
             <motion.button
               whileHover={{
-                background: 'rgba(220,38,38,0.2)',
-                borderColor: 'rgba(220,38,38,0.4)',
+                background: 'rgba(255,217,61,0.2)',
+                borderColor: 'rgba(255,217,61,0.4)',
               }}
               whileTap={{ scale: 0.95 }}
               className="px-4 py-1.5 text-[12px] text-white bg-transparent border border-white/20 rounded-[20px] transition-all duration-200"
@@ -116,8 +116,8 @@ export default function PortalsHeader() {
           <Link href="/portal/reps">
             <motion.button
               whileHover={{
-                background: 'rgba(220,38,38,0.2)',
-                borderColor: 'rgba(220,38,38,0.4)',
+                background: 'rgba(255,217,61,0.2)',
+                borderColor: 'rgba(255,217,61,0.4)',
               }}
               whileTap={{ scale: 0.95 }}
               className="px-4 py-1.5 text-[12px] text-white bg-transparent border border-white/20 rounded-[20px] transition-all duration-200"

@@ -104,14 +104,14 @@ export default function BlogInsights() {
               repeating-linear-gradient(0deg,
                 transparent,
                 transparent 39px,
-                rgba(220, 38, 38, 0.02) 39px,
-                rgba(220, 38, 38, 0.02) 40px
+                rgba(255, 217, 61, 0.02) 39px,
+                rgba(255, 217, 61, 0.02) 40px
               ),
               repeating-linear-gradient(90deg,
                 transparent,
                 transparent 39px,
-                rgba(220, 38, 38, 0.02) 39px,
-                rgba(220, 38, 38, 0.02) 40px
+                rgba(255, 217, 61, 0.02) 39px,
+                rgba(255, 217, 61, 0.02) 40px
               )
             `,
           }}
@@ -121,8 +121,8 @@ export default function BlogInsights() {
         <div
           className="absolute top-[10px] left-[47%] w-[6%] h-[2px]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #DC2626, transparent)',
-            boxShadow: '0 0 20px rgba(220, 38, 38, 0.4)',
+            background: 'linear-gradient(90deg, transparent, #FFD93D, transparent)',
+            boxShadow: '0 0 20px rgba(255, 217, 61, 0.4)',
           }}
         />
 
@@ -135,7 +135,7 @@ export default function BlogInsights() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <span className="block text-[12px] font-bold tracking-[3px] text-[#DC2626] uppercase mb-5">
+            <span className="block text-[12px] font-bold tracking-[3px] text-[#FFD93D] uppercase mb-5">
               INSIGHTS FROM THE FORGE
             </span>
 
@@ -159,12 +159,12 @@ export default function BlogInsights() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white border border-black/[0.06] rounded-2xl p-8 cursor-pointer relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-[#DC2626]/20"
+                className="bg-white border border-black/[0.06] rounded-2xl p-8 cursor-pointer relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-[#FFD93D]/20"
               >
                 {/* Top metadata */}
                 <div className="flex items-center gap-3 mb-4 text-[11px] font-semibold text-[#71717A] tracking-[1px]">
                   <span>{post.readTime}</span>
-                  <span className="text-[#DC2626]">•</span>
+                  <span className="text-[#FFD93D]">•</span>
                   <span>{post.date}</span>
                 </div>
 
@@ -179,7 +179,7 @@ export default function BlogInsights() {
                 {/* Bottom metadata */}
                 <div className="flex items-center justify-between pt-4 border-t border-black/5">
                   <div className="flex items-center gap-2">
-                    <span className="text-[12px] px-3 py-1 bg-[#DC2626]/[0.08] text-[#DC2626] rounded-[20px] font-semibold">
+                    <span className="text-[12px] px-3 py-1 bg-[#FFD93D]/[0.08] text-[#FFD93D] rounded-[20px] font-semibold">
                       {post.category}
                     </span>
                     {post.tags.map((tag) => (
@@ -189,13 +189,13 @@ export default function BlogInsights() {
                     ))}
                   </div>
 
-                  <span className="text-[#DC2626] text-[14px] font-semibold flex items-center gap-1">
+                  <span className="text-[#FFD93D] text-[14px] font-semibold flex items-center gap-1">
                     Read Article →
                   </span>
                 </div>
 
                 {/* Hover accent line */}
-                <div className="absolute top-0 left-0 w-[3px] h-0 bg-[#DC2626] transition-all duration-300 group-hover:h-full" />
+                <div className="absolute top-0 left-0 w-[3px] h-0 bg-[#FFD93D] transition-all duration-300 group-hover:h-full" />
               </motion.article>
             ))}
           </div>
@@ -207,7 +207,7 @@ export default function BlogInsights() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <button className="bg-[#0A0A0B] text-white px-10 py-4 rounded-xl border-none text-[15px] font-bold cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#DC2626] hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)]">
+            <button className="bg-[#0A0A0B] text-white px-10 py-4 rounded-xl border-none text-[15px] font-bold cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#FFD93D] hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)]">
               VIEW ALL INSIGHTS →
             </button>
           </motion.div>
@@ -217,8 +217,8 @@ export default function BlogInsights() {
         <div
           className="absolute bottom-[10px] left-[47%] w-[6%] h-[2px]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #DC2626, transparent)',
-            boxShadow: '0 0 20px rgba(220, 38, 38, 0.4)',
+            background: 'linear-gradient(90deg, transparent, #FFD93D, transparent)',
+            boxShadow: '0 0 20px rgba(255, 217, 61, 0.4)',
           }}
         />
       </div>

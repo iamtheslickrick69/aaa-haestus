@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Insights', href: '#insights' },
 ];
 
-// Orbiting dots component
+// Orbiting dots component with banana yellow
 function OrbitingDots() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -64,12 +64,16 @@ function OrbitingDots() {
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-visible">
       <div
-        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
+        className="orbit-dot absolute w-1.5 h-1.5 bg-[#FFD93D] rounded-full"
+        style={{ boxShadow: '0 0 15px rgba(255,217,61,0.6)' }}
       />
       <div
-        className="orbit-dot absolute w-1 h-1 bg-[#DC2626] rounded-full"
-        style={{ boxShadow: '0 0 12px rgba(220,38,38,0.5)' }}
+        className="orbit-dot absolute w-1.5 h-1.5 bg-[#FFD93D] rounded-full"
+        style={{ boxShadow: '0 0 15px rgba(255,217,61,0.6)' }}
+      />
+      <div
+        className="orbit-dot absolute w-1 h-1 bg-[#FFF176] rounded-full"
+        style={{ boxShadow: '0 0 12px rgba(255,241,118,0.5)' }}
       />
     </div>
   );
@@ -95,30 +99,41 @@ export default function MainHeader() {
             opacity: isScrolled ? 0.85 : 1,
           }}
           transition={{ duration: 0.3 }}
-          className="relative flex items-center h-[58px] px-8 rounded-full"
+          className="relative flex items-center h-[62px] px-10 rounded-full"
           style={{
-            background: 'rgba(15, 15, 17, 0.7)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backdropFilter: 'blur(22px)',
-            WebkitBackdropFilter: 'blur(22px)',
-            boxShadow: '0 0 40px rgba(220,38,38,0.22), inset 0 0 18px rgba(220,38,38,0.05)',
+            background: 'rgba(15, 15, 17, 0.75)',
+            border: '1.5px solid rgba(255,217,61,0.25)',
+            backdropFilter: 'blur(25px)',
+            WebkitBackdropFilter: 'blur(25px)',
+            boxShadow: '0 0 50px rgba(255,217,61,0.2), inset 0 0 20px rgba(255,217,61,0.05)',
           }}
         >
           <OrbitingDots />
 
+          {/* Premium Indicator */}
+          <div className="flex items-center gap-2 mr-8 relative z-10">
+            <div className="w-2 h-2 bg-[#FFD93D] rounded-full animate-pulse"
+              style={{ boxShadow: '0 0 10px rgba(255,217,61,0.6)' }}
+            />
+            <span className="text-[#FFD93D] text-xs font-bold tracking-wider">LIVE</span>
+          </div>
+
           {/* Nav Links */}
-          <div className="flex items-center gap-9 relative z-10">
+          <div className="flex items-center gap-10 relative z-10">
             {navLinks.map((link) => (
               <Link key={link.label} href={link.href}>
                 <motion.span
                   onClick={() => setActiveLink(link.label)}
-                  whileHover={{ textShadow: '0 0 18px rgba(255,255,255,0.45)' }}
+                  whileHover={{
+                    textShadow: '0 0 20px rgba(255,217,61,0.5)',
+                    color: '#FFD93D'
+                  }}
                   className={`
-                    text-[15px] font-medium tracking-[0.3px] transition-all duration-200
+                    text-[15px] font-semibold tracking-[0.5px] transition-all duration-300
                     ${
                       activeLink === link.label
-                        ? 'text-white underline underline-offset-4'
-                        : 'text-white/90 hover:text-white'
+                        ? 'text-[#FFD93D]'
+                        : 'text-white/90 hover:text-[#FFD93D]'
                     }
                   `}
                 >
@@ -129,27 +144,22 @@ export default function MainHeader() {
           </div>
 
           {/* Spacer */}
-          <div className="w-12" />
+          <div className="w-14" />
 
           {/* CTA Button */}
           <motion.button
             whileHover={{
-              scale: 1.06,
-              boxShadow: '0 0 30px rgba(220,38,38,0.5)',
+              scale: 1.08,
+              boxShadow: '0 0 40px rgba(255,217,61,0.6)',
             }}
             whileTap={{ scale: 0.95 }}
-            className="relative z-10 px-[26px] py-[10px] rounded-[50px] text-white font-semibold text-[15px] transition-all duration-200"
+            className="relative z-10 px-8 py-3 rounded-full text-black font-bold text-[15px] transition-all duration-300"
             style={{
-              background: 'rgba(220,38,38,0.85)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#DC2626';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(220,38,38,0.85)';
+              background: 'linear-gradient(135deg, #FFD93D 0%, #FFF176 100%)',
+              boxShadow: '0 0 25px rgba(255,217,61,0.4)',
             }}
           >
-            Connect
+            Connect ✨
           </motion.button>
         </motion.nav>
       </motion.header>
@@ -162,26 +172,27 @@ export default function MainHeader() {
       >
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-3 rounded-full"
+          className="p-3.5 rounded-full"
           style={{
-            background: 'rgba(15, 15, 17, 0.7)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backdropFilter: 'blur(22px)',
+            background: 'rgba(15, 15, 17, 0.75)',
+            border: '1.5px solid rgba(255,217,61,0.25)',
+            backdropFilter: 'blur(25px)',
+            boxShadow: '0 0 25px rgba(255,217,61,0.2)',
           }}
         >
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-[#FFD93D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMobileMenuOpen ? (
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 d="M6 18L18 6M6 6l12 12"
               />
             ) : (
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16"
               />
             )}
@@ -197,19 +208,36 @@ export default function MainHeader() {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[1050] bg-black/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center"
         >
-          <div className="space-y-8 text-center">
-            {navLinks.map((link) => (
-              <Link
+          <div className="space-y-10 text-center">
+            {navLinks.map((link, i) => (
+              <motion.div
                 key={link.label}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
               >
-                <p className="text-2xl text-white font-medium">{link.label}</p>
-              </Link>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <p className="text-3xl text-white font-bold hover:text-[#FFD93D] transition-colors">
+                    {link.label}
+                  </p>
+                </Link>
+              </motion.div>
             ))}
-            <button className="mt-8 px-8 py-4 bg-[#DC2626] text-white font-semibold rounded-full">
-              Connect
-            </button>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-12 px-10 py-5 text-black font-bold rounded-full text-lg"
+              style={{
+                background: 'linear-gradient(135deg, #FFD93D 0%, #FFF176 100%)',
+                boxShadow: '0 0 30px rgba(255,217,61,0.4)',
+              }}
+            >
+              Connect ✨
+            </motion.button>
           </div>
         </motion.div>
       )}

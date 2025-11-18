@@ -3,13 +3,17 @@
 :root {
   --background: #000000;
   --foreground: #FAFAFA;
-  --accent-red: #DC2626;
+  --accent-yellow: #FFD93D;
+  --accent-yellow-dark: #F5C518;
+  --accent-yellow-light: #FFF176;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent-red: var(--accent-red);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-dark: var(--accent-yellow-dark);
+  --color-accent-yellow-light: var(--accent-yellow-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -51,13 +55,13 @@ body {
 
 /* Selection color */
 ::selection {
-  background: rgba(220, 38, 38, 0.3);
-  color: #FAFAFA;
+  background: rgba(255, 217, 61, 0.3);
+  color: #000000;
 }
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #DC2626;
+  outline: 2px solid #FFD93D;
   outline-offset: 2px;
 }
 
@@ -84,8 +88,8 @@ body {
 }
 
 /* Subtle glow utilities */
-.glow-red {
-  box-shadow: 0 0 40px rgba(220, 38, 38, 0.15);
+.glow-yellow {
+  box-shadow: 0 0 40px rgba(255, 217, 61, 0.25);
 }
 
 .glow-white {
