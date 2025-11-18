@@ -83,33 +83,36 @@ export default function PremiumHeader() {
         className="fixed left-1/2 -translate-x-1/2 z-[1000]"
         style={{
           top: scrolled ? '16px' : '24px',
-          transform: scrolled ? 'translateX(-50%) scale(0.92)' : 'translateX(-50%) scale(1)',
-          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: scrolled ? 'translateX(-50%) scale(0.83)' : 'translateX(-50%) scale(1)',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
         <nav
           className="flex items-center px-10 rounded-[18px] border"
           style={{
             gap: '48px',
-            padding: '14px 40px',
-            background: scrolled ? 'rgba(15, 23, 42, 0.75)' : 'rgba(15, 23, 42, 0.4)',
-            backdropFilter: scrolled ? 'blur(24px) saturate(200%)' : 'blur(16px) saturate(180%)',
-            WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(200%)' : 'blur(16px) saturate(180%)',
-            borderColor: scrolled ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.08)',
-            boxShadow: scrolled ? '0 12px 48px rgba(0, 0, 0, 0.6)' : '0 10px 40px rgba(0, 0, 0, 0.5)',
-            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+            paddingLeft: '24px',
+            paddingRight: '40px',
+            paddingTop: '14px',
+            paddingBottom: '14px',
+            background: scrolled ? 'rgba(30, 41, 59, 0.85)' : 'rgba(30, 41, 59, 0.6)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 0 40px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3)',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
           {/* Logo - Left Side */}
-          <Link href="/" className="flex items-center" style={{ marginRight: '24px', padding: '0 16px' }}>
+          <Link href="/" className="flex items-center" style={{ marginRight: '32px' }}>
             <Image
-              src="/official_trans_white.png"
+              src="/haestus.noicon.png"
               alt="Haestus"
-              width={112}
-              height={56}
+              width={132}
+              height={44}
               className="object-contain"
               style={{
-                height: '56px',
+                height: '44px',
                 width: 'auto',
                 display: 'block',
               }}
@@ -143,23 +146,24 @@ export default function PremiumHeader() {
             ))}
           </div>
 
-          {/* Connect Button (PRIMARY CTA) */}
+          {/* Connect Button - Outlined Style */}
           <button
-            className="px-8 py-3 rounded-xl text-white text-[16px] font-semibold flex items-center gap-2 transition-all duration-300"
+            className="rounded-lg text-[16px] font-semibold flex items-center gap-2 transition-all duration-200"
             style={{
-              background: '#ff6b35',
-              border: 'none',
-              boxShadow: '0 4px 20px rgba(255, 107, 53, 0.35)',
+              padding: '10px 24px',
+              background: 'transparent',
+              border: '2px solid #ff6b35',
+              color: '#ff6b35',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#ff8555';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 28px rgba(255, 107, 53, 0.5)';
+              e.currentTarget.style.background = 'rgba(255, 107, 53, 0.1)';
+              e.currentTarget.style.borderColor = '#ff8556';
+              e.currentTarget.style.transform = 'translateY(-1px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#ff6b35';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = '#ff6b35';
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 107, 53, 0.35)';
             }}
           >
             Connect
