@@ -67,7 +67,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <section className="relative py-20 px-10 overflow-hidden bg-black">
+    <section className="relative py-20 px-10 overflow-hidden" style={{ backgroundColor: '#000' }}>
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -76,7 +76,8 @@ export default function Portfolio() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
       >
         <source
           src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/coolorb.mp4"
@@ -84,8 +85,8 @@ export default function Portfolio() {
         />
       </video>
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/40 z-0" />
+      {/* Subtle overlay for text readability */}
+      <div className="absolute inset-0 bg-black/20" style={{ zIndex: 1 }} />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Header */}
