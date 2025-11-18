@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo } from 'react';
 
 interface Tech {
   name: string;
@@ -129,71 +128,102 @@ const techStack: Tech[] = [
 
 function TechCard({ tech }: { tech: Tech }) {
   return (
-    <article className="flex-shrink-0 w-[240px] sm:w-[260px] md:w-[300px] rounded-2xl border border-white/[0.06] bg-white/[0.05] backdrop-blur-xl px-4 py-4 md:px-5 md:py-5 text-left shadow-[0_0_40px_rgba(0,0,0,0.6)] hover:border-[#F97316]/50 hover:bg-white/[0.08] transition-all duration-300">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="relative h-8 w-8 md:h-9 md:w-9 rounded-full bg-black flex items-center justify-center">
-          <Image
-            src={tech.logo}
-            alt={tech.name}
-            width={24}
-            height={24}
-            className="object-contain"
-          />
+    <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg p-8 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:-translate-y-2 hover:shadow-2xl">
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      {/* Card Content */}
+      <div className="relative z-10">
+        {/* Tech Logo/Icon */}
+        <div className="mb-6 flex justify-center">
+          <div className="w-16 h-16 flex items-center justify-center">
+            <Image
+              src={tech.logo}
+              alt={tech.name}
+              width={64}
+              height={64}
+              className="object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+            />
+          </div>
         </div>
-        <div className="min-w-0">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-[#F97316]/70">
-            {tech.category}
-          </p>
-          <h3 className="text-sm md:text-base font-semibold text-white truncate">{tech.name}</h3>
-        </div>
+
+        {/* Category Badge */}
+        <p
+          className="text-[10px] uppercase tracking-[0.2em] text-[#ff6b35] font-semibold mb-2 text-center"
+          style={{textShadow: '0 1px 3px rgba(0,0,0,0.3)'}}
+        >
+          {tech.category}
+        </p>
+
+        {/* Tech Name */}
+        <h3
+          className="text-white text-xl font-bold mb-3 text-center tracking-tight"
+          style={{textShadow: '0 1px 4px rgba(0,0,0,0.3)'}}
+        >
+          {tech.name}
+        </h3>
+
+        {/* Tech Description */}
+        <p
+          className="text-white/85 text-sm leading-relaxed text-center"
+          style={{textShadow: '0 1px 3px rgba(0,0,0,0.25)'}}
+        >
+          {tech.description}
+        </p>
       </div>
-      <p className="text-xs md:text-sm text-neutral-300 leading-relaxed line-clamp-3">
-        {tech.description}
-      </p>
-    </article>
+    </div>
   );
 }
 
 export default function TechStackMarquee() {
-  const marqueeItems = useMemo(() => [...techStack, ...techStack], []);
-
-  // Split items for two rows
-  const topRowItems = marqueeItems.slice(0, Math.ceil(marqueeItems.length / 2));
-  const bottomRowItems = marqueeItems.slice(Math.ceil(marqueeItems.length / 2));
-
   return (
-    <section id="stack" data-section="tech-stack" className="relative w-full bg-[#050505] py-20 overflow-hidden">
-      <div className="mx-auto max-w-6xl text-center mb-10 px-4">
-        <h2 className="text-3xl md:text-4xl font-semibold text-white">
-          Architecture, powered by a battle-tested stack.
-        </h2>
-        <p className="mt-3 text-sm md:text-base text-neutral-400 max-w-2xl mx-auto">
-          We combine enterprise infrastructure with modern AI tooling so your systems scale under
-          real-world pressure.
-        </p>
-      </div>
+    <section className="relative overflow-hidden py-24">
+      {/* Orange Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/orangeback.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Edge fade masks */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20" />
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-black/20 z-0" />
 
-      <div className="space-y-6">
-        {/* Top row - scrolls left to right */}
-        <div className="relative">
-          <div className="flex gap-6 animate-marquee-left">
-            {topRowItems.map((tech, i) => (
-              <TechCard tech={tech} key={`top-${i}-${tech.name}`} />
-            ))}
-          </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-8">
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <p className="text-sm uppercase tracking-[0.2em] text-white/70 mb-4 font-semibold">
+            Our Technology
+          </p>
+
+          <h2
+            className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight"
+            style={{textShadow: '0 2px 16px rgba(0,0,0,0.5)'}}
+          >
+            Architecture, powered by a<br className="hidden md:block" />
+            battle-tested stack.
+          </h2>
+
+          <p
+            className="text-lg text-white/90 max-w-3xl mx-auto leading-relaxed"
+            style={{textShadow: '0 1px 8px rgba(0,0,0,0.4)'}}
+          >
+            We combine enterprise infrastructure with modern AI tooling so your systems scale under real-world pressure.
+          </p>
         </div>
 
-        {/* Bottom row - scrolls right to left */}
-        <div className="relative">
-          <div className="flex gap-6 animate-marquee-right">
-            {bottomRowItems.map((tech, i) => (
-              <TechCard tech={tech} key={`bottom-${i}-${tech.name}`} />
-            ))}
-          </div>
+        {/* Tech Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {techStack.map((tech, index) => (
+            <TechCard key={`${tech.name}-${index}`} tech={tech} />
+          ))}
         </div>
       </div>
     </section>
