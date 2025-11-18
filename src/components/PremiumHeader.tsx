@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { smoothScrollTo } from '@/utils/smoothScroll';
 
 export default function PremiumHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,13 +17,13 @@ export default function PremiumHeader() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo('home');
   };
 
   const navLinks = [
-    { name: 'Architecture', href: '#architecture' },
-    { name: 'Community', href: '#community' },
-    { name: 'Insights', href: '#insights' },
+    { name: 'Architecture', id: 'architecture' },
+    { name: 'Community', id: 'community' },
+    { name: 'Insights', id: 'insights' },
   ];
 
   return (
@@ -167,14 +167,16 @@ export default function PremiumHeader() {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center" style={{ gap: '36px' }}>
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => smoothScrollTo(link.id)}
                 className="text-[15px] font-semibold transition-all duration-200"
                 style={{
                   color: '#e2e8f0',
                   letterSpacing: '0.3px',
-                  textDecoration: 'none',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#ff6b35';
@@ -186,18 +188,20 @@ export default function PremiumHeader() {
                 }}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
 
           {/* Connect Button - Compact Outlined Style */}
           <button
+            onClick={() => smoothScrollTo('connect')}
             className="rounded-lg text-[15px] font-semibold flex items-center gap-1.5 transition-all duration-200"
             style={{
               padding: '8px 20px',
               background: 'transparent',
               border: '2px solid #ff6b35',
               color: '#ff6b35',
+              cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'rgba(255, 107, 53, 0.12)';

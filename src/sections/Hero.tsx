@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import FounderMessageModal from '@/components/FounderMessageModal';
+import { smoothScrollTo } from '@/utils/smoothScroll';
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,6 +86,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)' }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => smoothScrollTo('connect')}
             className="px-8 py-4 bg-white text-gray-900 rounded-lg text-base font-semibold shadow-lg transition-all duration-300"
           >
             Start Building →
@@ -93,6 +95,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => smoothScrollTo('community')}
             className="px-8 py-4 border-2 border-white text-white rounded-lg text-base font-semibold transition-all duration-300"
           >
             View Our Work

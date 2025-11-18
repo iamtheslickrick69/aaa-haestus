@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Hero from '@/sections/Hero';
 import StatsDashboard from '@/sections/StatsDashboard';
 import StrategicPositioning from '@/sections/StrategicPositioning';
@@ -13,20 +14,48 @@ import Connect from '@/sections/Connect';
 import VideoBackground from '@/components/Homepage/VideoBackground';
 
 export default function Home() {
+  // Handle hash navigation on page load
+  useEffect(() => {
+    if (window.location.hash) {
+      const sectionId = window.location.hash.substring(1);
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const headerHeight = window.innerWidth < 640 ? 64 : 80;
+          const sectionTop = section.offsetTop - headerHeight;
+          window.scrollTo({
+            top: sectionTop,
+            behavior: 'smooth',
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       <VideoBackground />
       <main className="relative z-10 min-h-screen bg-transparent text-white">
-        <Hero />
-        <StatsDashboard />
-        <StrategicPositioning />
-        <ForgePhilosophy />
-        <ForgeValues />
-        <AnimatedMazeSection />
-        <TechStackMarquee />
-        <Portfolio />
-        <BlogInsights />
-        <Connect />
+        <div id="home">
+          <Hero />
+        </div>
+        <div id="insights">
+          <StatsDashboard />
+        </div>
+        <div id="architecture">
+          <StrategicPositioning />
+          <ForgePhilosophy />
+        </div>
+        <div id="community">
+          <ForgeValues />
+          <AnimatedMazeSection />
+          <TechStackMarquee />
+          <Portfolio />
+          <BlogInsights />
+        </div>
+        <div id="connect">
+          <Connect />
+        </div>
       </main>
     </>
   );

@@ -32,7 +32,7 @@ export default function Connect() {
             <h2 className="text-4xl font-bold text-white mb-8">Connect</h2>
 
             <div className="mb-8">
-              <h3 className="text-sm text-[#CC0000] tracking-[0.2em] uppercase font-medium mb-4">
+              <h3 className="text-sm text-[#ff6b35] tracking-[0.2em] uppercase font-medium mb-4">
                 EXECUTIVE SUMMARY
               </h3>
               <p className="text-[#B3B3B3] leading-relaxed mb-4">
@@ -52,7 +52,7 @@ export default function Connect() {
                 href="sms:+1234567890"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-[#CC0000] text-white font-medium rounded-lg hover:bg-[#CC0000]/90 transition-all duration-300"
+                className="px-6 py-3 bg-[#ff6b35] text-white font-medium rounded-lg hover:bg-[#ff8556] transition-all duration-300"
               >
                 Text Us
               </motion.a>
@@ -87,7 +87,7 @@ export default function Connect() {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -99,7 +99,7 @@ export default function Connect() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors"
                   placeholder="you@company.com"
                 />
               </div>
@@ -111,7 +111,7 @@ export default function Connect() {
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors"
                   placeholder="Your company"
                 />
               </div>
@@ -123,7 +123,7 @@ export default function Connect() {
                   value={formData.building}
                   onChange={(e) => setFormData({ ...formData, building: e.target.value })}
                   rows={4}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors resize-none"
                   placeholder="Describe your project or challenge..."
                 />
               </div>
@@ -134,7 +134,7 @@ export default function Connect() {
                 <select
                   value={formData.timeline}
                   onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors"
                 >
                   <option value="">Select timeline</option>
                   <option value="immediate">Immediate (1-2 weeks)</option>
@@ -150,7 +150,7 @@ export default function Connect() {
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#CC0000]/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-black border border-[#1a1a1a] rounded-lg text-white focus:border-[#ff6b35]/50 focus:outline-none transition-colors"
                 >
                   <option value="">Select budget range</option>
                   <option value="25k-50k">$25K - $50K</option>
@@ -165,7 +165,7 @@ export default function Connect() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-[#CC0000] text-white font-semibold rounded-lg hover:bg-[#CC0000]/90 transition-all duration-300 shadow-lg shadow-[#CC0000]/25"
+                className="w-full py-4 bg-[#ff6b35] text-white font-semibold rounded-lg hover:bg-[#ff8556] transition-all duration-300 shadow-lg shadow-[#ff6b35]/25"
               >
                 Start Building
               </motion.button>
