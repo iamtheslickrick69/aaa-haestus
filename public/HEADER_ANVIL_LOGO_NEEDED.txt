@@ -1,0 +1,17 @@
+⚠️ HEADER ANVIL LOGO - UPLOAD REQUIRED ⚠️
+
+Save the ANVIL ICON as:
+/Users/isr/aaa-haestus/public/haestus-anvil-header.png
+
+SPECIFICATIONS:
+- Size: 50x50 pixels (square)
+- Format: PNG with transparent background
+- Icon: Orange anvil with white details
+- This logo serves as a scroll-to-top button when clicked
+
+IMPORTANT - DO NOT CONFUSE:
+✓ haestus-anvil-header.png = Header logo (THIS FILE - anvil icon for header)
+✓ favicon files = Browser tab icons (anvil icon at various sizes)
+✓ haestus.noicon.png = Text-only logo (not currently used)
+
+Delete this file once the anvil header logo is uploaded.

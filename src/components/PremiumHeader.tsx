@@ -16,6 +16,10 @@ export default function PremiumHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navLinks = [
     { name: 'Architecture', href: '#architecture' },
     { name: 'Community', href: '#community' },
@@ -91,34 +95,40 @@ export default function PremiumHeader() {
           className="flex items-center px-10 rounded-[18px] border"
           style={{
             gap: '48px',
-            paddingLeft: '24px',
+            paddingLeft: '20px',
             paddingRight: '40px',
             paddingTop: '14px',
             paddingBottom: '14px',
-            background: scrolled ? 'rgba(30, 41, 59, 0.85)' : 'rgba(30, 41, 59, 0.6)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderColor: 'rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 40px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3)',
+            background: scrolled
+              ? 'rgba(255, 255, 255, 0.12)'
+              : 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            borderColor: 'rgba(255, 255, 255, 0.18)',
+            boxShadow: '0 0 60px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.2)',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
-          {/* Logo - Left Side */}
-          <Link href="/" className="flex items-center" style={{ marginRight: '32px' }}>
+          {/* Logo - Left Side (Scroll to Top) */}
+          <button
+            onClick={scrollToTop}
+            className="flex items-center transition-transform duration-200 hover:scale-105"
+            style={{ marginRight: '32px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
             <Image
-              src="/haestus.noicon.png"
+              src="/haestus-anvil-header.png"
               alt="Haestus"
-              width={132}
-              height={44}
+              width={50}
+              height={50}
               className="object-contain"
               style={{
-                height: '44px',
+                height: '50px',
                 width: 'auto',
                 display: 'block',
               }}
               priority
             />
-          </Link>
+          </button>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center" style={{ gap: '48px' }}>
