@@ -36,15 +36,35 @@ export default function Home() {
     <>
       <VideoBackground />
       <main className="relative z-10 min-h-screen bg-transparent text-white">
-        <div id="home">
+        <div id="home" className="relative overflow-hidden">
           <Hero />
         </div>
         <div id="insights">
           <StatsDashboard />
         </div>
-        <div id="architecture">
-          <StrategicPositioning />
-          <ForgePhilosophy />
+        <div id="architecture" className="relative overflow-hidden min-h-screen">
+          {/* Architecture Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+          >
+            <source
+              src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/thisistheone.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Optional contrast overlay */}
+          <div className="absolute inset-0 bg-black/10 z-0" />
+
+          {/* Content */}
+          <div className="relative z-10">
+            <StrategicPositioning />
+            <ForgePhilosophy />
+          </div>
         </div>
         <div id="community">
           <ForgeValues />

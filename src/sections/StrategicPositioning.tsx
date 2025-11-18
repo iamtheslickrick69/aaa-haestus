@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function StrategicPositioning() {
   return (
-    <section className="py-32 px-6">
+    <section className="py-32 px-8">
       <div className="max-w-4xl mx-auto text-center">
         {/* Label Capsule */}
         <motion.div
@@ -13,7 +13,15 @@ export default function StrategicPositioning() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <span className="inline-block px-4 py-2 bg-[#F97316]/10 border border-[#F97316]/30 rounded-full text-[#F97316] text-xs font-medium tracking-wider uppercase">
+          <span
+            className="inline-block px-5 py-2 border rounded-full text-xs font-semibold tracking-wider uppercase"
+            style={{
+              border: '1px solid rgba(255, 255, 255, 0.4)',
+              color: '#ffffff',
+              background: 'rgba(255, 255, 255, 0.08)',
+              letterSpacing: '0.05em',
+            }}
+          >
             Strategic Partnership Opportunities Open
           </span>
         </motion.div>
@@ -24,7 +32,13 @@ export default function StrategicPositioning() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+          className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+          style={{
+            color: '#ffffff',
+            textShadow: '0 2px 12px rgba(0, 0, 0, 0.4)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+          }}
         >
           THE AI REVOLUTION NEEDS ARCHITECTS
         </motion.h2>
@@ -35,7 +49,11 @@ export default function StrategicPositioning() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-white/70 mb-8"
+          className="text-xl mb-8"
+          style={{
+            color: 'rgba(255, 255, 255, 0.95)',
+            textShadow: '0 1px 6px rgba(0, 0, 0, 0.3)',
+          }}
         >
           Bridging generations through intelligent transformation.
         </motion.p>
@@ -46,7 +64,12 @@ export default function StrategicPositioning() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-lg text-[#B3B3B3] max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-lg max-w-3xl mx-auto mb-12"
+          style={{
+            color: 'rgba(255, 255, 255, 0.9)',
+            textShadow: '0 1px 4px rgba(0, 0, 0, 0.25)',
+            lineHeight: 1.6,
+          }}
         >
           We don't deploy AI solutions. We architect intelligence into the foundation of your organization, creating systems that amplify human potential and compound competitive advantage.
         </motion.p>
@@ -57,9 +80,19 @@ export default function StrategicPositioning() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-4 bg-[#F97316] text-white font-medium rounded-lg hover:bg-[#F97316]/90 transition-all duration-300 shadow-lg shadow-[#F97316]/25"
+          whileHover={{
+            scale: 1.02,
+            y: -2,
+            boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="px-8 py-3.5 rounded-lg font-semibold"
+          style={{
+            background: '#ffffff',
+            color: '#FF854D',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+            transition: 'all 0.3s ease',
+          }}
         >
           Explore Partnership
         </motion.button>
