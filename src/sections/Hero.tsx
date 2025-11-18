@@ -2,9 +2,15 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
+import FounderMessageModal from '@/components/FounderMessageModal';
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <>
+      <FounderMessageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-24">
       <div className="text-center max-w-5xl mx-auto relative z-10">
         {/* Main Title - Two Lines */}
@@ -46,6 +52,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.8)' }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => setIsModalOpen(true)}
             className="px-8 py-3 border border-white/50 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5"
           >
             Our Message &gt;
@@ -93,5 +100,6 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron, Rajdhani } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron, Rajdhani, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import PremiumHeader from "@/components/PremiumHeader";
 
@@ -23,6 +23,12 @@ const bodyFont = Rajdhani({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   variable: "--font-body",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-signature",
 });
 
 export const metadata: Metadata = {
@@ -64,8 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} ${dancingScript.variable} antialiased bg-black text-white`}
       >
         <PremiumHeader />
         {children}
