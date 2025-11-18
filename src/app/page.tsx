@@ -35,11 +35,11 @@ export default function Home() {
   return (
     <>
       <VideoBackground />
-      <main className="relative z-10 min-h-screen bg-black text-white">
-        <div id="home" className="relative overflow-hidden">
+      <main className="relative z-10 min-h-screen bg-transparent text-white">
+        <div id="home" className="relative overflow-hidden bg-transparent">
           <Hero />
         </div>
-        <div id="insights">
+        <div id="insights" className="bg-black">
           <StatsDashboard />
         </div>
         <section id="architecture" className="relative overflow-hidden">
@@ -212,14 +212,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div id="community">
+        <div id="community" className="bg-black">
           <ForgeValues />
           <AnimatedMazeSection />
           <TechStackMarquee />
           <Portfolio />
           <BlogInsights />
         </div>
-        <div id="connect">
+        <div id="connect" className="bg-black">
           <Connect />
         </div>
       </main>
