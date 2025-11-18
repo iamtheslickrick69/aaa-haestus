@@ -9,12 +9,12 @@ export default function ChatOrb() {
     <>
       {/* Floating Orb - Fixed Bottom Right */}
       <div className="fixed bottom-8 right-8 z-[9999]">
-        {/* Orb Video - Doubled Size with White Glow */}
+        {/* Orb Video - Pure with White Glow */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-40 h-40 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+          className="relative w-40 h-40 bg-transparent border-0 p-0 rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer"
           style={{
-            boxShadow: '0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.15)',
+            filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 80px rgba(255, 255, 255, 0.15))',
           }}
         >
           <video
@@ -22,7 +22,10 @@ export default function ChatOrb() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-full"
+            style={{
+              display: 'block',
+            }}
           >
             <source
               src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/haestusorb.mp4"
