@@ -43,20 +43,27 @@ export default function Home() {
           <StatsDashboard />
         </div>
         <section id="architecture" className="relative overflow-hidden" style={{ backgroundColor: '#000' }}>
-          {/* 3D Background Video */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ zIndex: 0 }}
-          >
-            <source
-              src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/3DUPinthis.mp4"
-              type="video/mp4"
-            />
-          </video>
+          {/* 3D Background Video - Scaled Down to 30% */}
+          <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 0 }}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="object-cover rounded-lg"
+              style={{
+                width: '30%',
+                height: '30%',
+                minWidth: '400px',
+                minHeight: '300px'
+              }}
+            >
+              <source
+                src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/3DUPinthis.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
 
           {/* Subtle overlay for text contrast */}
           <div className="absolute inset-0 bg-black/15" style={{ zIndex: 1 }} />
