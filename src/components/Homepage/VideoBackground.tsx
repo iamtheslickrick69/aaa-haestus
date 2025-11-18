@@ -53,10 +53,7 @@ export default function VideoBackground() {
         </video>
 
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-
-        {/* Subtle gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Loading state */}

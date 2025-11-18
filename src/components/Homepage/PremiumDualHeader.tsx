@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 
 // Orbiting dots component
@@ -91,25 +90,6 @@ export default function PremiumDualHeader() {
           `}
         >
           <OrbitingDots />
-
-          {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center"
-            >
-              <div className="w-32 h-6 relative">
-                <Image
-                  src="/mylogo.png"
-                  alt="Haestus"
-                  fill
-                  className="object-contain object-left"
-                  priority
-                />
-              </div>
-            </motion.div>
-          </Link>
 
           {/* Navigation Links */}
           <div className="flex items-center gap-6 relative z-10">
