@@ -60,6 +60,7 @@ export default function Portfolio() {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      video.playbackRate = 0.5;
       video.play().catch((error) => {
         console.log('Video autoplay prevented:', error);
       });
