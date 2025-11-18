@@ -1,19 +1,38 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-16 pb-24">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-24">
       <div className="text-center max-w-5xl mx-auto relative z-10">
-        {/* Main Title */}
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex justify-center mb-12"
+        >
+          <Image
+            src="/haestus-anvil-icon.png"
+            alt="Haestus.dev logo"
+            width={120}
+            height={120}
+            className="object-contain"
+            priority
+          />
+        </motion.div>
+
+        {/* Main Title - Two Lines */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white font-bold uppercase tracking-tight mb-8 text-[clamp(2.5rem,8vw,7rem)] leading-[0.95]"
         >
-          Crafting Digital Intelligence
+          <div>Crafting Digital</div>
+          <div>Intelligence</div>
         </motion.h1>
 
         {/* Button and Italic Text - Same Line */}
