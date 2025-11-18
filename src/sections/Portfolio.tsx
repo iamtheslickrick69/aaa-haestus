@@ -67,27 +67,25 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <section className="relative py-20 px-10 overflow-hidden">
+    <section className="relative py-20 px-10 overflow-hidden bg-black">
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
-        <video
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source
-            src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/coolorb.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/coolorb.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Header */}
