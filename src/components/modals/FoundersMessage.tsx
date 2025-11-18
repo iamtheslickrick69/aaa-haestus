@@ -104,81 +104,104 @@ export default function FoundersMessage({ isOpen, onClose }: FoundersMessageProp
               </h2>
 
               <div className="space-y-6 text-[16px] md:text-[18px] text-white/85 leading-relaxed">
-                <p className="font-medium text-white">What a time to be alive.</p>
+                <p className="font-medium text-white text-xl">Look, I'm not going to bullshit you.</p>
 
                 <p>
-                  Human progress has never moved in a straight line — it jumps. From Roman aqueducts
-                  to the printing press. From the light bulb to the automobile. From the early
-                  internet to the apps that rewired entire industries. Every leap had one thing in
-                  common: it didn't just improve life; it redefined it.
+                  We're living through something that no generation in human history has ever faced. And I don't mean that in the way people throw around "unprecedented times" like it's nothing.
+                </p>
+
+                <p>
+                  I mean we're watching intelligence — actual intelligence — get built in real time. Every single day, AI gets better. Not in six months. Not next quarter. <span className="font-medium text-white">Today.</span> While you're reading this. While you're sleeping. While you're trying to figure out if your job will exist in five years.
+                </p>
+
+                <p>
+                  And here's the thing that keeps me up at night: society isn't ready.
+                </p>
+
+                <p>
+                  When the internet came, we had time to adapt. Businesses had years to figure out email, websites, e-commerce. When smartphones hit, companies had time to build apps, rethink their models.
                 </p>
 
                 <p className="font-medium text-white">
-                  But nothing — nothing — compares to what's happening right now.
+                  This time? We don't have years. We have months. Maybe weeks.
                 </p>
 
                 <p>
-                  Artificial intelligence isn't just another innovation. It's the first technology
-                  in human history that evolves every single day. It grows smarter while we sleep.
-                  It accelerates while we're still catching our breath. And for the first time,
-                  society doesn't have decades to adapt. Entire industries will shift in months, not
-                  years.
+                  I've watched entire industries start to crack under the pressure of something they don't understand. I've seen brilliant people — people smarter than me — frozen because they don't know where to even start. And I've watched companies blow millions on "AI transformation" that's really just theater.
                 </p>
 
-                <p>That reality comes with two truths:</p>
+                <p>
+                  But here's what nobody's saying out loud:
+                </p>
 
                 <div className="pl-4 border-l-2 border-[#F97316]/40 space-y-4">
-                  <div>
-                    <p className="font-semibold text-white mb-2">The good:</p>
-                    <p>
-                      AI isn't here to replace people. It's here to amplify us. To connect
-                      generations. To unlock the kind of progress humans have always dreamed about
-                      but could never reach alone.
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="font-semibold text-white mb-2">The hard part:</p>
-                    <p>
-                      The speed of this change raises real concerns — privacy, control, and who gets
-                      access to the tools shaping the future. Those questions matter. They can't be
-                      ignored.
-                    </p>
-                  </div>
+                  <p>
+                    AI isn't the villain. It's not coming to steal jobs and ruin lives. That's the lazy narrative, and it misses the entire point.
+                  </p>
+                  <p>
+                    <span className="font-medium text-white">AI is a multiplier.</span> It makes the great greater. It turns the ambitious into the unstoppable. It gives small teams the power of entire enterprises. It connects people across generations in ways we've never seen.
+                  </p>
+                  <p>
+                    But — and this is critical — only if you know how to wield it.
+                  </p>
                 </div>
 
-                <p className="font-medium text-white text-xl">That's why we built Haestus.</p>
+                <p>
+                  See, the real danger isn't AI itself. It's the gap. The gap between people who understand these tools and people who don't. The gap between companies that adapt and companies that get left behind. The gap between a future that empowers humanity and one that leaves most of us on the sidelines.
+                </p>
+
+                <p className="font-medium text-white text-xl">That gap is why Haestus exists.</p>
 
                 <p>
-                  This isn't a company to us. It's a responsibility. A movement. A belief that
-                  humanity deserves to understand, shape, and wield these new tools — not be
-                  blindsided by them.
+                  I didn't start this company to build another AI agency. I didn't do this to chase a trend or make a quick exit. I built Haestus because I genuinely believe that if we don't help people understand and shape this technology <span className="font-medium text-white">right now</span>, we're going to wake up in a world none of us wanted.
                 </p>
 
                 <p>
-                  We exist to teach, to build, and to serve.
-                  <br />
-                  To architect systems that empower people, not replace them.
-                  <br />
-                  To help businesses transition from the old world to the new without losing what
-                  makes them human.
+                  This is bigger than business. It's a responsibility.
                 </p>
 
                 <p>
-                  Change is inevitable. AI simply compresses the timeline. What once took decades
-                  will now take weeks. And our goal is simple: guide that transition with intention,
-                  integrity, and excellence.
+                  We only take three projects a month. Not because we're trying to be exclusive or pretentious — because excellence doesn't scale linearly. Every company we work with gets the full weight of our expertise, our time, and our obsessive attention to detail.
                 </p>
 
                 <p>
-                  Our name comes from Hephaestus — the Greek god who forged the weapons of gods and
-                  heroes. Not because we want to romanticize mythology, but because the symbolism
-                  fits. Tools shape civilizations. The ones we forge today will shape the next
-                  century.
+                  We don't deploy cookie-cutter solutions. We don't slap some GPT wrapper on your product and call it "AI transformation."
                 </p>
 
                 <p className="font-medium text-white">
-                  If we do our job right, the world won't just adapt to AI — it will rise with it.
+                  We architect intelligence into the foundation of your organization.
+                </p>
+
+                <p>
+                  We build systems that make your team faster, sharper, more capable. We help you transition from the old world to the new one without losing what makes you human. We teach, we build, and we serve — because this moment demands nothing less.
+                </p>
+
+                <p>
+                  Our name comes from Hephaestus. The Greek god of the forge. The one who built the tools that made heroes legendary. And that's exactly what we do — we forge the tools you need to thrive in what's coming.
+                </p>
+
+                <p>
+                  Not because we're romantics. Because tools shape everything. The printing press shaped democracy. The internet shaped global commerce. AI will shape the next century of human civilization.
+                </p>
+
+                <p className="font-medium text-white">
+                  And the people holding the tools? They write the future.
+                </p>
+
+                <p>
+                  So yeah. What a time to be alive.
+                </p>
+
+                <p>
+                  The world is changing faster than ever. And our job — the only job that matters — is to make sure you're ready for it. Not just ready. <span className="font-medium text-white">Built for it.</span>
+                </p>
+
+                <p className="text-lg font-medium text-white">
+                  If we do this right, the world won't just survive AI.
+                </p>
+
+                <p className="text-lg font-medium text-white">
+                  It will rise because of it.
                 </p>
 
                 <div className="pt-6 border-t border-white/10">
