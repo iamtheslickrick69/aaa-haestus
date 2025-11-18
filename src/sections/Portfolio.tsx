@@ -67,7 +67,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <section className="relative py-20 px-10 overflow-hidden">
+    <section className="relative py-20 px-10 overflow-hidden bg-black">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <video

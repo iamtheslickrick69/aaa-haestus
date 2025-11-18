@@ -20,7 +20,7 @@ export default function Connect() {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-screen py-32 px-6">
+    <section className="relative overflow-hidden min-h-screen py-32 px-6 bg-black">
       {/* Video Background */}
       <video
         autoPlay

@@ -177,7 +177,7 @@ function TechCard({ tech }: { tech: Tech }) {
 
 export default function TechStackMarquee() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-24 bg-black">
       {/* Orange Background Video */}
       <video
         autoPlay

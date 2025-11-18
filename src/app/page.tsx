@@ -42,7 +42,7 @@ export default function Home() {
         <div id="insights" className="bg-black">
           <StatsDashboard />
         </div>
-        <section id="architecture" className="relative overflow-hidden">
+        <section id="architecture" className="relative overflow-hidden bg-black">
           {/* New Orange Background Video */}
           <video
             autoPlay

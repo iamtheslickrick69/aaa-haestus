@@ -2,7 +2,7 @@
 
 export default function ForgeValues() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-black">
       {/* Orange Gradient Banner Background Video */}
       <video
         autoPlay
