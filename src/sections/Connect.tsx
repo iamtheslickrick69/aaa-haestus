@@ -20,8 +20,26 @@ export default function Connect() {
   };
 
   return (
-    <section className="py-32 px-6 bg-[#0b0b0b]">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative overflow-hidden min-h-screen py-32 px-6">
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/mainheader4k.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/30 z-0" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Side - Executive Summary */}
           <motion.div
