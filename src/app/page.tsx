@@ -52,7 +52,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover -z-10"
           >
             <source
-              src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/orangelegitness.mp4"
+              src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/3DUPinthis.mp4"
               type="video/mp4"
             />
           </video>
