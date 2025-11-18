@@ -20,7 +20,7 @@ const stats: Stat[] = [
     number: '3',
     title: 'companies control 90%+',
     description:
-      'of AI cloud infrastructure. The entire AI stack is consolidated in the hands of a few tech giants.',
+      'of AI cloud infrastructure. The entire AI stack is being consolidated into the hands of a few providers.',
     tags: ['AWS', 'Azure', 'GCP'],
     isHero: true,
   },
@@ -115,41 +115,25 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
         y: -8,
         scale: 1.01,
       }}
-      className={`relative overflow-hidden rounded-3xl border transition-all duration-400 ${
+      className={`relative overflow-hidden rounded-2xl border transition-all duration-400 ${
         stat.isHero
-          ? 'col-span-1 row-span-2 p-12'
+          ? 'col-span-2 p-10'
           : 'p-8'
       }`}
       style={{
-        background: 'rgba(30, 41, 59, 0.4)',
-        backdropFilter: 'blur(20px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        borderColor: 'rgba(255, 255, 255, 0.08)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-        borderLeft: stat.isFeatured ? '3px solid #ff6b35' : undefined,
+        background: '#101217',
+        borderColor: '#232632',
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.45)',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-        e.currentTarget.style.boxShadow = stat.isFeatured
-          ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 107, 53, 0.3)'
-          : '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 107, 53, 0.15)';
+        e.currentTarget.style.borderColor = '#2a2d3a';
+        e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.55)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-        e.currentTarget.style.boxShadow =
-          '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)';
+        e.currentTarget.style.borderColor = '#232632';
+        e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.45)';
       }}
     >
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px)',
-          backgroundSize: '20px 20px',
-        }}
-      />
-
       <div className="relative z-10">
         {/* Number */}
         <div
@@ -183,7 +167,7 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
             className="font-semibold mb-4"
             style={{
               fontSize: '24px',
-              color: '#f1f5f9',
+              color: '#E5E7EB',
             }}
           >
             {stat.title}
@@ -194,9 +178,9 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
         <p
           style={{
             fontSize: stat.isHero ? '18px' : '16px',
-            color: stat.isHero ? '#cbd5e1' : '#94a3b8',
+            color: '#9CA3AF',
             lineHeight: stat.isHero ? 1.5 : 1.6,
-            maxWidth: stat.isHero ? '90%' : '100%',
+            maxWidth: stat.isHero ? '85%' : '100%',
           }}
         >
           {stat.description}
@@ -216,12 +200,12 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
                 key={tag}
                 className="inline-flex items-center"
                 style={{
-                  background: 'rgba(255, 107, 53, 0.1)',
-                  border: '1px solid rgba(255, 107, 53, 0.3)',
-                  borderRadius: '12px',
+                  background: 'rgba(160, 163, 175, 0.1)',
+                  border: '1px solid rgba(160, 163, 175, 0.2)',
+                  borderRadius: '8px',
                   padding: '6px 12px',
                   fontSize: '12px',
-                  color: '#ff6b35',
+                  color: '#9CA3AF',
                   fontWeight: 500,
                 }}
               >
@@ -243,7 +227,7 @@ export default function StatsDashboard() {
     <section
       className="relative w-full"
       style={{
-        background: '#0a0a0a',
+        background: '#050608',
         paddingTop: '120px',
         paddingBottom: '120px',
       }}
@@ -266,30 +250,29 @@ export default function StatsDashboard() {
             className="font-semibold mb-4 tracking-tight"
             style={{
               fontSize: '48px',
-              color: '#f1f5f9',
+              color: '#FFFFFF',
             }}
           >
-            AI Is Everywhere. Success Isn't.
+            Everyone Has AI. Few Have Results.
           </h2>
           <p
-            className="mx-auto"
+            className="mx-auto max-w-2xl"
             style={{
               fontSize: '18px',
-              color: '#cbd5e1',
-              maxWidth: '48rem',
+              color: '#A0A3AF',
+              lineHeight: '1.6',
             }}
           >
-            Four numbers that explain why most AI initiatives fail—and why architecture matters more
-            than ambition.
+            Four numbers that explain why most AI projects stall, and why architecture decides who actually wins.
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
+        {/* 2x2 Grid */}
         <div
           className="grid gap-6"
           style={{
-            gridTemplateColumns: '1.5fr 1fr 1fr',
-            gridTemplateRows: '1fr 1fr',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateRows: 'auto auto',
           }}
         >
           {/* Hero Card */}
@@ -303,19 +286,12 @@ export default function StatsDashboard() {
 
         {/* Responsive Styles */}
         <style jsx global>{`
-          @media (max-width: 1024px) {
-            .grid {
-              grid-template-columns: 1fr 1fr !important;
-              grid-template-rows: auto !important;
-            }
-            .col-span-1.row-span-2 {
-              grid-column: 1 / -1 !important;
-              grid-row: auto !important;
-            }
-          }
           @media (max-width: 768px) {
             .grid {
               grid-template-columns: 1fr !important;
+            }
+            .col-span-2 {
+              grid-column: auto !important;
             }
             h2 {
               font-size: 32px !important;
