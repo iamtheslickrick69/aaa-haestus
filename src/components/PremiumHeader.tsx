@@ -30,7 +30,7 @@ export default function PremiumHeader() {
     <>
       {/* GROUP 2: Top Right Buttons (Aligned with Header) */}
       <motion.div
-        className="fixed right-10 z-[999] hidden md:flex gap-3"
+        className="fixed right-10 z-[999] hidden md:flex gap-3 items-center"
         style={{
           top: scrolled ? '18px' : '22px',
           opacity: scrolled ? 0 : 1,
@@ -40,39 +40,47 @@ export default function PremiumHeader() {
         }}
       >
         <button
-          className="px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200"
+          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200"
           style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            color: '#1e293b',
-            border: '1px solid rgba(255, 255, 255, 0.25)',
-            boxShadow: '0 2px 12px rgba(255, 255, 255, 0.15)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            backdropFilter: 'blur(24px) saturate(200%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
+            color: 'rgba(255, 255, 255, 0.85)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            letterSpacing: '0.3px',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-1px)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 255, 255, 0.25)';
+            e.currentTarget.style.borderColor = '#ff6b2c';
+            e.currentTarget.style.boxShadow = '0 0 10px rgba(255, 107, 44, 0.4)';
+            e.currentTarget.style.color = '#ffffff';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 2px 12px rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
           }}
         >
           Partners
         </button>
         <button
-          className="px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200"
+          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200"
           style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            color: '#1e293b',
-            border: '1px solid rgba(255, 255, 255, 0.25)',
-            boxShadow: '0 2px 12px rgba(255, 255, 255, 0.15)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            backdropFilter: 'blur(24px) saturate(200%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
+            color: 'rgba(255, 255, 255, 0.85)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            letterSpacing: '0.3px',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-1px)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 255, 255, 0.25)';
+            e.currentTarget.style.borderColor = '#ff6b2c';
+            e.currentTarget.style.boxShadow = '0 0 10px rgba(255, 107, 44, 0.4)';
+            e.currentTarget.style.color = '#ffffff';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 2px 12px rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
           }}
         >
           Reps
