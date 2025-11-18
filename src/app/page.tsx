@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       <VideoBackground />
-      <main className="relative z-10 min-h-screen bg-transparent text-white">
+      <main className="relative z-10 min-h-screen bg-black text-white">
         <div id="home" className="relative overflow-hidden">
           <Hero />
         </div>
