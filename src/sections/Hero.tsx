@@ -6,21 +6,14 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-24">
       <div className="text-center max-w-5xl mx-auto relative z-10">
-        {/* Small text above */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-white/70 text-base mb-4 font-light tracking-wide"
-        >
-          About
-        </motion.p>
+        {/* Logo placeholder - will be replaced */}
+        <div className="mb-16" style={{ height: '250px' }} />
 
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white font-bold uppercase tracking-tight mb-8 text-[clamp(2.5rem,8vw,7rem)] leading-[0.95]"
         >
           Crafting Digital Intelligence

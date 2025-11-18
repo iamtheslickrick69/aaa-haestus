@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export default function VideoBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
   const pathname = usePathname();
 
   // Only show on homepage
@@ -58,7 +58,7 @@ export default function VideoBackground() {
 
       {/* Loading state */}
       {!isLoaded && (
-        <div className="fixed inset-0 -z-10 bg-black animate-pulse pointer-events-none" />
+        <div className="fixed inset-0 -z-10 bg-black pointer-events-none" />
       )}
     </>
   );

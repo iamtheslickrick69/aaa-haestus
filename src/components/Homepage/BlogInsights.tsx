@@ -214,7 +214,7 @@ export default function BlogInsights() {
           </motion.div>
         </div>
 
-        {/* Bottom cyan accent line */}
+        {/* Bottom orange accent line */}
         <div
           className="absolute bottom-[10px] left-[47%] w-[6%] h-[1px]"
           style={{
