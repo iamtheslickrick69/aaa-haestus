@@ -9,10 +9,13 @@ export default function ChatOrb() {
     <>
       {/* Floating Orb - Fixed Bottom Right */}
       <div className="fixed bottom-8 right-8 z-[9999]">
-        {/* Orb Video */}
+        {/* Orb Video - Doubled Size with White Glow */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-20 h-20 rounded-full overflow-hidden shadow-2xl hover:scale-110 transition-transform duration-300 cursor-pointer group"
+          className="relative w-40 h-40 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+          style={{
+            boxShadow: '0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.15)',
+          }}
         >
           <video
             autoPlay
@@ -26,16 +29,12 @@ export default function ChatOrb() {
               type="video/mp4"
             />
           </video>
-
-          {/* Pulse Ring Animation */}
-          <div className="absolute inset-0 rounded-full border-2 border-orange-500/50 group-hover:border-orange-500 transition-colors" />
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </button>
       </div>
 
       {/* Chat Window - Appears when orb is clicked */}
       {isOpen && (
-        <div className="fixed bottom-32 right-8 w-96 h-[500px] md:w-96 max-md:w-[calc(100vw-2rem)] max-md:right-4 max-md:left-4 max-md:bottom-24 z-[9998] animate-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed bottom-52 right-8 w-96 h-[500px] md:w-96 max-md:w-[calc(100vw-2rem)] max-md:right-4 max-md:left-4 max-md:bottom-48 z-[9998] animate-in slide-in-from-bottom-4 duration-300">
           {/* Chat Container - Glassmorphism */}
           <div className="relative w-full h-full rounded-2xl border border-white/20 bg-black/80 backdrop-blur-xl shadow-2xl overflow-hidden">
             {/* Header */}
