@@ -180,7 +180,7 @@ export default function StatsDashboard() {
     <section
       className="relative w-full"
       style={{
-        background: 'transparent',
+        background: '#000000',
         paddingTop: '60px',
         paddingBottom: '60px',
       }}
