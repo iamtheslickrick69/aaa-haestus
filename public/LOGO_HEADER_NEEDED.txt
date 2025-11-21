@@ -1,9 +1,0 @@
-IMPORTANT: Save the header logo image as:
-/Users/isr/aaa-haestus/public/haestus.noicon.png
-
-This is the text-only logo (orange "haestus" text without anvil icon)
-- Size: 44px height
-- Format: PNG with transparent background
-- Color: Orange (#ff6b35)
-
-Delete this file once the actual logo is in place.

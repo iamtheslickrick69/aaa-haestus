@@ -180,7 +180,7 @@ export default function BlogInsights() {
             className="text-center"
           >
             <Link
-              href="/insights"
+              href="/#insights"
               className="inline-block bg-transparent text-[#F97316] px-9 py-3 rounded-lg border border-[#F97316]/40 text-[14px] font-medium cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#F97316]/5 hover:border-[#F97316]/60 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.2)]"
             >
               VIEW ALL INSIGHTS →

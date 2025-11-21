@@ -38,12 +38,12 @@ export default function PremiumHeader() {
   }, [isPortalOpen]);
 
   const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Capabilities', href: '/capabilities' },
-    { name: 'Impact', href: '/impact' },
-    { name: 'Framework', href: '/framework' },
-    { name: 'Insights', href: '/insights' },
-    { name: 'Partnership', href: '/partnership' },
+    { name: 'About', href: '/#about' },
+    { name: 'Capabilities', href: '/#capabilities' },
+    { name: 'Impact', href: '/#impact' },
+    { name: 'Framework', href: '/#framework' },
+    { name: 'Insights', href: '/#insights' },
+    { name: 'Partnership', href: '/#partnership' },
   ];
 
   return (
