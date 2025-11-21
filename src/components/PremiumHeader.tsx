@@ -38,9 +38,9 @@ export default function PremiumHeader() {
   }, [isPortalOpen]);
 
   const navLinks = [
-    { name: 'Philosophy', href: '/philosophy' },
+    { name: 'About', href: '/about' },
     { name: 'Capabilities', href: '/capabilities' },
-    { name: 'Proof', href: '/proof' },
+    { name: 'Impact', href: '/impact' },
     { name: 'Framework', href: '/framework' },
     { name: 'Insights', href: '/insights' },
     { name: 'Partnership', href: '/partnership' },
@@ -147,31 +147,6 @@ export default function PremiumHeader() {
               </Link>
             ))}
           </div>
-
-          {/* Connect Button - Compact Outlined Style */}
-          <Link
-            href="/partnership"
-            className="rounded-lg text-[15px] font-semibold flex items-center gap-1.5 transition-all duration-200"
-            style={{
-              padding: '8px 20px',
-              background: 'transparent',
-              border: '2px solid #ff6b35',
-              color: '#ff6b35',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 107, 53, 0.12)';
-              e.currentTarget.style.borderColor = '#ff8556';
-              e.currentTarget.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.borderColor = '#ff6b35';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            Connect
-            <span>→</span>
-          </Link>
         </nav>
       </motion.header>
 

@@ -100,13 +100,12 @@ export default function Framework() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
-
+    <>
       {/* Video Background (ONLY for this page) */}
       <VideoBackground />
 
       {/* Page Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 min-h-screen bg-transparent text-white">
 
         {/* Hero Section */}
         <section className="min-h-[50vh] flex items-center justify-center px-4 pt-32 pb-16">
@@ -315,6 +314,6 @@ export default function Framework() {
         </section>
 
       </div>
-    </div>
+    </>
   );
 }

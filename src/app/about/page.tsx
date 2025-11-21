@@ -44,7 +44,7 @@ function VideoBackground() {
   );
 }
 
-export default function Philosophy() {
+export default function About() {
   const principles = [
     {
       number: '01',
@@ -77,12 +77,12 @@ export default function Philosophy() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <>
       {/* Video Background */}
       <VideoBackground />
 
       {/* Page Content - Cards overlaying video */}
-      <div className="relative z-10">
+      <div className="relative z-10 min-h-screen bg-transparent text-white">
 
         {/* Section 1: Hero */}
         <section className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -94,7 +94,7 @@ export default function Philosophy() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-                The Forge Philosophy
+                About Haestus
               </h1>
               <div className="w-24 h-1 bg-orange-500 mx-auto" />
             </motion.div>
@@ -327,6 +327,6 @@ export default function Philosophy() {
         </section>
 
       </div>
-    </div>
+    </>
   );
 }

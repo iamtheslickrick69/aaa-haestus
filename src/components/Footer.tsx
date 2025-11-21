@@ -6,10 +6,11 @@ import Image from 'next/image';
 export default function Footer() {
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Philosophy', href: '/philosophy' },
+    { name: 'About', href: '/about' },
     { name: 'Capabilities', href: '/capabilities' },
-    { name: 'Proof', href: '/proof' },
+    { name: 'Impact', href: '/impact' },
     { name: 'Framework', href: '/framework' },
+    { name: 'Insights', href: '/insights' },
     { name: 'Partnership', href: '/partnership' },
   ];
 

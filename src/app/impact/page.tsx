@@ -45,7 +45,7 @@ function VideoBackground() {
   );
 }
 
-export default function Proof() {
+export default function Impact() {
   const metrics = [
     {
       id: 1,
@@ -90,20 +90,19 @@ export default function Proof() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
-
+    <>
       {/* Video Background (ONLY for this page) */}
       <VideoBackground />
 
       {/* Page Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 min-h-screen bg-transparent text-white">
 
         {/* Hero Section */}
         <section className="min-h-[40vh] flex items-center justify-center px-4 pt-32 pb-12">
           <div className="max-w-4xl mx-auto text-center">
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Proof of Work
+              Our Impact
             </h1>
 
             <div className="w-24 h-1 bg-orange-500 mx-auto mb-8" />
@@ -218,6 +217,6 @@ export default function Proof() {
         </section>
 
       </div>
-    </div>
+    </>
   );
 }
