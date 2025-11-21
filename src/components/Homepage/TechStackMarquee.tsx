@@ -133,15 +133,15 @@ const secondBannerTechs: Tech[] = [
 
 function TechCard({ tech }: { tech: Tech }) {
   return (
-    <div className="flex-shrink-0 w-72 p-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-105">
+    <div className="flex-shrink-0 w-40 p-5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-lg transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-105">
       {/* Tech Logo/Icon */}
-      <div className="mb-4 flex justify-center">
-        <div className="w-16 h-16 flex items-center justify-center">
+      <div className="mb-2 flex justify-center">
+        <div className="w-9 h-9 flex items-center justify-center">
           <Image
             src={tech.logo}
             alt={tech.name}
-            width={64}
-            height={64}
+            width={36}
+            height={36}
             className="object-contain"
           />
         </div>
@@ -149,24 +149,21 @@ function TechCard({ tech }: { tech: Tech }) {
 
       {/* Category Label */}
       <p
-        className="text-xs uppercase tracking-wider text-[#ff6b35] mb-2 font-semibold text-center"
-        style={{textShadow: '0 1px 3px rgba(0,0,0,0.3)'}}
+        className="text-[0.5rem] uppercase tracking-wider text-[#ff6b35] mb-1 font-semibold text-center"
       >
         {tech.category}
       </p>
 
       {/* Tech Name */}
       <h3
-        className="text-white text-xl font-bold mb-3 text-center tracking-tight"
-        style={{textShadow: '0 1px 4px rgba(0,0,0,0.4)'}}
+        className="text-white text-xs font-bold mb-1 text-center tracking-tight"
       >
         {tech.name}
       </h3>
 
       {/* Description */}
       <p
-        className="text-white/85 text-sm leading-relaxed text-center"
-        style={{textShadow: '0 1px 3px rgba(0,0,0,0.3)'}}
+        className="text-white/85 text-[0.65rem] leading-relaxed text-center"
       >
         {tech.description}
       </p>
@@ -176,52 +173,38 @@ function TechCard({ tech }: { tech: Tech }) {
 
 export default function TechStackMarquee() {
   return (
-    <section className="relative overflow-hidden py-20" style={{ backgroundColor: '#000' }}>
-      {/* Orange Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-      >
-        <source
-          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/peachbaby.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Subtle Overlay */}
-      <div className="absolute inset-0 bg-black/25" style={{ zIndex: 1 }} />
-
+    <section className="relative overflow-hidden py-16" style={{ backgroundColor: '#000000' }}>
       {/* Content */}
       <div className="relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-12 px-8">
-          <p className="text-xs uppercase tracking-[0.2em] text-white/80 mb-3 font-semibold">
+        <div className="text-center mb-10 px-6">
+          <p className="text-[0.5rem] uppercase tracking-[0.15em] text-white/80 mb-2 font-semibold">
             Our Technology
           </p>
 
           <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight"
-            style={{textShadow: '0 2px 16px rgba(0,0,0,0.6)'}}
+            className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight"
           >
             Architecture, powered by a<br className="hidden md:block" />
             battle-tested stack.
           </h2>
 
           <p
-            className="text-base text-white/90 max-w-3xl mx-auto leading-relaxed"
-            style={{textShadow: '0 1px 8px rgba(0,0,0,0.5)'}}
+            className="text-xs text-white/90 max-w-xl mx-auto leading-relaxed"
           >
             We combine enterprise infrastructure with modern AI tooling so your systems scale under real-world pressure.
           </p>
         </div>
 
-        {/* Banner 1 - Scrolling Right to Left */}
-        <div className="mb-8 overflow-hidden">
-          <div className="animate-marquee-left flex gap-6">
+        {/* Single Banner - Scrolling Right to Left with Edge Blur */}
+        <div
+          className="overflow-hidden relative flex items-center justify-center"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 225px, black calc(100% - 225px), transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 225px, black calc(100% - 225px), transparent 100%)',
+          }}
+        >
+          <div className="flex gap-3 animate-scroll-left">
             {/* First set */}
             {firstBannerTechs.map((tech) => (
               <TechCard key={tech.name} tech={tech} />
@@ -230,23 +213,34 @@ export default function TechStackMarquee() {
             {firstBannerTechs.map((tech) => (
               <TechCard key={`${tech.name}-dup`} tech={tech} />
             ))}
-          </div>
-        </div>
-
-        {/* Banner 2 - Scrolling Left to Right */}
-        <div className="overflow-hidden">
-          <div className="animate-marquee-right flex gap-6">
-            {/* First set */}
-            {secondBannerTechs.map((tech) => (
-              <TechCard key={tech.name} tech={tech} />
-            ))}
-            {/* Duplicate for seamless loop */}
-            {secondBannerTechs.map((tech) => (
-              <TechCard key={`${tech.name}-dup`} tech={tech} />
+            {/* Triple for extra smoothness */}
+            {firstBannerTechs.map((tech) => (
+              <TechCard key={`${tech.name}-dup2`} tech={tech} />
             ))}
           </div>
         </div>
       </div>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+
+        .animate-scroll-left {
+          animation: scrollLeft 18s linear infinite;
+          will-change: transform;
+        }
+
+        .animate-scroll-left:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

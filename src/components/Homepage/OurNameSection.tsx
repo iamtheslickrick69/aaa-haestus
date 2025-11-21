@@ -68,7 +68,7 @@ export default function OurNameSection() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}>
-                Why We're Called Haestus
+                Why We&apos;re Called Haestus
               </h2>
 
               <div style={{
@@ -84,11 +84,11 @@ export default function OurNameSection() {
               }}>
                 <p style={{ marginBottom: '20px' }}>
                   Hephaestus was the Greek god of fire, craftsmanship, and invention — the quiet architect who
-                  forged the armor, tools, and machines that empowered both gods and humans. His work wasn't
+                  forged the armor, tools, and machines that empowered both gods and humans. His work wasn&apos;t
                   about spectacle, but precision, resilience, and mastery.
                 </p>
                 <p style={{ marginBottom: '20px' }}>
-                  We named Haestus after him because that's the philosophy we follow: build with intention,
+                  We named Haestus after him because that&apos;s the philosophy we follow: build with intention,
                   empower through design, and create systems that amplify rather than replace.
                 </p>
                 <p>

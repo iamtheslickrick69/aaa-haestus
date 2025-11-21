@@ -3,8 +3,6 @@
 import { useEffect } from 'react';
 import Hero from '@/sections/Hero';
 import StatsDashboard from '@/sections/StatsDashboard';
-import StrategicPositioning from '@/sections/StrategicPositioning';
-import ForgePhilosophy from '@/sections/ForgePhilosophy';
 import ForgeValues from '@/sections/ForgeValues';
 import AnimatedMazeSection from '@/components/Homepage/AnimatedMazeSection';
 import TechStackMarquee from '@/components/Homepage/TechStackMarquee';
@@ -44,30 +42,6 @@ export default function Home() {
           <StatsDashboard />
         </div>
         <section id="architecture" className="relative overflow-hidden" style={{ backgroundColor: '#000' }}>
-          {/* 3D Background Video - Scaled Down to 30% */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 0 }}>
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="object-cover rounded-lg"
-              style={{
-                width: '30%',
-                height: '30%',
-                minWidth: '400px',
-                minHeight: '300px'
-              }}
-            >
-              <source
-                src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/3DUPinthis.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-
-          {/* Subtle overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/15" style={{ zIndex: 1 }} />
 
           {/* Content Container */}
           <div className="relative z-10 max-w-7xl mx-auto px-8 py-32">
@@ -103,7 +77,7 @@ export default function Home() {
                 className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed"
                 style={{ textShadow: '0 1px 6px rgba(0,0,0,0.25)' }}
               >
-                We don't deploy AI solutions. We architect intelligence into the foundation of
+                We don&apos;t deploy AI solutions. We architect intelligence into the foundation of
                 your organization, creating systems that amplify human potential and compound
                 competitive advantage.
               </p>
@@ -147,8 +121,8 @@ export default function Home() {
                 className="text-2xl md:text-3xl italic text-white/95 max-w-5xl mx-auto mb-12 leading-relaxed font-serif"
                 style={{ textShadow: '0 2px 10px rgba(0,0,0,0.35)' }}
               >
-                "In Greek mythology, Hephaestus didn't replace heroes—he forged the tools that made
-                them legendary."
+                &ldquo;In Greek mythology, Hephaestus didn&apos;t replace heroes—he forged the tools that made
+                them legendary.&rdquo;
               </blockquote>
 
               {/* Body Paragraphs */}
@@ -157,14 +131,14 @@ export default function Home() {
                 style={{ textShadow: '0 1px 6px rgba(0,0,0,0.25)' }}
               >
                 <p>
-                  The god of the forge crafted Achilles' armor, Hermes' winged sandals, and the
+                  The god of the forge crafted Achilles&apos; armor, Hermes&apos; winged sandals, and the
                   weapons that shaped fate. True power lies not in replacing the warrior, but in
                   amplifying their potential. Every creation was architecture—deliberate,
                   transformative.
                 </p>
 
                 <p>
-                  We carry this wisdom forward. We don't build AI to replace your people. We
+                  We carry this wisdom forward. We don&apos;t build AI to replace your people. We
                   architect intelligence that amplifies capability. As Hephaestus transformed metal
                   into divine instruments, we transform data and algorithms into competitive
                   advantage.
@@ -189,7 +163,7 @@ export default function Home() {
                     ARCHITECTURE OVER ASSEMBLY
                   </h3>
                   <p className="text-white/85 text-base leading-relaxed">
-                    We don't stack components—we design systems that create compounding value.
+                    We don&apos;t stack components—we design systems that create compounding value.
                   </p>
                 </div>
 
@@ -216,7 +190,7 @@ export default function Home() {
 
               {/* Closing Statement */}
               <p className="text-white/60 text-sm mt-20 italic">
-                The forge isn't where we work—it's how we think.
+                The forge isn&apos;t where we work—it&apos;s how we think.
               </p>
             </div>
           </div>

@@ -84,7 +84,7 @@ export default function BlogInsights() {
   ];
 
   return (
-    <section className="relative mt-[200px] mb-[200px] overflow-hidden">
+    <section className="relative mt-[200px] mb-[200px] overflow-hidden" style={{ backgroundColor: '#000000' }}>
       {/* Top carved edge - black to white transition */}
       <div
         className="absolute top-[-100px] left-0 right-0 h-[100px] bg-black z-10"
@@ -94,56 +94,8 @@ export default function BlogInsights() {
         }}
       />
 
-      {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-      >
-        <source
-          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/aicoolblack.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Subtle overlay for text contrast */}
-      <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }} />
-
       {/* Main blog section */}
       <div className="relative w-full py-[120px]" style={{ zIndex: 10 }}>
-        {/* Subtle grid pattern overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(0deg,
-                transparent,
-                transparent 39px,
-                rgba(249, 115, 22, 0.01) 39px,
-                rgba(249, 115, 22, 0.01) 40px
-              ),
-              repeating-linear-gradient(90deg,
-                transparent,
-                transparent 39px,
-                rgba(249, 115, 22, 0.01) 39px,
-                rgba(249, 115, 22, 0.01) 40px
-              )
-            `,
-          }}
-        />
-
-        {/* Cyan accent lines at edges */}
-        <div
-          className="absolute top-[10px] left-[47%] w-[6%] h-[1px]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #F97316, transparent)',
-            boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)',
-            opacity: 0.4,
-          }}
-        />
 
         {/* Content Container */}
         <div ref={ref} className="relative max-w-[1400px] mx-auto px-10 z-[1]">
@@ -231,16 +183,6 @@ export default function BlogInsights() {
             </button>
           </motion.div>
         </div>
-
-        {/* Bottom orange accent line */}
-        <div
-          className="absolute bottom-[10px] left-[47%] w-[6%] h-[1px]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #F97316, transparent)',
-            boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)',
-            opacity: 0.4,
-          }}
-        />
       </div>
 
       {/* Bottom carved edge - white to black transition */}

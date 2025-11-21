@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef, useEffect } from 'react';
 
 const projects = [
   {
@@ -55,39 +54,8 @@ const projects = [
 ];
 
 export default function Portfolio() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.playbackRate = 0.5;
-      video.play().catch((error) => {
-        console.log('Video autoplay prevented:', error);
-      });
-    }
-  }, []);
-
   return (
     <section className="relative py-20 px-10 overflow-hidden" style={{ backgroundColor: '#000' }}>
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-      >
-        <source
-          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/bluewaycool.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-black/20" style={{ zIndex: 1 }} />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Header */}

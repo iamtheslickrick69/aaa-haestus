@@ -73,16 +73,16 @@ function FabricMesh() {
   const mesh = useRef<THREE.Mesh>(null);
   const { mouse, viewport } = useThree();
 
-  const uniforms = useRef({
+  const uniformsRef = useRef({
     uTime: { value: 0 },
     uMouse: { value: new THREE.Vector2(0.5, 0.5) },
   });
 
   useFrame((state) => {
     if (mesh.current) {
-      uniforms.current.uTime.value = state.clock.elapsedTime;
-      uniforms.current.uMouse.value.x = (mouse.x + 1) / 2;
-      uniforms.current.uMouse.value.y = (mouse.y + 1) / 2;
+      uniformsRef.current.uTime.value = state.clock.elapsedTime;
+      uniformsRef.current.uMouse.value.x = (mouse.x + 1) / 2;
+      uniformsRef.current.uMouse.value.y = (mouse.y + 1) / 2;
     }
   });
 
@@ -90,7 +90,7 @@ function FabricMesh() {
     <mesh ref={mesh} position={[0, 0, 0]} scale={[viewport.width, viewport.height, 1]}>
       <planeGeometry args={[1, 1, 128, 128]} />
       <shaderMaterial
-        uniforms={uniforms.current}
+        uniforms={uniformsRef.current}
         vertexShader={fabricVertexShader}
         fragmentShader={fabricFragmentShader}
         side={THREE.DoubleSide}
@@ -163,15 +163,11 @@ function MinimalFireflies() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
         <bufferAttribute
           attach="attributes-size"
-          count={particleCount}
-          array={sizes}
-          itemSize={1}
+          args={[sizes, 1]}
         />
       </bufferGeometry>
       <shaderMaterial
