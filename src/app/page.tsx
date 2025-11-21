@@ -2,7 +2,6 @@
 
 import Hero from '@/sections/Hero';
 import StatsDashboard from '@/sections/StatsDashboard';
-import ChatOrb from '@/components/ChatOrb';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -1955,9 +1954,6 @@ export default function Home() {
         </section>
 
       </section>
-
-      {/* AI Chatbot Orb - stays fixed across all sections */}
-      <ChatOrb />
     </>
   );
 }
