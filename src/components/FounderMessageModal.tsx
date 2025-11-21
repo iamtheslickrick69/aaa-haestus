@@ -44,7 +44,7 @@ export default function FounderMessageModal({ isOpen, onClose }: FounderMessageM
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-white/[0.05] backdrop-blur-xl border border-white/20 rounded-3xl max-w-4xl w-full max-h-[85vh] overflow-hidden shadow-2xl"
+            className="relative bg-white/[0.05] backdrop-blur-xl border border-white/20 rounded-3xl max-w-4xl w-full h-[85vh] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -59,7 +59,8 @@ export default function FounderMessageModal({ isOpen, onClose }: FounderMessageM
             </button>
 
             {/* Scrollable Content */}
-            <div className="overflow-y-auto max-h-[85vh] px-8 sm:px-12 md:px-16 py-12 md:py-16">
+            <div className="h-full overflow-y-auto overflow-x-hidden">
+              <div className="px-8 sm:px-12 md:px-16 py-12 md:py-16">
 
               {/* Header */}
               <div className="mb-10">
@@ -119,10 +120,10 @@ export default function FounderMessageModal({ isOpen, onClose }: FounderMessageM
 
                 <div>
                   <h3 className="text-xl font-bold text-blue-400 mb-3">
-                    Why I Built Haestus
+                    Why We Built Haestus
                   </h3>
                   <p className="leading-relaxed">
-                    Haestus exists to close the gap between what AI promises and what organizations actually achieve. Most teams aren&apos;t failing because they lack talent — they&apos;re failing because they lack the architecture to turn ideas into systems. I&apos;ve seen this gap firsthand across dozens of teams. Haestus changes that. We build intelligence layers that become part of a company&apos;s foundation: clean data flows, scalable automations, and decision systems that compound in value over time. Not hype. Not theory. Infrastructure. If you&apos;re ready to move past prototypes and into real production, to build with intention instead of reacting to noise, this is your moment. The future won&apos;t reward the people who wait — it will reward the people who build. Let&apos;s build it together.
+                    Haestus exists to close the gap between what AI promises and what organizations actually achieve. Most teams aren&apos;t failing because they lack talent — they&apos;re failing because they lack the architecture to turn ideas into systems. We&apos;ve seen this gap firsthand across dozens of teams. Haestus changes that. We build intelligence layers that become part of a company&apos;s foundation: clean data flows, scalable automations, and decision systems that compound in value over time. Not hype. Not theory. Infrastructure. If you&apos;re ready to move past prototypes and into real production, to build with intention instead of reacting to noise, this is your moment. The future won&apos;t reward the people who wait — it will reward the people who build. Let&apos;s build it together.
                   </p>
                 </div>
 
@@ -131,7 +132,7 @@ export default function FounderMessageModal({ isOpen, onClose }: FounderMessageM
               {/* Signature */}
               <div className="border-t border-white/10 pt-8 mt-12">
                 <div className="text-right">
-                  <div className="font-signature text-5xl md:text-6xl text-white mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
                     Rocky
                   </div>
                   <div className="text-sm text-gray-400 tracking-wide">
@@ -140,6 +141,7 @@ export default function FounderMessageModal({ isOpen, onClose }: FounderMessageM
                 </div>
               </div>
 
+              </div>
             </div>
           </motion.div>
         </div>

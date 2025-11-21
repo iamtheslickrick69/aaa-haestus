@@ -125,7 +125,6 @@ export default function PremiumHeader() {
               }}
               whileHover={{
                 scale: 1.1,
-                rotate: 5,
               }}
               whileTap={{ scale: 0.95 }}
               transition={{

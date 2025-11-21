@@ -169,6 +169,7 @@ function PrinciplesTab({ principles }: { principles: Array<{ number: string; tit
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      className="space-y-8"
     >
       <p className="text-center text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
         HOW WE WORK
@@ -181,19 +182,21 @@ function PrinciplesTab({ principles }: { principles: Array<{ number: string; tit
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300"
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="group p-8 md:p-10 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-400 shadow-lg"
           >
             <div className="text-4xl font-bold text-white/20 mb-4">
               {principle.number}
             </div>
 
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
               {principle.title}
             </h3>
-            <div className="h-1 w-16 bg-white/30 rounded-full mb-4"></div>
 
-            <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+            {/* Blue underline - Matches Philosophy */}
+            <div className="w-12 h-1 mb-4 bg-gradient-to-r from-blue-500 to-cyan-400" />
+
+            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
               {principle.text}
             </p>
           </motion.div>
@@ -211,34 +214,47 @@ function ValuesTab({ refuseItems }: { refuseItems: string[] }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
-      className="max-w-4xl mx-auto"
+      className="space-y-8"
     >
-      <div
-        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12"
-        style={{
-          boxShadow: '0 0 40px rgba(255, 255, 255, 0.05)',
-        }}
+      {/* Main Values Card - Matches Philosophy Style */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="group p-8 md:p-10 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-400 shadow-lg"
       >
-        <p className="text-sm font-semibold text-white/60 uppercase tracking-widest text-center mb-6">
-          WHAT WE REFUSE TO DO
-        </p>
+        {/* Number */}
+        <div className="text-4xl font-bold mb-3 text-white/20">
+          01
+        </div>
 
-        <p className="text-2xl md:text-3xl text-white text-center mb-12 font-semibold">
+        {/* Header */}
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+          What We Refuse To Do
+        </h3>
+
+        {/* Blue underline */}
+        <div className="w-12 h-1 mb-8 bg-gradient-to-r from-blue-500 to-cyan-400" />
+
+        {/* Intro Text */}
+        <p className="text-lg md:text-xl text-white font-semibold mb-8 leading-relaxed">
           We don&apos;t take every project. We take the right projects.
         </p>
 
-        <div className="space-y-4">
+        {/* Refusal Items */}
+        <div className="space-y-4 mb-8">
           {refuseItems.map((refusal, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-white/20 hover:bg-white/8 transition-all duration-200"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="flex items-start gap-4 bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-5 hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-300"
             >
               <svg
-                className="w-6 h-6 text-white/60 flex-shrink-0 mt-0.5"
+                className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -250,21 +266,22 @@ function ValuesTab({ refuseItems }: { refuseItems: string[] }) {
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
-              <p className="text-base md:text-lg text-gray-300">
+              <p className="text-sm md:text-base text-gray-300 leading-relaxed">
                 {refusal}
               </p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <p className="text-base md:text-lg text-gray-400 text-center italic">
+        {/* Conclusion - Nested card like Philosophy */}
+        <div className="bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8">
+          <p className="text-base md:text-lg text-gray-300 text-center leading-relaxed">
             If you&apos;re looking for fast demos and buzzwords, we&apos;re not your team.
             <br />
-            If you&apos;re ready to build systems that compound in value—let&apos;s talk.
+            <span className="text-white font-semibold">If you&apos;re ready to build systems that compound in value—let&apos;s talk.</span>
           </p>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -1386,13 +1403,11 @@ export default function Home() {
                     <motion.div
                       className="mb-4 text-blue-400"
                       whileHover={{
-                        scale: 1.2,
-                        rotate: 360,
+                        scale: 1.15,
                       }}
                       transition={{
-                        type: 'spring',
-                        stiffness: 260,
-                        damping: 20,
+                        duration: 0.2,
+                        ease: 'easeOut',
                       }}
                     >
                       <Icon className="w-10 h-10" />

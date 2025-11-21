@@ -35,8 +35,8 @@ export default function Hero() {
       {/* Logo Centered - Main Focus */}
       <div className="flex-1 flex items-center justify-center px-8">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 1,
             delay: 1.2,
@@ -44,7 +44,6 @@ export default function Hero() {
           }}
           whileHover={{
             scale: 1.05,
-            rotate: 2,
             transition: { duration: 0.3, type: 'spring', stiffness: 300 },
           }}
           className="relative"
