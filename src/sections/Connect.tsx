@@ -1,22 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 export default function Connect() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    building: '',
-    timeline: '',
-    budget: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-  };
 
   return (
     <section className="relative overflow-hidden min-h-screen py-40 px-8 bg-black">
@@ -89,120 +75,43 @@ export default function Connect() {
             </div>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
+          {/* Right Side - Get in Touch */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/5 rounded-2xl p-10 lg:p-12"
+            className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/5 rounded-2xl p-10 lg:p-12 flex flex-col justify-center items-center text-center space-y-8"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Name */}
-              <div className="space-y-3">
-                <label className="block text-sm font-medium text-white/70">Name</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full h-14 px-5 bg-black/50 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300"
-                  placeholder="Your name"
-                />
-              </div>
+            <div className="space-y-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-white">
+                Ready to Build?
+              </h3>
+              <p className="text-lg text-[#A1A1AA] leading-relaxed max-w-md">
+                Let's discuss your project. Send us an email and we'll respond within 24 hours.
+              </p>
+            </div>
 
-              {/* Email */}
-              <div className="space-y-3">
-                <label className="block text-sm font-medium text-white/70">Email</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full h-14 px-5 bg-black/50 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300"
-                  placeholder="you@company.com"
-                />
-              </div>
+            <motion.a
+              href="mailto:hello@haestus.dev?subject=Project%20Inquiry"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-[#ff6b35] to-[#ff8556] text-white font-semibold text-lg rounded-xl hover:shadow-2xl hover:shadow-[#ff6b35]/30 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email Us
+            </motion.a>
 
-              {/* Company */}
-              <div className="space-y-3">
-                <label className="block text-sm font-medium text-white/70">Company</label>
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full h-14 px-5 bg-black/50 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300"
-                  placeholder="Your company"
-                />
-              </div>
-
-              {/* What are you building? */}
-              <div className="space-y-3">
-                <label className="block text-sm font-medium text-white/70">
-                  What are you building?
-                </label>
-                <textarea
-                  value={formData.building}
-                  onChange={(e) => setFormData({ ...formData, building: e.target.value })}
-                  rows={5}
-                  className="w-full px-5 py-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300 resize-none"
-                  placeholder="Describe your project or challenge..."
-                />
-              </div>
-
-              {/* Timeline & Budget Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Timeline */}
-                <div className="space-y-3">
-                  <label className="block text-sm font-medium text-white/70">Timeline</label>
-                  <select
-                    value={formData.timeline}
-                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full h-14 px-5 bg-black/50 border border-white/10 rounded-xl text-white focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right 1.25rem center',
-                    }}
-                  >
-                    <option value="">Select timeline</option>
-                    <option value="immediate">Immediate (1-2 weeks)</option>
-                    <option value="short">Short-term (1-3 months)</option>
-                    <option value="medium">Medium-term (3-6 months)</option>
-                    <option value="long">Long-term (6+ months)</option>
-                  </select>
-                </div>
-
-                {/* Budget */}
-                <div className="space-y-3">
-                  <label className="block text-sm font-medium text-white/70">Budget</label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full h-14 px-5 bg-black/50 border border-white/10 rounded-xl text-white focus:border-[#ff6b35]/50 focus:bg-black/70 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right 1.25rem center',
-                    }}
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="25k-50k">$25K - $50K</option>
-                    <option value="50k-100k">$50K - $100K</option>
-                    <option value="100k-250k">$100K - $250K</option>
-                    <option value="250k+">$250K+</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.01, y: -2 }}
-                whileTap={{ scale: 0.99 }}
-                className="w-full h-14 mt-4 bg-gradient-to-r from-[#ff6b35] to-[#ff8556] text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-[#ff6b35]/30 transition-all duration-300"
-              >
-                Start Building →
-              </motion.button>
-            </form>
+            <div className="space-y-2">
+              <p className="text-white/60 font-medium">
+                hello@haestus.dev
+              </p>
+              <p className="text-sm text-white/40">
+                We respond within 24 hours
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
