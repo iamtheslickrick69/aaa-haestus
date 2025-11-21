@@ -30,7 +30,7 @@ export function AnimatedText({ text, className = '', delay = 0 }: AnimatedTextPr
       filter: 'blur(0px)',
       transition: {
         duration: 0.5,
-        ease: [0.4, 0.0, 0.2, 1],
+        ease: [0.4, 0.0, 0.2, 1] as const,
       },
     },
   };
