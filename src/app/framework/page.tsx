@@ -1,9 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import TechStackMarquee from '@/components/Homepage/TechStackMarquee';
 
 function VideoBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -46,269 +44,305 @@ function VideoBackground() {
 }
 
 export default function Framework() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activePhase, setActivePhase] = useState(0);
 
-  const steps = [
+  const phases = [
+    {
+      id: 0,
+      number: "01",
+      shortTitle: "Discovery",
+      title: "DISCOVERY & ALIGNMENT",
+      icon: "🔍",
+      subtitle: "We don't start building until the mission is clear.",
+      description: "Deep stakeholder interviews, system audits, goal alignment, success metrics definition. We ensure everyone understands the vision before any code is written.",
+      accentColor: 'orange'
+    },
     {
       id: 1,
-      number: "01",
-      title: "DISCOVERY & ALIGNMENT",
-      shortTitle: "Discovery",
-      description: "We don't start building until the mission is clear.",
-      details: "Deep stakeholder interviews, system audits, goal alignment, success metrics definition. We ensure everyone understands the vision before any code is written."
+      number: "02",
+      shortTitle: "Blueprint",
+      title: "BLUEPRINT",
+      icon: "📐",
+      subtitle: "Architecture first. Features second.",
+      description: "System architecture design, data models, API contracts, infrastructure planning. We design the foundation that will support everything you'll build.",
+      accentColor: 'blue'
     },
     {
       id: 2,
-      number: "02",
-      title: "ARCHITECTURE BLUEPRINT",
-      shortTitle: "Blueprint",
-      description: "We design the full intelligence layer before any development begins.",
-      details: "Complete system architecture, data flow diagrams, technology stack selection, scalability planning. The blueprint becomes your roadmap for intelligent systems."
+      number: "03",
+      shortTitle: "Construction",
+      title: "CONSTRUCTION",
+      icon: "🔨",
+      subtitle: "Ship systems, not prototypes.",
+      description: "Production-grade development, real-time collaboration, continuous testing. We build with the end state in mind—systems designed to scale from day one.",
+      accentColor: 'orange'
     },
     {
       id: 3,
-      number: "03",
-      title: "INTELLIGENCE CONSTRUCTION",
-      shortTitle: "Construction",
-      description: "We build the system: data pipelines, models, agents, UI, infrastructure.",
-      details: "Full-stack development, ML model training, agent orchestration, API integrations, database design, frontend interfaces. Production-grade code from day one."
+      number: "04",
+      shortTitle: "Integration",
+      title: "INTEGRATION",
+      icon: "🔗",
+      subtitle: "Intelligence flows where data connects.",
+      description: "API connections, third-party services, data pipelines, authentication systems. We ensure your intelligence layer communicates seamlessly with your existing stack.",
+      accentColor: 'blue'
     },
     {
       id: 4,
-      number: "04",
-      title: "INTEGRATION",
-      shortTitle: "Integration",
-      description: "We embed intelligence into real workflows.",
-      details: "Seamless integration with existing tools, workflow automation, user training, change management. Intelligence becomes part of daily operations, not a separate system."
+      number: "05",
+      shortTitle: "Deployment",
+      title: "DEPLOYMENT",
+      icon: "🚀",
+      subtitle: "Launch with confidence, not hope.",
+      description: "Infrastructure setup, monitoring systems, observability, security hardening. We deploy with the same rigor we design—ensuring your system is bulletproof before it goes live.",
+      accentColor: 'orange'
     },
     {
       id: 5,
-      number: "05",
-      title: "PRODUCTION DEPLOYMENT",
-      shortTitle: "Deployment",
-      description: "Enterprise-grade, scalable, reliable.",
-      details: "Load testing, security hardening, monitoring setup, observability, error handling, backup systems. We deploy systems that handle real business-critical operations."
-    },
-    {
-      id: 6,
       number: "06",
-      title: "COMPOUNDING EVOLUTION",
       shortTitle: "Evolution",
-      description: "Your system gets smarter over time.",
-      details: "Continuous learning, performance optimization, feature expansion, feedback loops. Intelligence compounds as your system ingests more data and learns from real usage."
+      title: "EVOLUTION",
+      icon: "📈",
+      subtitle: "Great systems improve over time.",
+      description: "Performance optimization, feature iteration, continuous improvement. We build systems that learn, adapt, and compound in value over time.",
+      accentColor: 'blue'
     }
+  ];
+
+  const techStack = [
+    { name: "Claude API", icon: "🤖", category: "AI/ML" },
+    { name: "GPT-4", icon: "⚡", category: "AI/ML" },
+    { name: "Pinecone", icon: "📊", category: "Vector DB" },
+    { name: "Next.js", icon: "▲", category: "Frontend" },
+    { name: "React", icon: "⚛️", category: "Frontend" },
+    { name: "TypeScript", icon: "📘", category: "Frontend" },
+    { name: "Python", icon: "🐍", category: "Backend" },
+    { name: "Node.js", icon: "💚", category: "Backend" },
+    { name: "PostgreSQL", icon: "🐘", category: "Database" },
+    { name: "AWS", icon: "☁️", category: "Cloud" },
+    { name: "Vercel", icon: "▲", category: "Deploy" },
+    { name: "Docker", icon: "🐳", category: "Container" }
   ];
 
   return (
     <>
-      {/* Video Background (ONLY for this page) */}
+      {/* Video Background */}
       <VideoBackground />
 
       {/* Page Content */}
       <div className="relative z-10 min-h-screen bg-transparent text-white">
 
         {/* Hero Section */}
-        <section className="min-h-[50vh] flex items-center justify-center px-4 pt-32 pb-16">
-          <div className="max-w-5xl mx-auto text-center">
+        <section className="px-4 pt-32 pb-12">
+          <div className="max-w-6xl mx-auto text-center">
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-6xl font-bold text-white mb-4"
+            >
               The Forge Framework
-            </h1>
+            </motion.h1>
 
-            <div className="w-24 h-1 bg-orange-500 mx-auto mb-8" />
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "8rem" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-8"
+            />
 
-            <p className="text-2xl md:text-3xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-xl md:text-2xl text-gray-300"
+            >
               You can't scale what wasn't architected to survive.
-            </p>
+            </motion.p>
 
           </div>
         </section>
 
-        {/* Pipeline/Stepper Section */}
-        <section className="px-4 pb-12">
+        {/* Phase Navigation */}
+        <section className="px-4 pb-8">
           <div className="max-w-7xl mx-auto">
 
-            {/* Horizontal Pipeline Container */}
-            <div className="bg-[#0a0a0a] border border-orange-500/30 rounded-2xl p-6 md:p-12 shadow-2xl backdrop-blur-sm">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
 
-              {/* Step Buttons (Horizontal on desktop, vertical on mobile) */}
-              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 md:gap-0 relative">
+              {phases.map((phase) => (
+                <button
+                  key={phase.id}
+                  onClick={() => setActivePhase(phase.id)}
+                  className={`group px-6 py-4 rounded-2xl transition-all duration-300 ${
+                    activePhase === phase.id
+                      ? `bg-white/[0.06] border-2 shadow-lg ${
+                          phase.accentColor === 'blue'
+                            ? 'border-blue-500/60 shadow-blue-500/20'
+                            : 'border-orange-500/60 shadow-orange-500/20'
+                        }`
+                      : `bg-white/[0.02] border border-white/10 ${
+                          phase.accentColor === 'blue'
+                            ? 'hover:border-blue-500/30'
+                            : 'hover:border-orange-500/30'
+                        }`
+                  }`}
+                >
+                  <div className={`text-2xl font-bold mb-1 ${
+                    phase.accentColor === 'blue' ? 'text-blue-500' : 'text-orange-500'
+                  }`}>
+                    {phase.number}
+                  </div>
+                  <div className={`text-sm font-medium ${
+                    activePhase === phase.id ? 'text-white' : 'text-gray-400'
+                  }`}>
+                    {phase.shortTitle}
+                  </div>
+                </button>
+              ))}
 
-                {steps.map((step, index) => (
-                  <div key={step.id} className="flex flex-col md:flex-row items-center md:flex-1 relative">
+            </div>
+          </div>
+        </section>
 
-                    {/* Step Button */}
-                    <button
-                      onClick={() => setActiveStep(step.id)}
-                      className={`
-                        relative group
-                        w-full md:w-auto
-                        flex flex-col items-center
-                        p-4 md:p-6
-                        rounded-xl
-                        border-2
-                        transition-all duration-300
-                        ${activeStep === step.id
-                          ? 'border-orange-500 bg-orange-500/10 scale-105'
-                          : 'border-orange-500/20 bg-black/40 hover:border-orange-500/40 hover:scale-102'}
-                      `}
-                    >
-                      {/* Step Number */}
-                      <div className={`
-                        text-3xl md:text-4xl font-bold mb-2
-                        transition-colors duration-300
-                        ${activeStep === step.id ? 'text-orange-500' : 'text-orange-500/40'}
-                      `}>
-                        {step.number}
-                      </div>
+        {/* Phase Content */}
+        <section className="px-4 py-12">
+          <AnimatePresence mode="wait">
+            {phases.map((phase) => (
+              activePhase === phase.id && (
+                <motion.div
+                  key={`phase-${phase.id}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="max-w-5xl mx-auto"
+                >
+                  <div className={`group p-8 md:p-12 rounded-3xl bg-white/[0.03] backdrop-blur-xl border transition-all duration-400 shadow-xl hover:-translate-y-1 ${
+                    phase.accentColor === 'blue'
+                      ? 'border-blue-500/20 hover:border-blue-500/40 hover:shadow-blue-500/20'
+                      : 'border-orange-500/20 hover:border-orange-500/40 hover:shadow-orange-500/20'
+                  }`}>
 
-                      {/* Step Title (Short version on desktop) */}
-                      <div className={`
-                        text-sm md:text-base font-semibold text-center
-                        transition-colors duration-300
-                        ${activeStep === step.id ? 'text-white' : 'text-gray-400'}
-                      `}>
-                        {step.shortTitle}
-                      </div>
+                    {/* Icon */}
+                    <div className="text-6xl mb-6">{phase.icon}</div>
 
-                      {/* Active Indicator Glow */}
-                      {activeStep === step.id && (
-                        <motion.div
-                          layoutId="activeStepGlow"
-                          className="absolute inset-0 rounded-xl bg-orange-500/20 -z-10"
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
-                    </button>
+                    {/* Phase Number */}
+                    <div className={`text-5xl font-bold mb-4 ${
+                      phase.accentColor === 'blue' ? 'text-blue-500/30' : 'text-orange-500/30'
+                    }`}>
+                      {phase.number}
+                    </div>
 
-                    {/* Connector Line (Not after last step) - Desktop Horizontal */}
-                    {index < steps.length - 1 && (
-                      <div className="hidden md:block flex-1 h-0.5 mx-2 relative">
-                        {/* Background line */}
-                        <div className="absolute inset-0 bg-orange-500/20" />
+                    {/* Title */}
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                      {phase.title}
+                    </h2>
 
-                        {/* Progress line (fills if step is completed/active) */}
-                        <motion.div
-                          className="absolute inset-0 bg-orange-500"
-                          initial={{ scaleX: 0 }}
-                          animate={{
-                            scaleX: activeStep > step.id ? 1 : 0
-                          }}
-                          transition={{ duration: 0.4 }}
-                          style={{ transformOrigin: 'left' }}
-                        />
+                    {/* Colored Underline */}
+                    <div className={`w-24 h-1 mb-6 ${
+                      phase.accentColor === 'blue'
+                        ? 'bg-gradient-to-r from-blue-500 to-cyan-400'
+                        : 'bg-gradient-to-r from-orange-500 to-orange-600'
+                    }`} />
 
-                        {/* Arrow indicator */}
-                        {activeStep > step.id && (
-                          <motion.div
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 text-orange-500"
-                          >
-                            →
-                          </motion.div>
-                        )}
-                      </div>
-                    )}
+                    {/* Subtitle */}
+                    <p className="text-xl text-gray-300 mb-6 italic">
+                      {phase.subtitle}
+                    </p>
 
-                    {/* Mobile Connector (Vertical) */}
-                    {index < steps.length - 1 && (
-                      <div className="md:hidden w-0.5 h-8 mx-auto relative">
-                        <div className="absolute inset-0 bg-orange-500/20" />
-                        <motion.div
-                          className="absolute inset-0 bg-orange-500"
-                          animate={{ scaleY: activeStep > step.id ? 1 : 0 }}
-                          transition={{ duration: 0.4 }}
-                          style={{ transformOrigin: 'top' }}
-                        />
-                      </div>
-                    )}
+                    {/* Description */}
+                    <p className="text-gray-400 leading-relaxed text-lg">
+                      {phase.description}
+                    </p>
 
+                  </div>
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+        </section>
+
+        {/* Tech Stack Banner - SLOW, 6 AT A TIME */}
+        <section className="px-4 py-16">
+          <div className="max-w-7xl mx-auto">
+
+            {/* Label */}
+            <div className="text-center mb-8">
+              <span className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                Our Technology
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                Architecture, powered by a battle-tested stack.
+              </h3>
+              <p className="text-gray-400 mt-2 text-sm">
+                We combine enterprise infrastructure with modern AI tooling so your systems scale, perform, and endure.
+              </p>
+            </div>
+
+            {/* Scrolling Banner */}
+            <div className="relative overflow-hidden py-8">
+              <motion.div
+                className="flex gap-12"
+                animate={{
+                  x: [0, -2400],
+                }}
+                transition={{
+                  duration: 60, // SLOW: 60 seconds for full loop
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                {/* First set of logos */}
+                {techStack.map((tech, index) => (
+                  <div key={`tech-${index}`} className="flex-shrink-0 w-48 p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
+                    <div className="text-center">
+                      <div className="text-4xl mb-3">{tech.icon}</div>
+                      <div className="text-white font-semibold">{tech.name}</div>
+                      <div className="text-xs text-gray-500 mt-1">{tech.category}</div>
+                    </div>
                   </div>
                 ))}
 
-              </div>
-
-              {/* Details Panel (Shows selected step details) */}
-              <div className="mt-8 pt-8 border-t border-orange-500/20">
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeStep}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="space-y-6"
-                  >
-
-                    {/* Full Step Title */}
-                    <div>
-                      <div className="text-5xl md:text-6xl font-bold text-orange-500/20 mb-2">
-                        {steps[activeStep - 1].number}
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        {steps[activeStep - 1].title}
-                      </h2>
-                      <div className="w-16 h-1 bg-orange-500" />
+                {/* Duplicate set for seamless loop */}
+                {techStack.map((tech, index) => (
+                  <div key={`tech-dup-${index}`} className="flex-shrink-0 w-48 p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
+                    <div className="text-center">
+                      <div className="text-4xl mb-3">{tech.icon}</div>
+                      <div className="text-white font-semibold">{tech.name}</div>
+                      <div className="text-xs text-gray-500 mt-1">{tech.category}</div>
                     </div>
+                  </div>
+                ))}
+              </motion.div>
 
-                    {/* Description */}
-                    <p className="text-xl md:text-2xl text-gray-300">
-                      {steps[activeStep - 1].description}
-                    </p>
-
-                    {/* Detailed Explanation */}
-                    <p className="text-lg text-gray-400 leading-relaxed">
-                      {steps[activeStep - 1].details}
-                    </p>
-
-                  </motion.div>
-                </AnimatePresence>
-
-              </div>
+              {/* Fade Edges */}
+              <div className="absolute top-0 left-0 bottom-0 w-32 bg-gradient-to-r from-black/60 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 bottom-0 w-32 bg-gradient-to-l from-black/60 to-transparent pointer-events-none" />
 
             </div>
 
           </div>
         </section>
 
-        {/* Tech Stack Section */}
-        <TechStackMarquee />
+        {/* Quote Section */}
+        <section className="px-4 py-16 pb-32">
+          <div className="max-w-4xl mx-auto">
 
-        {/* Closing Statement */}
-        <section className="px-4 py-12">
-          <div className="max-w-4xl mx-auto text-center">
-
-            <div className="bg-[#0a0a0a] border border-orange-500/20 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm">
-              <p className="text-2xl md:text-3xl font-bold text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="p-12 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 text-center"
+            >
+              <p className="text-2xl md:text-3xl text-white mb-4">
                 "Most companies build features.
               </p>
-              <p className="text-2xl md:text-3xl font-bold text-orange-500 mt-2">
+              <p className="text-2xl md:text-3xl font-bold text-orange-500">
                 We build foundations."
               </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="px-4 pb-20">
-          <div className="max-w-2xl mx-auto text-center">
-
-            <p className="text-xl text-gray-300 mb-8">
-              Ready to architect intelligence that compounds over time?
-            </p>
-
-            <Link
-              href="/partnership"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105"
-            >
-              Request Partnership
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            </motion.div>
 
           </div>
         </section>

@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   TrendingUp,
   Zap,
@@ -12,23 +11,39 @@ import {
   Rocket
 } from 'lucide-react';
 
+// VideoBackground component
+function VideoBackground() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.9;
+    }
+  }, []);
+
+  return (
+    <div className="fixed inset-0 -z-10 overflow-hidden">
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="w-full h-full object-cover"
+      >
+        <source
+          src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/yeet.mp4"
+          type="video/mp4"
+        />
+      </video>
+      {/* Black overlay */}
+      <div className="absolute inset-0 bg-black/50" />
+    </div>
+  );
+}
+
 export default function Capabilities() {
-  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
-
-  const toggleCard = (cardId: number) => {
-    setExpandedCards(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(cardId)) {
-        newSet.delete(cardId);
-      } else {
-        newSet.add(cardId);
-      }
-      return newSet;
-    });
-  };
-
-  const isExpanded = (cardId: number) => expandedCards.has(cardId);
-
   const capabilities = [
     {
       id: 1,
@@ -36,7 +51,7 @@ export default function Capabilities() {
       icon: TrendingUp,
       title: "REVENUE INTELLIGENCE",
       shortDesc: "Systems that increase conversions, upsells, and lifetime value using AI-driven workflows.",
-      fullDesc: "We architect intelligence layers that identify revenue opportunities, optimize pricing strategies, predict customer behavior, and automate upsell workflows. Our systems integrate with your existing stack to drive measurable revenue growth through AI-enhanced decision-making."
+      accentColor: 'blue',
     },
     {
       id: 2,
@@ -44,7 +59,7 @@ export default function Capabilities() {
       icon: Zap,
       title: "OPERATIONAL INTELLIGENCE",
       shortDesc: "AI that eliminates friction, reduces cost, and optimizes internal workflows.",
-      fullDesc: "From document processing to workflow automation, we build systems that handle operational complexity while preserving human oversight. Our operational intelligence layers reduce manual bottlenecks, eliminate errors, and free your team for high-value work."
+      accentColor: 'orange',
     },
     {
       id: 3,
@@ -52,15 +67,15 @@ export default function Capabilities() {
       icon: Brain,
       title: "FOUNDER INTELLIGENCE",
       shortDesc: "Tools that give leadership real-time insights, predictive capabilities, and clarity.",
-      fullDesc: "We build executive intelligence systems that aggregate data from across your organization, surface critical insights, and provide predictive analytics for strategic decision-making. Real-time dashboards, anomaly detection, and AI-powered forecasting designed for founders who need clarity at scale."
+      accentColor: 'blue',
     },
     {
       id: 4,
       number: "04",
       icon: Hammer,
       title: "CUSTOM SYSTEMS",
-      shortDesc: "If it requires precision, architecture, and intelligence — we build it.",
-      fullDesc: "Every organization has unique challenges that off-the-shelf solutions can't solve. We architect custom intelligence systems from the ground up: full-stack applications, specialized ML models, agent-based workflows, and integrated platforms built specifically for your needs. Production-grade, scalable, maintainable."
+      shortDesc: "If it requires precision, architecture, and intelligence – we build it.",
+      accentColor: 'orange',
     },
     {
       id: 5,
@@ -68,7 +83,7 @@ export default function Capabilities() {
       icon: Database,
       title: "DATA & INTEGRATIONS",
       shortDesc: "Data pipelines, vector databases, API integrations, embeddings, multi-agent systems.",
-      fullDesc: "Intelligence requires data architecture. We build robust data pipelines, implement vector databases for semantic search, integrate with your existing APIs and services, design embedding strategies, and orchestrate multi-agent systems. Your data becomes the foundation for compounding intelligence."
+      accentColor: 'blue',
     },
     {
       id: 6,
@@ -76,40 +91,52 @@ export default function Capabilities() {
       icon: Rocket,
       title: "PRODUCTION-READY DEPLOYMENT",
       shortDesc: "We ship systems that scale, not demos that break.",
-      fullDesc: "Our deployments are enterprise-grade: monitoring, logging, error handling, security, scalability, and observability built-in from day one. We don't hand off prototypes. We deliver production systems that handle real traffic, real users, and real business-critical operations. Architecture that survives contact with reality."
+      accentColor: 'orange',
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <>
+      <VideoBackground />
 
-      {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center justify-center px-4 py-20">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-            What We Build
-          </h1>
-          <div className="w-24 h-1 bg-orange-500 mx-auto" />
-        </div>
-      </section>
+      <div className="relative z-10 min-h-screen bg-transparent text-white">
 
-      {/* Intro Text */}
-      <section className="py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-2xl md:text-3xl text-gray-300 leading-relaxed">
-            We build full-stack intelligence systems — from first pixel to final deployment.
-          </p>
-        </div>
-      </section>
+        {/* Hero Section */}
+        <section className="px-4 pt-32 pb-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-6xl font-bold text-white mb-6"
+            >
+              What We Build
+            </motion.h1>
 
-      {/* Capabilities Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "6rem" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-8"
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-xl text-gray-300"
+            >
+              We build full-stack intelligence systems – from first pixel to final deployment.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* Capabilities Cards - Vertical Stack */}
+        <section className="px-4 py-12 pb-32">
+          <div className="max-w-5xl mx-auto space-y-8">
 
             {capabilities.map((capability, index) => {
               const Icon = capability.icon;
-              const expanded = isExpanded(capability.id);
 
               return (
                 <motion.div
@@ -118,105 +145,50 @@ export default function Capabilities() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`
-                    bg-[#0a0a0a]
-                    border
-                    ${expanded ? 'border-orange-500/40' : 'border-orange-500/20'}
-                    rounded-2xl
-                    p-6 md:p-8
-                    shadow-2xl
-                    cursor-pointer
-                    hover:border-orange-500/30
-                    hover:-translate-y-1
-                    transition-all duration-300
-                  `}
-                  onClick={() => toggleCard(capability.id)}
+                  className={`group p-8 md:p-10 rounded-3xl bg-white/[0.03] backdrop-blur-xl border ${
+                    capability.accentColor === 'blue'
+                      ? 'border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20'
+                      : 'border-orange-500/20 hover:border-orange-500/60 hover:shadow-orange-500/20'
+                  } hover:-translate-y-2 transition-all duration-400 shadow-lg`}
                 >
-
-                  {/* Card Header (Always Visible) */}
-                  <div className="flex items-start justify-between gap-4">
-
-                    <div className="flex-1">
-                      {/* Number */}
-                      <div className="text-4xl font-bold text-orange-500/30 mb-3">
-                        {capability.number}
-                      </div>
-
-                      {/* Icon */}
-                      <div className="text-orange-500 mb-4">
-                        <Icon className="w-8 h-8" />
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                        {capability.title}
-                      </h3>
-
-                      {/* Short Description (Always visible) */}
-                      <p className="text-gray-400 text-base">
-                        {capability.shortDesc}
-                      </p>
-                    </div>
-
-                    {/* Expand/Collapse Icon */}
-                    <motion.div
-                      animate={{ rotate: expanded ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-orange-500 text-2xl flex-shrink-0"
-                    >
-                      ↓
-                    </motion.div>
-
+                  {/* Number */}
+                  <div className={`text-5xl font-bold mb-4 ${
+                    capability.accentColor === 'blue' ? 'text-orange-500/30' : 'text-blue-500/30'
+                  }`}>
+                    {capability.number}
                   </div>
 
-                  {/* Expanded Content (Animated) */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: expanded ? 'auto' : 0,
-                      opacity: expanded ? 1 : 0
-                    }}
-                    transition={{ duration: 0.4, ease: [0.4, 0.0, 0.2, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pt-6 mt-6 border-t border-orange-500/20">
-                      <p className="text-gray-300 text-lg leading-relaxed">
-                        {capability.fullDesc}
-                      </p>
-                    </div>
-                  </motion.div>
+                  {/* Icon */}
+                  <div className={`mb-4 ${
+                    capability.accentColor === 'blue' ? 'text-blue-500' : 'text-orange-500'
+                  }`}>
+                    <Icon className="w-12 h-12" />
+                  </div>
 
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                    {capability.title}
+                  </h3>
+
+                  {/* Underline */}
+                  <div className={`w-16 h-1 mb-6 ${
+                    capability.accentColor === 'blue'
+                      ? 'bg-gradient-to-r from-blue-500 to-cyan-400'
+                      : 'bg-gradient-to-r from-orange-500 to-orange-600'
+                  }`} />
+
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed text-lg">
+                    {capability.shortDesc}
+                  </p>
                 </motion.div>
               );
             })}
 
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 pb-32">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-[#0a0a0a] border border-orange-500/20 rounded-2xl p-8 shadow-2xl">
-
-            <p className="text-xl text-gray-300 mb-8">
-              Ready to architect intelligence that amplifies human capability?
-            </p>
-
-            <Link
-              href="/impact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105"
-            >
-              View Our Impact
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-
-          </div>
-        </div>
-      </section>
-
-    </div>
+      </div>
+    </>
   );
 }

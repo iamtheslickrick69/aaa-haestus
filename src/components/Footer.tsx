@@ -45,14 +45,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-black border-t border-orange-500/20">
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <footer className="relative bg-[#0a0a0a] text-white">
+
+      <div className="relative max-w-7xl mx-auto px-4 py-9">
 
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 
           {/* Column 1: Logo + Tagline */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Link href="/" className="inline-flex items-center gap-3 group">
               {/* Logo Icon */}
               <div className="w-10 h-10 flex items-center justify-center">
@@ -80,10 +81,10 @@ export default function Footer() {
 
           {/* Column 2: Navigation Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">
               Navigation
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
@@ -99,12 +100,12 @@ export default function Footer() {
 
           {/* Column 3: Social + Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">
               Connect
             </h3>
 
             {/* Social Links */}
-            <div className="flex gap-4 mb-6">
+            <div className="flex gap-4 mb-4">
               {social.map((item) => (
                 <a
                   key={item.name}
@@ -134,8 +135,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="pt-8 border-t border-orange-500/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 border-t border-orange-500/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <p className="text-sm text-gray-500">
               © 2025 Haestus.dev. All rights reserved.
             </p>
