@@ -9,6 +9,7 @@ import { X, Users, Briefcase } from 'lucide-react';
 
 export default function PremiumHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -16,6 +17,11 @@ export default function PremiumHeader() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -62,7 +68,16 @@ export default function PremiumHeader() {
       >
         <button
           onClick={() => setIsPortalOpen(true)}
-          className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105"
+          className="px-6 py-2 text-white font-medium rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300"
+          style={{
+            boxShadow: '0 0 20px rgba(255, 255, 255, 0.15)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.25)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.15)';
+          }}
         >
           Portal
         </button>
@@ -73,10 +88,12 @@ export default function PremiumHeader() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed left-1/2 -translate-x-1/2 z-[1000]"
+        className={`fixed left-1/2 -translate-x-1/2 z-[1000] transition-transform duration-300 ${
+          isScrolled ? 'scale-90' : 'scale-100'
+        }`}
         style={{
           top: scrolled ? '18px' : '22px',
-          transform: scrolled ? 'translateX(-50%) scale(0.85)' : 'translateX(-50%) scale(1)',
+          transformOrigin: 'top center',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >

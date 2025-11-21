@@ -2,14 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import {
-  TrendingUp,
-  Zap,
-  Brain,
-  Hammer,
-  Database,
-  Rocket
-} from 'lucide-react';
+import { CapabilityCard } from '@/components/CapabilityCard';
 
 // VideoBackground component
 function VideoBackground() {
@@ -44,146 +37,142 @@ function VideoBackground() {
 }
 
 export default function Capabilities() {
-  const capabilities = [
-    {
-      id: 1,
-      number: "01",
-      icon: TrendingUp,
-      title: "REVENUE INTELLIGENCE",
-      shortDesc: "Systems that increase conversions, upsells, and lifetime value using AI-driven workflows.",
-      accentColor: 'blue',
-    },
-    {
-      id: 2,
-      number: "02",
-      icon: Zap,
-      title: "OPERATIONAL INTELLIGENCE",
-      shortDesc: "AI that eliminates friction, reduces cost, and optimizes internal workflows.",
-      accentColor: 'orange',
-    },
-    {
-      id: 3,
-      number: "03",
-      icon: Brain,
-      title: "FOUNDER INTELLIGENCE",
-      shortDesc: "Tools that give leadership real-time insights, predictive capabilities, and clarity.",
-      accentColor: 'blue',
-    },
-    {
-      id: 4,
-      number: "04",
-      icon: Hammer,
-      title: "CUSTOM SYSTEMS",
-      shortDesc: "If it requires precision, architecture, and intelligence – we build it.",
-      accentColor: 'orange',
-    },
-    {
-      id: 5,
-      number: "05",
-      icon: Database,
-      title: "DATA & INTEGRATIONS",
-      shortDesc: "Data pipelines, vector databases, API integrations, embeddings, multi-agent systems.",
-      accentColor: 'blue',
-    },
-    {
-      id: 6,
-      number: "06",
-      icon: Rocket,
-      title: "PRODUCTION-READY DEPLOYMENT",
-      shortDesc: "We ship systems that scale, not demos that break.",
-      accentColor: 'orange',
-    }
-  ];
-
   return (
     <>
       <VideoBackground />
 
       <div className="relative z-10 min-h-screen bg-transparent text-white">
 
-        {/* Hero Section */}
-        <section className="px-4 pt-32 pb-16">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
-            >
-              What We Build
-            </motion.h1>
+        {/* Capabilities Section */}
+        <section className="relative px-4 py-20 pt-32">
+          <div className="max-w-6xl mx-auto">
 
+            {/* Hero */}
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "6rem" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-8"
-            />
-
-            <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl text-gray-300"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
             >
-              We build full-stack intelligence systems – from first pixel to final deployment.
-            </motion.p>
-          </div>
-        </section>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                What We Build
+              </h2>
+              <div className="h-1 w-24 bg-orange-500 rounded-full mx-auto mb-6"></div>
+              <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                We build full-stack intelligence systems—from first pixel to final deployment.
+              </p>
 
-        {/* Capabilities Cards - Vertical Stack */}
-        <section className="px-4 py-12 pb-32">
-          <div className="max-w-5xl mx-auto space-y-8">
+              {/* Production Guarantee Badge */}
+              <div
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-full px-6 py-3"
+                style={{
+                  boxShadow: '0 0 30px rgba(255, 107, 53, 0.2)',
+                }}
+              >
+                <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm md:text-base font-semibold text-orange-300">
+                  0 Revisions. 100% Production Success.
+                </span>
+              </div>
+            </motion.div>
 
-            {capabilities.map((capability, index) => {
-              const Icon = capability.icon;
+            {/* Capabilities Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
 
-              return (
-                <motion.div
-                  key={capability.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`group p-8 md:p-10 rounded-3xl bg-white/[0.03] backdrop-blur-xl border ${
-                    capability.accentColor === 'blue'
-                      ? 'border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20'
-                      : 'border-orange-500/20 hover:border-orange-500/60 hover:shadow-orange-500/20'
-                  } hover:-translate-y-2 transition-all duration-400 shadow-lg`}
-                >
-                  {/* Number */}
-                  <div className={`text-5xl font-bold mb-4 ${
-                    capability.accentColor === 'blue' ? 'text-orange-500/30' : 'text-blue-500/30'
-                  }`}>
-                    {capability.number}
-                  </div>
+              {/* Capability Card 1 */}
+              <CapabilityCard
+                number="01"
+                icon="📈"
+                title="Revenue Systems"
+                description="AI systems that predict churn, optimize pricing, and automate upsells—turning behavioral data into recurring revenue."
+                details={[
+                  "Churn prediction & intervention",
+                  "Dynamic pricing optimization",
+                  "Upsell automation workflows",
+                  "Customer lifetime value modeling"
+                ]}
+                example="Case study: Series B SaaS platform"
+              />
 
-                  {/* Icon */}
-                  <div className={`mb-4 ${
-                    capability.accentColor === 'blue' ? 'text-blue-500' : 'text-orange-500'
-                  }`}>
-                    <Icon className="w-12 h-12" />
-                  </div>
+              {/* Capability Card 2 */}
+              <CapabilityCard
+                number="02"
+                icon="⚡"
+                title="Operations Automation"
+                description="Workflow intelligence that eliminates friction, reduces costs, and optimizes internal processes end-to-end."
+                details={[
+                  "Process automation & orchestration",
+                  "Workflow optimization systems",
+                  "Cost reduction intelligence",
+                  "Internal tool integration"
+                ]}
+                example="Case study: Available on request"
+              />
 
-                  {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                    {capability.title}
-                  </h3>
+              {/* Capability Card 3 */}
+              <CapabilityCard
+                number="03"
+                icon="🧠"
+                title="Decision Intelligence"
+                description="Real-time dashboards that surface the metrics that matter—not the vanity metrics that don't."
+                details={[
+                  "Executive decision dashboards",
+                  "Predictive analytics systems",
+                  "Real-time insight platforms",
+                  "Strategic clarity tools"
+                ]}
+                example="Case study: Series A startup"
+              />
 
-                  {/* Underline */}
-                  <div className={`w-16 h-1 mb-6 ${
-                    capability.accentColor === 'blue'
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-400'
-                      : 'bg-gradient-to-r from-orange-500 to-orange-600'
-                  }`} />
+              {/* Capability Card 4 */}
+              <CapabilityCard
+                number="04"
+                icon="🗄️"
+                title="Data Infrastructure"
+                description="Clean data pipelines, vector databases, API integrations, and multi-agent architectures that scale."
+                details={[
+                  "Data pipeline architecture",
+                  "Vector database implementation",
+                  "API integration layers",
+                  "Multi-agent orchestration"
+                ]}
+                example="Case study: Available on request"
+              />
 
-                  {/* Description */}
-                  <p className="text-gray-300 leading-relaxed text-lg">
-                    {capability.shortDesc}
-                  </p>
-                </motion.div>
-              );
-            })}
+              {/* Capability Card 5 */}
+              <CapabilityCard
+                number="05"
+                icon="🔨"
+                title="Custom Systems"
+                description="If it requires precision, architecture, and intelligence—we build it. No templates. No shortcuts."
+                details={[
+                  "Bespoke AI architectures",
+                  "Custom model training",
+                  "Specialized tooling",
+                  "Unique business logic"
+                ]}
+                example="Every project is custom"
+              />
+
+              {/* Capability Card 6 */}
+              <CapabilityCard
+                number="06"
+                icon="🚀"
+                title="Production Deployment"
+                description="We ship systems that scale, not demos that break. Production-first architecture from day one."
+                details={[
+                  "Production-grade infrastructure",
+                  "Scalability from first deploy",
+                  "Zero-downtime deployments",
+                  "Monitoring & observability"
+                ]}
+                example="100% success rate"
+              />
+
+            </div>
 
           </div>
         </section>

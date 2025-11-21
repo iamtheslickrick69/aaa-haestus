@@ -612,7 +612,7 @@ export default function Home() {
       number: '01',
       title: 'HUMANS OVER AUTOMATION',
       text: 'Haestus architects AI systems that enhance judgment, creativity, and expertise—not eliminate it. We preserve human agency at critical points while multiplying capability.',
-      accentColor: 'blue',
+      accentColor: 'orange',
     },
     {
       number: '02',
@@ -624,7 +624,7 @@ export default function Home() {
       number: '03',
       title: 'PARTNERSHIP OVER TRANSACTION',
       text: 'We limit ourselves to three partnerships per month. Excellence requires focus. Transformation requires collaboration.',
-      accentColor: 'blue',
+      accentColor: 'orange',
     },
     {
       number: '04',
@@ -802,6 +802,29 @@ export default function Home() {
       {/* SECTION 2: ABOUT - Self-contained section */}
       <section id="about" className="relative bg-[#0a0a0a] text-white">
 
+        {/* Page Title Hero Section */}
+        <section className="min-h-[50vh] flex items-center justify-center px-4 pt-32 pb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
+            >
+              ABOUT HAESTUS
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+            >
+              We architect AI systems that amplify human capability. No hype. No quick fixes. Just production-grade intelligence that transforms how organizations work.
+            </motion.p>
+          </div>
+        </section>
+
         {/* Section 1: The Problem (90% Stat) */}
         <section className="min-h-screen flex items-center justify-center px-4 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -847,9 +870,19 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8"
             >
               Because they lack architecture. They chase demos, trends, and hype instead of structural, production-grade intelligence.
+            </motion.p>
+
+            {/* Closing Statement */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-2xl md:text-3xl font-semibold text-white"
+            >
+              That&apos;s the gap we close.
             </motion.p>
 
           </div>
@@ -899,7 +932,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 3: Four Principles */}
+        {/* Section 3: How We Work */}
         <section className="px-4 py-20">
           <div className="max-w-7xl mx-auto">
 
@@ -912,7 +945,7 @@ export default function Home() {
               className="text-center mb-16"
             >
               <span className="text-sm font-semibold text-white uppercase tracking-wider">
-                Principles
+                How We Work
               </span>
             </motion.div>
 
@@ -926,16 +959,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`group p-8 md:p-10 rounded-3xl bg-white/[0.03] backdrop-blur-xl border ${
-                    principle.accentColor === 'blue'
-                      ? 'border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20'
-                      : 'border-orange-500/20 hover:border-orange-500/60 hover:shadow-orange-500/20'
-                  } hover:-translate-y-2 transition-all duration-400 shadow-lg`}
+                  className="group p-8 md:p-10 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-orange-500/20 hover:border-orange-500/60 hover:shadow-orange-500/20 hover:-translate-y-2 transition-all duration-400 shadow-lg"
                 >
                   {/* Number */}
-                  <div className={`text-6xl font-bold mb-4 ${
-                    principle.accentColor === 'blue' ? 'text-orange-500/20' : 'text-blue-500/20'
-                  }`}>
+                  <div className="text-6xl font-bold mb-6 text-orange-500">
                     {principle.number}
                   </div>
 
@@ -943,13 +970,6 @@ export default function Home() {
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
                     {principle.title}
                   </h3>
-
-                  {/* Underline */}
-                  <div className={`w-16 h-1 mb-6 ${
-                    principle.accentColor === 'blue'
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-400'
-                      : 'bg-gradient-to-r from-orange-500 to-orange-600'
-                  }`} />
 
                   {/* Description */}
                   <p className="text-gray-300 leading-relaxed">
@@ -1000,27 +1020,49 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 5: Transition */}
-        <section className="px-4 py-16 pb-32">
-          <div className="max-w-3xl mx-auto text-center">
+        {/* Section 5: CTA */}
+        <section className="px-4 py-24 pb-32">
+          <div className="max-w-4xl mx-auto text-center">
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-6xl font-bold text-white mb-8"
+            >
+              READY TO BUILD?
+            </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-xl text-gray-400 mb-8"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto"
             >
-              These principles guide everything we build
+              Let&apos;s architect AI systems that transform your organization
             </motion.p>
 
-            {/* Animated Arrow */}
+            {/* CTA Buttons */}
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-blue-500 text-4xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
-              ↓
+              <Link href="/#partnership" className="w-full sm:w-auto">
+                <div className="px-10 py-5 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-all duration-300 text-lg shadow-lg hover:shadow-orange-500/50">
+                  Start a Partnership
+                </div>
+              </Link>
+
+              <Link href="/#capabilities" className="w-full sm:w-auto">
+                <div className="px-10 py-5 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 text-lg">
+                  Explore Capabilities
+                </div>
+              </Link>
             </motion.div>
 
           </div>

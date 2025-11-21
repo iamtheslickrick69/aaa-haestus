@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron, Rajdhani, Dancing_Script } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron, Rajdhani, Dancing_Script, Allura } from "next/font/google";
 import "./globals.css";
 import PremiumHeader from "@/components/PremiumHeader";
 import Footer from "@/components/Footer";
@@ -30,6 +30,12 @@ const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["700"],
   variable: "--font-signature",
+});
+
+const allura = Allura({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-allura",
 });
 
 export const metadata: Metadata = {
@@ -76,7 +82,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} ${dancingScript.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} ${dancingScript.variable} ${allura.variable} antialiased bg-black text-white`}
       >
         <PremiumHeader />
         {children}
