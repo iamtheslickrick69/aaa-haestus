@@ -16,7 +16,6 @@ export default function Connect() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
   };
 
   return (

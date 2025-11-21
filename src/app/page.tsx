@@ -24,18 +24,6 @@ function VideoBackground() {
 
     // Set playback rate to 0.9x for cinematic effect
     video.playbackRate = 0.9;
-
-    // Log video quality when loaded
-    const handleLoadedMetadata = () => {
-      console.log('🎬 Original 4K video loaded at:', video.videoWidth, 'x', video.videoHeight);
-      console.log('📊 Video source: R2 CDN (maximum quality)');
-    };
-
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-    };
   }, []);
 
   return (
@@ -1035,26 +1023,8 @@ export default function Home() {
       {/* SECTION 3: CAPABILITIES - Self-contained section */}
       <section id="capabilities" className="relative bg-[#0a0a0a] text-white">
 
-        {/* Video Background - ABSOLUTE (not fixed), contained to this section only */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source
-              src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/yeet.mp4"
-              type="video/mp4"
-            />
-          </video>
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-
-        {/* Content Wrapper - All content must be above video */}
-        <div className="relative z-10">
+        {/* Content Wrapper */}
+        <div className="relative">
 
         {/* Hero Section */}
         <section className="px-4 pt-32 pb-16">

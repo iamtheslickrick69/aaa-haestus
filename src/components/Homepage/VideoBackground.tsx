@@ -11,18 +11,6 @@ export default function VideoBackground() {
 
     // Set playback rate to 0.9x for cinematic effect
     video.playbackRate = 0.9;
-
-    // Log video quality when loaded
-    const handleLoadedMetadata = () => {
-      console.log('🎬 Original 4K video loaded at:', video.videoWidth, 'x', video.videoHeight);
-      console.log('📊 Video source: R2 CDN (maximum quality)');
-    };
-
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-    };
   }, []);
 
   return (
