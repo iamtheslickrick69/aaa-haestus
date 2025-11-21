@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { X, Users, Briefcase } from 'lucide-react';
 
 export default function PremiumHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -193,7 +194,7 @@ export default function PremiumHeader() {
                 {/* Partner Login Button */}
                 <button
                   onClick={() => {
-                    window.location.href = '/partner-login';
+                    router.push('/partner-login');
                   }}
                   className="w-full p-6 bg-black/40 border border-orange-500/20 rounded-xl hover:border-orange-500/40 hover:bg-orange-500/5 transition-all duration-300 group"
                 >
@@ -215,7 +216,7 @@ export default function PremiumHeader() {
                 {/* Rep Login Button */}
                 <button
                   onClick={() => {
-                    window.location.href = '/rep-login';
+                    router.push('/rep-login');
                   }}
                   className="w-full p-6 bg-black/40 border border-orange-500/20 rounded-xl hover:border-orange-500/40 hover:bg-orange-500/5 transition-all duration-300 group"
                 >
