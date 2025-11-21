@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -122,9 +123,9 @@ export default function BlogInsights() {
             </p>
           </motion.div>
 
-          {/* Blog Grid */}
+          {/* Blog Grid - Featured Articles (First 3) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-[60px]">
-            {blogPosts.map((post, index) => (
+            {blogPosts.slice(0, 3).map((post, index) => (
               <motion.article
                 key={post.title}
                 initial={{ opacity: 0, y: 40 }}
@@ -178,9 +179,12 @@ export default function BlogInsights() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <button className="bg-transparent text-[#F97316] px-9 py-3 rounded-lg border border-[#F97316]/40 text-[14px] font-medium cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#F97316]/5 hover:border-[#F97316]/60 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.2)]">
+            <Link
+              href="/insights"
+              className="inline-block bg-transparent text-[#F97316] px-9 py-3 rounded-lg border border-[#F97316]/40 text-[14px] font-medium cursor-pointer tracking-wide transition-all duration-300 hover:bg-[#F97316]/5 hover:border-[#F97316]/60 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.2)]"
+            >
               VIEW ALL INSIGHTS →
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>

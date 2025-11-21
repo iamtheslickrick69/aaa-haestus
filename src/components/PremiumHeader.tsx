@@ -1,12 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { smoothScrollTo } from '@/utils/smoothScroll';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { X, Users, Briefcase } from 'lucide-react';
 
 export default function PremiumHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [isPortalOpen, setIsPortalOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,21 +20,37 @@ export default function PremiumHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    smoothScrollTo('home');
-  };
+  // Close modal on Escape key and manage body scroll
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsPortalOpen(false);
+    };
+
+    if (isPortalOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isPortalOpen]);
 
   const navLinks = [
-    { name: 'Architecture', id: 'architecture' },
-    { name: 'Community', id: 'community' },
-    { name: 'Insights', id: 'insights' },
+    { name: 'Philosophy', href: '/philosophy' },
+    { name: 'Capabilities', href: '/capabilities' },
+    { name: 'Proof', href: '/proof' },
+    { name: 'Framework', href: '/framework' },
+    { name: 'Insights', href: '/insights' },
+    { name: 'Partnership', href: '/partnership' },
   ];
 
   return (
     <>
-      {/* GROUP 2: Top Right Buttons (Aligned with Header) */}
+      {/* Portal Button (Top Right) */}
       <motion.div
-        className="fixed right-10 z-[999] hidden md:flex gap-3 items-end"
+        className="fixed right-10 z-[999] hidden md:flex"
         style={{
           top: scrolled ? '22px' : '28px',
           opacity: scrolled ? 0 : 1,
@@ -40,70 +60,12 @@ export default function PremiumHeader() {
         }}
       >
         <button
-          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200 animate-subtle-glow"
-          style={{
-            background: 'rgba(255, 255, 255, 0.06)',
-            backdropFilter: 'blur(24px) saturate(200%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            letterSpacing: '0.3px',
-            boxShadow: '0 0 15px rgba(255, 255, 255, 0.08)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#ff6b2c';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 107, 44, 0.5), 0 0 40px rgba(255, 107, 44, 0.2)';
-            e.currentTarget.style.color = '#ffffff';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.08)';
-            e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
-          }}
+          onClick={() => setIsPortalOpen(true)}
+          className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105"
         >
-          Partners
-        </button>
-        <button
-          className="px-5 py-2.5 rounded-2xl text-[15px] font-semibold transition-all duration-200 animate-subtle-glow"
-          style={{
-            background: 'rgba(255, 255, 255, 0.06)',
-            backdropFilter: 'blur(24px) saturate(200%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            letterSpacing: '0.3px',
-            boxShadow: '0 0 15px rgba(255, 255, 255, 0.08)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#ff6b2c';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 107, 44, 0.5), 0 0 40px rgba(255, 107, 44, 0.2)';
-            e.currentTarget.style.color = '#ffffff';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.08)';
-            e.currentTarget.style.color = 'rgba(255, 255, 255, 0.85)';
-          }}
-        >
-          Reps
+          Portal
         </button>
       </motion.div>
-
-      {/* Animated Glow Keyframes */}
-      <style jsx>{`
-        @keyframes subtle-glow {
-          0%, 100% {
-            filter: brightness(1);
-          }
-          50% {
-            filter: brightness(1.1);
-          }
-        }
-
-        .animate-subtle-glow {
-          animation: subtle-glow 3s ease-in-out infinite;
-        }
-      `}</style>
 
       {/* GROUP 1: Compact Glassmorphism Nav (Scroll-Responsive) */}
       <motion.header
@@ -135,18 +97,15 @@ export default function PremiumHeader() {
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
-          {/* Haestus Anvil Icon - Scroll to Top Button */}
-          <button
-            onClick={scrollToTop}
+          {/* Haestus Anvil Icon - Home Link */}
+          <Link
+            href="/"
             className="flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
             style={{
               marginRight: '24px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
               padding: '4px 8px',
             }}
-            aria-label="Scroll to top"
+            aria-label="Go to home"
           >
             <Image
               src="/haestus-anvil-icon.png"
@@ -162,46 +121,42 @@ export default function PremiumHeader() {
               }}
               priority
             />
-          </button>
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center" style={{ gap: '36px' }}>
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.name}
-                onClick={() => smoothScrollTo(link.id)}
+                href={link.href}
                 className="text-[15px] font-semibold transition-all duration-200"
                 style={{
-                  color: '#e2e8f0',
+                  color: pathname === link.href ? '#ff6b35' : '#e2e8f0',
                   letterSpacing: '0.3px',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#ff6b35';
                   e.currentTarget.style.textShadow = '0 0 8px rgba(255,107,53,0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#e2e8f0';
+                  e.currentTarget.style.color = pathname === link.href ? '#ff6b35' : '#e2e8f0';
                   e.currentTarget.style.textShadow = 'none';
                 }}
               >
                 {link.name}
-              </button>
+              </Link>
             ))}
           </div>
 
           {/* Connect Button - Compact Outlined Style */}
-          <button
-            onClick={() => smoothScrollTo('connect')}
+          <Link
+            href="/partnership"
             className="rounded-lg text-[15px] font-semibold flex items-center gap-1.5 transition-all duration-200"
             style={{
               padding: '8px 20px',
               background: 'transparent',
               border: '2px solid #ff6b35',
               color: '#ff6b35',
-              cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'rgba(255, 107, 53, 0.12)';
@@ -216,9 +171,98 @@ export default function PremiumHeader() {
           >
             Connect
             <span>→</span>
-          </button>
+          </Link>
         </nav>
       </motion.header>
+
+      {/* Portal Login Modal */}
+      <AnimatePresence>
+        {isPortalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+            onClick={() => setIsPortalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#0a0a0a] border border-orange-500/30 rounded-2xl p-8 md:p-12 shadow-2xl max-w-md w-full relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsPortalOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                aria-label="Close portal"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Header */}
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                  Portal Login
+                </h2>
+                <div className="w-16 h-1 bg-orange-500 mx-auto mb-4" />
+                <p className="text-gray-400">
+                  Choose your login type
+                </p>
+              </div>
+
+              {/* Login Options */}
+              <div className="space-y-4">
+                {/* Partner Login Button */}
+                <button
+                  onClick={() => {
+                    window.location.href = '/partner-login';
+                  }}
+                  className="w-full p-6 bg-black/40 border border-orange-500/20 rounded-xl hover:border-orange-500/40 hover:bg-orange-500/5 transition-all duration-300 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                      <Users className="w-6 h-6 text-orange-500" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-lg font-semibold text-white mb-1">
+                        Login as Partner
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        Access partner dashboard
+                      </div>
+                    </div>
+                  </div>
+                </button>
+
+                {/* Rep Login Button */}
+                <button
+                  onClick={() => {
+                    window.location.href = '/rep-login';
+                  }}
+                  className="w-full p-6 bg-black/40 border border-orange-500/20 rounded-xl hover:border-orange-500/40 hover:bg-orange-500/5 transition-all duration-300 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                      <Briefcase className="w-6 h-6 text-orange-500" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-lg font-semibold text-white mb-1">
+                        Login as Rep
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        Access rep dashboard
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
