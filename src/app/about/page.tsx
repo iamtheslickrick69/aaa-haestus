@@ -42,7 +42,7 @@ export default function About() {
     <div className="relative z-10 min-h-screen bg-[#0a0a0a] text-white">
 
       {/* Section 1: The Problem (90% Stat) */}
-      <section className="min-h-screen flex items-center justify-center px-4 pt-32 pb-20">
+      <section className="flex items-center justify-center px-4 pt-24 pb-16">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Label */}
@@ -50,7 +50,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-6"
           >
             <span className="text-sm font-semibold text-blue-500 uppercase tracking-wider">
               The Reality
@@ -64,19 +64,19 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6"
           >
-            <h2 className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent mb-4">
+            <h2 className="text-7xl md:text-8xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent mb-4">
               90%
             </h2>
 
             {/* Animated underline bar */}
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: "8rem" }}
+              animate={{ width: "6rem" }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-8"
+              className="h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-6"
             />
 
-            <p className="text-2xl md:text-3xl font-semibold text-white">
+            <p className="text-xl md:text-2xl font-semibold text-white">
               of AI projects fail after POC
             </p>
           </motion.div>
@@ -86,7 +86,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+            className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto"
           >
             Because they lack architecture. They chase demos, trends, and hype instead of structural, production-grade intelligence.
           </motion.p>
@@ -95,7 +95,7 @@ export default function About() {
       </section>
 
       {/* Section 2: Philosophy */}
-      <section className="px-4 py-20">
+      <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Label */}
@@ -104,7 +104,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-6"
           >
             <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
               Our Philosophy
@@ -117,7 +117,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-12 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight"
           >
             "AI should amplify humans, not replace them."
           </motion.h2>
@@ -128,9 +128,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto p-8 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-blue-500/20 shadow-2xl hover:border-blue-500/40 transition-all duration-400"
+            className="max-w-2xl mx-auto p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-blue-500/20 shadow-2xl hover:border-blue-500/40 transition-all duration-400"
           >
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-base text-gray-300 leading-relaxed">
               Hephaestus didn't replace heroes—he forged the tools that made them legendary. Same principle.
             </p>
           </motion.div>
@@ -139,7 +139,7 @@ export default function About() {
       </section>
 
       {/* Section 3: Four Principles */}
-      <section className="px-4 py-20">
+      <section className="px-4 py-12">
         <div className="max-w-7xl mx-auto">
 
           {/* Section Label */}
@@ -148,7 +148,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
             <span className="text-sm font-semibold text-white uppercase tracking-wider">
               Principles
@@ -156,7 +156,7 @@ export default function About() {
           </motion.div>
 
           {/* 2x2 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
             {principles.map((principle, index) => (
               <motion.div
@@ -165,33 +165,33 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group p-8 md:p-10 rounded-3xl bg-white/[0.03] backdrop-blur-xl border ${
+                className={`group p-6 md:p-8 rounded-2xl bg-white/[0.03] backdrop-blur-xl border ${
                   principle.accentColor === 'blue'
                     ? 'border-blue-500/20 hover:border-blue-500/60 hover:shadow-blue-500/20'
                     : 'border-orange-500/20 hover:border-orange-500/60 hover:shadow-orange-500/20'
-                } hover:-translate-y-2 transition-all duration-400 shadow-lg`}
+                } hover:-translate-y-1 transition-all duration-400 shadow-lg`}
               >
                 {/* Number */}
-                <div className={`text-6xl font-bold mb-4 ${
+                <div className={`text-5xl font-bold mb-3 ${
                   principle.accentColor === 'blue' ? 'text-orange-500/20' : 'text-blue-500/20'
                 }`}>
                   {principle.number}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
                   {principle.title}
                 </h3>
 
                 {/* Underline */}
-                <div className={`w-16 h-1 mb-6 ${
+                <div className={`w-12 h-1 mb-4 ${
                   principle.accentColor === 'blue'
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-400'
                     : 'bg-gradient-to-r from-orange-500 to-orange-600'
                 }`} />
 
                 {/* Description */}
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-300 leading-relaxed">
                   {principle.text}
                 </p>
               </motion.div>
@@ -202,7 +202,7 @@ export default function About() {
       </section>
 
       {/* Section 4: What We Refuse */}
-      <section className="px-4 py-20">
+      <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Label */}
@@ -211,7 +211,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-12"
+            className="mb-8"
           >
             <span className="text-sm font-semibold text-blue-500 uppercase tracking-wider">
               What We Refuse To Do
@@ -219,7 +219,7 @@ export default function About() {
           </motion.div>
 
           {/* List Container */}
-          <div className="space-y-4">
+          <div className="space-y-3">
 
             {refuseItems.map((item, index) => (
               <motion.div
@@ -228,9 +228,9 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center justify-center gap-4 text-lg md:text-xl"
+                className="flex items-center justify-center gap-3 text-base md:text-lg"
               >
-                <span className="text-orange-500 text-2xl">✗</span>
+                <span className="text-orange-500 text-xl">✗</span>
                 <span className="text-white">{item}</span>
               </motion.div>
             ))}
@@ -240,7 +240,7 @@ export default function About() {
       </section>
 
       {/* Section 5: Transition */}
-      <section className="px-4 py-16 pb-32">
+      <section className="px-4 py-12 pb-24">
         <div className="max-w-3xl mx-auto text-center">
 
           <motion.p
@@ -248,7 +248,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xl text-gray-400 mb-8"
+            className="text-lg text-gray-400 mb-6"
           >
             These principles guide everything we build
           </motion.p>
@@ -257,7 +257,7 @@ export default function About() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-blue-500 text-4xl"
+            className="text-blue-500 text-3xl"
           >
             ↓
           </motion.div>

@@ -2,109 +2,131 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import FounderMessageModal from '@/components/FounderMessageModal';
 
 export default function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Staggered character animation for title
+  const title = "CRAFTING DIGITAL INTELLIGENCE";
+  const titleChars = title.split("");
 
   return (
-    <>
-      <FounderMessageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-8 pb-24">
+    <section className="relative min-h-screen bg-transparent text-white flex flex-col">
 
-        {/* Main Title - Positioned High, Outside Widget - 30% Smaller */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center mb-8"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white leading-[0.95]">
-            <div>Crafting Digital</div>
-            <div>Intelligence</div>
-          </h1>
-        </motion.div>
+      {/* Title at Top - Staggered Character Reveal */}
+      <div className="pt-32 md:pt-40 pb-8 text-center px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-wider">
+          {titleChars.map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{
+                duration: 0.5,
+                delay: 0.3 + i * 0.02,
+                ease: [0.4, 0.0, 0.2, 1],
+              }}
+              style={{ display: 'inline-block', whiteSpace: 'pre' }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </h1>
+      </div>
 
-        {/* Full Haestus.dev Logo - Outside Widget */}
+      {/* Logo Centered - Main Focus */}
+      <div className="flex-1 flex items-center justify-center px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center items-center mb-8 md:mb-12"
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{
+            duration: 1,
+            delay: 1.2,
+            ease: [0.4, 0.0, 0.2, 1],
+          }}
+          whileHover={{
+            scale: 1.05,
+            rotate: 2,
+            transition: { duration: 0.3, type: 'spring', stiffness: 300 },
+          }}
+          className="relative"
         >
+          {/* Background glow effect - animated */}
+          <motion.div
+            className="absolute inset-0 blur-3xl opacity-20 pointer-events-none"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.3, 0.2],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 107, 53, 0.4) 0%, transparent 70%)',
+            }}
+          />
+
+          {/* Main Logo */}
           <Image
             src="/official.trans.white.png"
-            alt="Haestus.dev logo"
-            width={800}
-            height={400}
-            className="object-contain max-w-full"
-            style={{ maxWidth: '800px', height: 'auto' }}
+            alt="Haestus"
+            width={1563}
+            height={1563}
+            className="relative z-10 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto"
             priority
           />
         </motion.div>
+      </div>
 
-        {/* GLASSMORPHISM CONTENT WIDGET */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative max-w-4xl mx-auto px-4 sm:px-6 w-full"
+      {/* Tagline at Bottom - Fade + Blur */}
+      <motion.div
+        initial={{ opacity: 0, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, filter: 'blur(0px)' }}
+        transition={{
+          duration: 0.8,
+          delay: 1.8,
+          ease: [0.4, 0.0, 0.2, 1],
+        }}
+        className="pb-16 text-center"
+      >
+        <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light tracking-wide">
+          haestus.dev
+        </p>
+      </motion.div>
+
+      {/* Scroll Indicator - Enhanced Bounce */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: [0, 1, 1],
+          y: [0, 10, 0],
+        }}
+        transition={{
+          opacity: { duration: 1, delay: 2.5 },
+          y: {
+            duration: 1.5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          },
+        }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.svg
+          className="w-6 h-6 text-white/40"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          whileHover={{ scale: 1.2, color: 'rgba(255, 255, 255, 0.8)' }}
         >
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </motion.svg>
+      </motion.div>
 
-            {/* Our Message Button */}
-            <div className="flex justify-center mb-8">
-              <motion.button
-                whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.5)' }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3 border border-white/30 text-white text-sm font-medium rounded-full hover:border-white/50 hover:bg-white/5 transition-all duration-300"
-              >
-                Our Message &gt;
-              </motion.button>
-            </div>
-
-            {/* Quote - Larger, Bold "it's here" */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-white text-center mb-4 italic font-light leading-relaxed">
-              AI isn't coming, <span className="font-bold not-italic">it's here</span>
-            </p>
-
-            {/* Tagline */}
-            <p className="text-base md:text-lg text-gray-300 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Not just developers, but <span className="italic">architects</span>. The new era of creators has just begun.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* About Button - BLACK FILL, WHITE TEXT for maximum contrast */}
-              <Link href="/#about" className="w-full sm:w-auto">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all duration-300 min-w-[200px] text-center shadow-lg cursor-pointer"
-                >
-                  About
-                </motion.div>
-              </Link>
-
-              {/* Our Process Button - WHITE OUTLINE */}
-              <Link href="/#framework" className="w-full sm:w-auto">
-                <motion.div
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-300 min-w-[200px] text-center cursor-pointer"
-                >
-                  Our Process
-                </motion.div>
-              </Link>
-            </div>
-
-          </div>
-        </motion.div>
-
-      </section>
-    </>
+    </section>
   );
 }

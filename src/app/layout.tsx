@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Orbitron, Rajdhani, Dancing_Script, Allura } from "n
 import "./globals.css";
 import PremiumHeader from "@/components/PremiumHeader";
 import Footer from "@/components/Footer";
+import { ClientWrapper } from "@/components/ClientWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,9 +85,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} ${dancingScript.variable} ${allura.variable} antialiased bg-black text-white`}
       >
-        <PremiumHeader />
-        {children}
-        <Footer />
+        <ClientWrapper>
+          <PremiumHeader />
+          {children}
+          <Footer />
+        </ClientWrapper>
       </body>
     </html>
   );

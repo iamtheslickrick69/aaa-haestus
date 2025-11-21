@@ -116,53 +116,78 @@ export default function PremiumHeader() {
           }}
         >
           {/* Haestus Anvil Icon - Home Link */}
-          <Link
-            href="/"
-            className="flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
-            style={{
-              marginRight: '24px',
-              padding: '4px 8px',
-            }}
-            aria-label="Go to home"
-          >
-            <Image
-              src="/haestus-anvil-icon.png"
-              alt="Haestus"
-              width={46}
-              height={46}
-              className="object-contain"
+          <Link href="/" aria-label="Go to home">
+            <motion.div
+              className="flex items-center justify-center"
               style={{
-                height: '46px',
-                width: '46px',
-                display: 'block',
-                objectFit: 'contain',
+                marginRight: '24px',
+                padding: '4px 8px',
               }}
-              priority
-            />
+              whileHover={{
+                scale: 1.1,
+                rotate: 5,
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 17,
+              }}
+            >
+              <Image
+                src="/haestus-anvil-icon.png"
+                alt="Haestus"
+                width={46}
+                height={46}
+                className="object-contain"
+                style={{
+                  height: '46px',
+                  width: '46px',
+                  display: 'block',
+                  objectFit: 'contain',
+                }}
+                priority
+              />
+            </motion.div>
           </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center" style={{ gap: '36px' }}>
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.name}
-                href={link.href}
-                className="text-[15px] font-semibold transition-all duration-200"
-                style={{
-                  color: pathname === link.href ? '#ff6b35' : '#e2e8f0',
-                  letterSpacing: '0.3px',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#ff6b35';
-                  e.currentTarget.style.textShadow = '0 0 8px rgba(255,107,53,0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = pathname === link.href ? '#ff6b35' : '#e2e8f0';
-                  e.currentTarget.style.textShadow = 'none';
-                }}
+                className="relative"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.href}
+                  className="text-[15px] font-semibold transition-all duration-200"
+                  style={{
+                    color: pathname === link.href ? '#ff6b35' : '#e2e8f0',
+                    letterSpacing: '0.3px',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#ff6b35';
+                    e.currentTarget.style.textShadow = '0 0 8px rgba(255,107,53,0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = pathname === link.href ? '#ff6b35' : '#e2e8f0';
+                    e.currentTarget.style.textShadow = 'none';
+                  }}
+                >
+                  {link.name}
+                </Link>
+                {/* Animated Underline */}
+                <motion.div
+                  className="absolute bottom-[-4px] left-0 right-0 h-[2px] bg-orange-500"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileHover={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  style={{ originX: 0 }}
+                />
+              </motion.div>
             ))}
           </div>
         </nav>

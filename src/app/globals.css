@@ -220,6 +220,13 @@ input, textarea, select,
   letter-spacing: 0.01em;
 }
 
+/* Signature font for handwritten style */
+.font-signature {
+  font-family: var(--font-signature);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 /* Tech-stack section exclusion - preserve original typography */
 [data-section="tech-stack"] * {
   font-family: var(--font-body) !important;
